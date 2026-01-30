@@ -5,11 +5,24 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [
+    Component.Comments({
+      provider: "giscus",
+      options: {
+        // from data-repo
+        repo: "Gassandrid/ewan.my",
+        // from data-repo-id
+        repoId: "R_kgDOM6tvbQ",
+        // from data-category
+        category: "Announcements",
+        // from data-category-id
+        categoryId: "DIC_kwDOM6tvbc4CjBtr",
+      },
+    }),
+  ],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
+      GitHub: "https://github.com/J0na555",
     },
   }),
 }
@@ -18,51 +31,105 @@ export const sharedPageComponents: SharedLayout = {
 export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
     Component.ConditionalRender({
-      component: Component.Breadcrumbs(),
+      component: Component.Breadcrumbs({
+        spacerSymbol: "❯",
+        rootName: "Home",
+        resolveFrontmatterTitle: true,
+        showCurrentPage: true,
+        // leadingWindow: 1,
+        // trailingWindow: 1,
+      }),
       condition: (page) => page.fileData.slug !== "index",
     }),
+    Component.Row([Component.Darkmode(), Component.Search()]),
     Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
   ],
   left: [
-    Component.PageTitle(),
-    Component.MobileOnly(Component.Spacer()),
-    Component.Flex({
-      components: [
-        {
-          Component: Component.Search(),
-          grow: true,
-        },
-        { Component: Component.Darkmode() },
-        { Component: Component.ReaderMode() },
-      ],
-    }),
-    Component.Explorer(),
+    // Component.PageTitle(),
+
+    // Component.Search(),
+    // Component.Darkmode(),
+
+    // Component.OnlyFor(
+    //   { titles: [homePageTitle, mapTitle] },
+    //   Component.DesktopOnly(Component.RecentNotes({ title: "Most recent", limit: 5 })),
+    // ),
+    // Component.Graph(),
+    // Component.DesktopOnly(Component.QuartzTOC()),
+    // Component.DesktopOnly(Component.SidebarNav()),
   ],
   right: [
-    Component.Graph(),
-    Component.DesktopOnly(Component.TableOfContents()),
+    // Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
+    Component.DesktopOnly(
+      Component.Explorer({
+        // title: "Explore",
+        // useSavedState: true,
+        // sortFn: (a, b) => {
+        //   if ((!a.file && !b.file) || (a.file && b.file)) {
+        //     // sensitivity: "base": Only strings that differ in base letters compare as unequal. Examples: a ≠ b, a = á, a = A
+        //     // numeric: true: Whether numeric collation should be used, such that "1" < "2" < "10"
+        //     return a.displayName.localeCompare(b.displayName, undefined, {
+        //       numeric: true,
+        //       sensitivity: "base",
+        //     })
+        //   }
+        //   if (a.file && !b.file) {
+        //     return 1
+        //   } else {
+        //     return -1
+        //   }
+        // },
+      }),
+    ),
+
+    // Component.MobileOnly(
+    //   Component.RecentNotes({
+    //     title: "Most recent",
+    //     limit: 5,
+    //   }),
+    // ),
+    //
+    Component.MobileOnly(
+      Component.Explorer({
+        title: "Explore",
+        useSavedState: true,
+        // sortFn: (a, b) => {
+        //   if ((!a.file && !b.file) || (a.file && b.file)) {
+        //     // sensitivity: "base": Only strings that differ in base letters compare as unequal. Examples: a ≠ b, a = á, a = A
+        //     // numeric: true: Whether numeric collation should be used, such that "1" < "2" < "10"
+        //     return a.displayName.localeCompare(b.displayName, undefined, {
+        //       numeric: true,
+        //       sensitivity: "base",
+        //     })
+        //   }
+        //   if (a.file && !b.file) {
+        //     return 1
+        //   } else {
+        //     return -1
+        //   }
+        // },
+      }),
+    ),
   ],
 }
 
 // components for pages that display lists of pages  (e.g. tags or folders)
 export const defaultListPageLayout: PageLayout = {
-  beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
-  left: [
-    Component.PageTitle(),
-    Component.MobileOnly(Component.Spacer()),
-    Component.Flex({
-      components: [
-        {
-          Component: Component.Search(),
-          grow: true,
-        },
-        { Component: Component.Darkmode() },
-      ],
+  beforeBody: [
+    Component.Breadcrumbs({
+      spacerSymbol: "❯",
+      rootName: "Home",
+      resolveFrontmatterTitle: true,
+      showCurrentPage: true,
+      // leadingWindow: 1,
+      // trailingWindow: 1,
     }),
-    Component.Explorer(),
+    Component.Row([Component.Darkmode(), Component.Search()]),
+    Component.ArticleTitle(),
   ],
+  left: [Component.MobileOnly(Component.Spacer())],
   right: [],
 }

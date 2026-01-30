@@ -18,11 +18,21 @@ import Search from "./Search"
 import Footer from "./Footer"
 import DesktopOnly from "./DesktopOnly"
 import MobileOnly from "./MobileOnly"
+// import QuartzTOC from "./QuartzTOC"
 import RecentNotes from "./RecentNotes"
 import Breadcrumbs from "./Breadcrumbs"
 import Comments from "./Comments"
+// import Divider from "./Divider"
+import Map from "./_Map"
+import Row from "./_Row"
+import Cv from "./_Cv"
+// import LinksHeader from "./LinksHeader"
+// import OnlyFor from "./_OnlyFor"
+// import SidebarNav from "./SidebarNav"
 import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
+// import BaseViewSelector from "./BaseViewSelector"
+// import BaseSearchBar from "./BaseSearchBar"
 
 export {
   ArticleTitle,
@@ -44,10 +54,20 @@ export {
   Footer,
   DesktopOnly,
   MobileOnly,
+  // QuartzTOC,
   RecentNotes,
   NotFound,
   Breadcrumbs,
   Comments,
+  // Divider,
+  Map,
+  Row,
+  Cv,
+  // LinksHeader,
+  // OnlyFor,
+  // SidebarNav,
   Flex,
   ConditionalRender,
+//   BaseViewSelector,
+//   BaseSearchBar,
 }
