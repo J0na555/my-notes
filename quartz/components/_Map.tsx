@@ -1,6 +1,6 @@
 // @ts-ignore
 // loosely based off of the darkmode component
-// import styles from "./styles/_map.scss"
+import styles from "./styles/_map.scss"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { i18n } from "../i18n"
 import { classNames } from "../util/lang"
@@ -34,6 +34,6 @@ const Map: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) => {
   )
 }
 
-// Map.css = styles
+Map.css = styles
 
 export default (() => Map) satisfies QuartzComponentConstructor

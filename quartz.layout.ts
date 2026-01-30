@@ -4,22 +4,8 @@ import * as Component from "./quartz/components"
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
-  header: [],
-  afterBody: [
-    Component.Comments({
-      provider: "giscus",
-      options: {
-        // from data-repo
-        repo: "Gassandrid/ewan.my",
-        // from data-repo-id
-        repoId: "R_kgDOM6tvbQ",
-        // from data-category
-        category: "Announcements",
-        // from data-category-id
-        categoryId: "DIC_kwDOM6tvbc4CjBtr",
-      },
-    }),
-  ],
+  header: [Component.Row([Component.Darkmode(), Component.Search()])],
+  afterBody: [],
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/J0na555",
@@ -41,7 +27,6 @@ export const defaultContentPageLayout: PageLayout = {
       }),
       condition: (page) => page.fileData.slug !== "index",
     }),
-    Component.Row([Component.Darkmode(), Component.Search()]),
     Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
@@ -56,7 +41,7 @@ export const defaultContentPageLayout: PageLayout = {
     //   { titles: [homePageTitle, mapTitle] },
     //   Component.DesktopOnly(Component.RecentNotes({ title: "Most recent", limit: 5 })),
     // ),
-    // Component.Graph(),
+    Component.Graph(),
     // Component.DesktopOnly(Component.QuartzTOC()),
     // Component.DesktopOnly(Component.SidebarNav()),
   ],
@@ -127,7 +112,6 @@ export const defaultListPageLayout: PageLayout = {
       // leadingWindow: 1,
       // trailingWindow: 1,
     }),
-    Component.Row([Component.Darkmode(), Component.Search()]),
     Component.ArticleTitle(),
   ],
   left: [Component.MobileOnly(Component.Spacer())],

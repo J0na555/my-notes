@@ -9,12 +9,15 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 0.5rem 0;
-  gap: 1.5rem;
+  justify-content: flex-end;
+  width: 100%;
+  margin: 0;
+  padding: 0.75rem 0 0 0;
+  gap: 1rem;
 
   @media (max-width: 600px) {
-    margin: 0;
-    gap: 0.75rem;
+    gap: 0.5rem;
+    padding: 0.5rem 0 0 0;
   }
 }
 

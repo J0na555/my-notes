@@ -173,6 +173,18 @@ a {
   display: flex;
 }
 
+.forced-row {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.75rem;
+
+  @media (max-width: 600px) {
+    gap: 0.4rem;
+  }
+}
+
 .desktop-only {
   display: initial;
 
