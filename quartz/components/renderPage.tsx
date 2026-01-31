@@ -273,12 +273,27 @@ export function renderPage(
                 ))}
               </Header>
               <div class="popover-hint">
-                {beforeBody.map((BodyComponent) => (
-                  <BodyComponent {...componentData} />
-                ))}
+                {beforeBody
+                  .filter((component) => {
+                    // Only render Breadcrumbs and ConditionalRender in popover-hint
+                    const name = component.name || component.constructor?.name || ""
+                    return name === "Breadcrumbs" || name === "ConditionalRender"
+                  })
+                  .map((BodyComponent) => (
+                    <BodyComponent {...componentData} />
+                  ))}
               </div>
             </div>
             <div class="center">
+              {beforeBody
+                .filter((component) => {
+                  // Render ArticleTitle, ContentMeta, TagList inside .center
+                  const name = component.name || component.constructor?.name || ""
+                  return name !== "Breadcrumbs" && name !== "ConditionalRender"
+                })
+                .map((BodyComponent) => (
+                  <BodyComponent {...componentData} />
+                ))}
               <Content {...componentData} />
               <hr />
               <div class="page-footer">
