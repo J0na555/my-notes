@@ -40,15 +40,16 @@ const config: QuartzConfig = {
           textHighlight: "#fff23688",
         },
         darkMode: {
-          light: "#161618",
-          lightgray: "#393639",
-          gray: "#646464",
-          darkgray: "#d4d4d4",
-          dark: "#ebebec",
-          secondary: "#7b97aa",
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
-          textHighlight: "#b3aa0288",
+          // Dark Academy / Deep Tech Color Scheme
+          light: "#1a1d23",        // Card Background: Lifted obsidian-grey for main content container
+          lightgray: "#252930",    // Subtle elevated surfaces (code blocks, hover states)
+          gray: "#8b7355",         // Border: Warm muted copper/bronze for premium borders
+          darkgray: "#a8a29e",     // Metadata: Muted warm grey for secondary text (reading time, dates)
+          dark: "#f5f1ed",         // Typography: High-contrast warm off-white for titles and body
+          secondary: "#60d5e8",    // Accent: Soft glowing cyan for links and interactive elements
+          tertiary: "#d4a574",     // Tertiary Accent: Warm amber/gold for hover states and highlights
+          highlight: "rgba(96, 213, 232, 0.12)",  // Link/selection highlight with cyan tint
+          textHighlight: "#d4a57433",             // Text highlight with warm amber tint
         },
       },
     },

@@ -1,12 +1,12 @@
 @use "./base.scss";
 
-// We make the body background slightly different from the card to create depth.
+// Create depth with layered backgrounds: deep charcoal app → lifted obsidian card
 body {
-  background-color: var(--light);
+  background-color: #0f1116; // Deep matte charcoal for app background
 }
 
 #quartz-body {
-  background-color: color-mix(in srgb, var(--light), var(--dark) 3%);
+  background-color: #0f1116; // Match deep charcoal - creates strong contrast with card
   min-height: 100vh;
   column-gap: 2.5rem !important; // Prevent sidebar overlap with generous gutter
   padding-top: 2rem;
@@ -59,18 +59,18 @@ body {
 // Strict Max Width to Prevent Sidebar Overlap
 .center {
   background-color: var(--light);
-  border: 1px solid var(--gray);
+  border: 1px solid var(--gray); // Warm copper/bronze border for premium feel
   border-radius: 12px;
   padding: 1rem 3rem 3rem 3rem;
   margin-top: 0; // Header now provides spacing above
   margin-bottom: 2rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  // Enhanced shadow for depth: larger, softer shadow with warm undertone
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(139, 115, 85, 0.15);
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   
   // Ensure vertical prominence
   min-height: calc(100vh - 12rem);
   
-  // CRITICAL: Prevent overlap with sidebars by constraining max-width
   // The center column should never exceed 100% of its grid area
   max-width: 100% !important;
   width: 100%;
@@ -142,3 +142,139 @@ body {
 // .sidebar.right {
 //   border-left: 1px solid var(--lightgray);
 // }
+
+// Override dark backgrounds when light mode is active
+:root[saved-theme="light"] {
+  
+  // Full Page Override: Clean white/light grey for entire site
+  body {
+    background-color: #f8f9fa !important; // Very light cool grey for app background
+  }
+  
+  #quartz-body {
+    background-color: #f8f9fa !important; // Match the body background perfectly
+  }
+  
+  // Card Contrast: White card with soft grey border
+  .center {
+    background-color: #ffffff !important; // Pure white for main content card
+    border-color: #e1e4e8 !important; // Soft light grey border (minimalist)
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04) !important; // Subtle light mode shadow
+  }
+  
+  // Page container background consistency
+  .page {
+    background-color: #f8f9fa !important;
+  }
+  
+  // Sidebar Harmony: Ensure sidebars match page background
+  .sidebar {
+    background-color: transparent !important; // Let page background show through
+    
+    // Sidebar text colors - dark text on light background
+    color: var(--darkgray);
+    
+    * {
+      color: var(--darkgray); // Ensure all child elements have dark text
+    }
+    
+    // Links in sidebar
+    a {
+      color: var(--secondary);
+      
+      &:hover {
+        color: var(--tertiary);
+      }
+    }
+    
+    // Headings in sidebar
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--dark);
+    }
+  }
+  
+  // Explorer component specific overrides
+  .explorer {
+    background-color: transparent !important;
+    
+    .folder, .file {
+      color: var(--darkgray);
+    }
+    
+    .folder-title {
+      color: var(--dark);
+    }
+    
+    button {
+      color: var(--darkgray);
+      
+      &:hover {
+        color: var(--dark);
+      }
+    }
+  }
+  
+  // Backlinks component
+  .backlinks {
+    background-color: transparent !important;
+    
+    h3 {
+      color: var(--dark);
+    }
+    
+    li, a {
+      color: var(--darkgray);
+    }
+  }
+  
+  // Graph View overrides
+  .graph {
+    background-color: transparent !important;
+    
+    canvas {
+      background-color: transparent !important;
+    }
+  }
+  
+  // Ensure page header matches background
+  .page-header {
+    background-color: transparent !important;
+    
+    .breadcrumb-container {
+      a, span {
+        color: var(--darkgray);
+      }
+    }
+  }
+  
+  // Search and darkmode toggle
+  .search, .darkmode {
+    svg {
+      fill: var(--darkgray);
+      
+      &:hover {
+        fill: var(--dark);
+      }
+    }
+  }
+  
+  // Article title and metadata in light mode
+  .article-title {
+    color: var(--dark) !important;
+  }
+  
+  .content-meta {
+    color: var(--darkgray) !important;
+  }
+  
+  // Tags in light mode
+  .tags a {
+    color: var(--darkgray);
+    background-color: rgba(0, 0, 0, 0.05);
+    
+    &:hover {
+      color: var(--dark);
+      background-color: rgba(0, 0, 0, 0.08);
+    }
+  }
+}
