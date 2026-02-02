@@ -24,7 +24,7 @@ body {
   padding: 0 1rem;
 
   // Search and Dark Mode icons (grouped on the right)
-  & > header {
+  &>header {
     width: auto;
     padding: 0;
     margin: 0;
@@ -35,11 +35,11 @@ body {
   }
 
   // Breadcrumbs on the left
-  & > .popover-hint {
+  &>.popover-hint {
     flex-grow: 1;
     display: flex;
     align-items: center;
-    
+
     .breadcrumb-container {
       margin: 0;
     }
@@ -48,11 +48,17 @@ body {
   @media all and (max-width: 800px) {
     flex-direction: column;
     align-items: flex-start;
-    
-    & > header {
+
+    &>header {
       width: 100%;
       justify-content: space-between;
     }
+  }
+
+  // Breadcrumb Home Accent
+  .breadcrumb-container a:first-child {
+    color: var(--tertiary);
+    font-weight: 600;
   }
 }
 
@@ -61,36 +67,36 @@ body {
   background-color: var(--light);
   border: 1px solid var(--gray); // Warm copper/bronze border for premium feel
   border-radius: 12px;
-  padding: 1rem 3rem 3rem 3rem;
+  padding: 2rem 4rem 4rem 4rem;
   margin-top: 0; // Header now provides spacing above
   margin-bottom: 2rem;
   // Enhanced shadow for depth: larger, softer shadow with warm undertone
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(139, 115, 85, 0.15);
   transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-  
+
   // Ensure vertical prominence
   min-height: calc(100vh - 12rem);
-  
+
   // The center column should never exceed 100% of its grid area
   max-width: 100% !important;
   width: 100%;
   box-sizing: border-box;
-  
+
   // On mobile, we might want less padding
   @media all and (max-width: 800px) {
     padding: 1rem;
     margin: 1rem 0;
     min-height: auto;
   }
-  
+
   // On tablet and desktop, enforce strict width bounds
   @media all and (min-width: 801px) {
     // Ensure the content stays within its grid area and doesn't overflow
     overflow-x: hidden;
   }
-  
+
   // Article Title & Content Metadata - Style when inside bordered content container
-  & > .article-title {
+  &>.article-title {
     margin-top: 1.5rem !important;
     margin-bottom: 0.5rem;
     font-size: 2rem;
@@ -98,27 +104,27 @@ body {
     color: var(--dark);
     padding-top: 0;
   }
-  
-  & > .content-meta {
+
+  &>.content-meta {
     margin-top: 0 !important;
     margin-bottom: 1rem;
     font-size: 0.9rem;
     opacity: 0.8;
-    
+
     // Ensure reading time and date are on the same horizontal line
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
     align-items: center;
   }
-  
-  & > ul.tags {
+
+  &>ul.tags {
     margin-top: 0.5rem;
     margin-bottom: 1.5rem;
   }
-  
+
   // Add spacing to article content to separate from title/metadata
-  & > article {
+  &>article {
     margin-top: 1rem;
   }
 }
@@ -130,9 +136,12 @@ body {
   position: sticky !important;
   top: 2rem !important;
   padding-top: 1rem !important;
-  
+
   // Remove default background if any, and keep them floating
-  background-color: transparent !important;
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  border-radius: 8px;
+  padding: 1rem !important;
+  margin-top: 2rem !important; // Align with card top
 }
 
 // Optional: Subtle border for sidebars to match the "framed" aesthetic
@@ -145,133 +154,143 @@ body {
 
 // Override dark backgrounds when light mode is active
 :root[saved-theme="light"] {
-  
+
   // Full Page Override: Clean white/light grey for entire site
   body {
     background-color: #f8f9fa !important; // Very light cool grey for app background
   }
-  
+
   #quartz-body {
     background-color: #f8f9fa !important; // Match the body background perfectly
   }
-  
+
   // Card Contrast: White card with soft grey border
   .center {
     background-color: #ffffff !important; // Pure white for main content card
     border-color: #e1e4e8 !important; // Soft light grey border (minimalist)
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04) !important; // Subtle light mode shadow
   }
-  
+
   // Page container background consistency
   .page {
     background-color: #f8f9fa !important;
   }
-  
+
   // Sidebar Harmony: Ensure sidebars match page background
   .sidebar {
-    background-color: transparent !important; // Let page background show through
-    
+    background-color: rgba(0, 0, 0, 0.02) !important; // Subtle contrast in light mode
+
     // Sidebar text colors - dark text on light background
     color: var(--darkgray);
-    
+
     * {
       color: var(--darkgray); // Ensure all child elements have dark text
     }
-    
+
     // Links in sidebar
     a {
       color: var(--secondary);
-      
+
       &:hover {
         color: var(--tertiary);
       }
     }
-    
+
     // Headings in sidebar
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       color: var(--dark);
     }
   }
-  
+
   // Explorer component specific overrides
   .explorer {
     background-color: transparent !important;
-    
-    .folder, .file {
+
+    .folder,
+    .file {
       color: var(--darkgray);
     }
-    
+
     .folder-title {
       color: var(--dark);
     }
-    
+
     button {
       color: var(--darkgray);
-      
+
       &:hover {
         color: var(--dark);
       }
     }
   }
-  
+
   // Backlinks component
   .backlinks {
     background-color: transparent !important;
-    
+
     h3 {
       color: var(--dark);
     }
-    
-    li, a {
+
+    li,
+    a {
       color: var(--darkgray);
     }
   }
-  
+
   // Graph View overrides
   .graph {
     background-color: transparent !important;
-    
+
     canvas {
       background-color: transparent !important;
     }
   }
-  
+
   // Ensure page header matches background
   .page-header {
     background-color: transparent !important;
-    
+
     .breadcrumb-container {
-      a, span {
+
+      a,
+      span {
         color: var(--darkgray);
       }
     }
   }
-  
+
   // Search and darkmode toggle
-  .search, .darkmode {
+  .search,
+  .darkmode {
     svg {
       fill: var(--darkgray);
-      
+
       &:hover {
         fill: var(--dark);
       }
     }
   }
-  
+
   // Article title and metadata in light mode
   .article-title {
     color: var(--dark) !important;
   }
-  
+
   .content-meta {
     color: var(--darkgray) !important;
   }
-  
+
   // Tags in light mode
   .tags a {
     color: var(--darkgray);
     background-color: rgba(0, 0, 0, 0.05);
-    
+
     &:hover {
       color: var(--dark);
       background-color: rgba(0, 0, 0, 0.08);
