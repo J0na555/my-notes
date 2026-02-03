@@ -6,65 +6,65 @@
       <description>Last 10 notes on Quartz 4</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>_index</title>
-    <link>https://quartz.jzhao.xyz/Coding/</link>
-    <guid>https://quartz.jzhao.xyz/Coding/</guid>
-    <description><![CDATA[  ]]></description>
-    <pubDate>Mon, 02 Feb 2026 14:02:55 GMT</pubDate>
-  </item><item>
     <title>🐧 Arch Linux - Overview</title>
     <link>https://quartz.jzhao.xyz/References/Arch</link>
     <guid>https://quartz.jzhao.xyz/References/Arch</guid>
     <description><![CDATA[ 🐧 Arch Linux - Overview Arch Linux is a lightweight, flexible, and rolling-release Linux distribution aimed at users who want full control over their system. ]]></description>
-    <pubDate>Mon, 02 Feb 2026 12:40:59 GMT</pubDate>
+    <pubDate>Tue, 03 Feb 2026 11:59:30 GMT</pubDate>
   </item><item>
-    <title>Jonas&#039;s Digital Garden</title>
-    <link>https://quartz.jzhao.xyz/</link>
-    <guid>https://quartz.jzhao.xyz/</guid>
-    <description><![CDATA[  I’m Jonas. a computer science student, lifelong learner, and maker of things. ]]></description>
-    <pubDate>Sun, 01 Feb 2026 21:00:00 GMT</pubDate>
+    <title>Cursor</title>
+    <link>https://quartz.jzhao.xyz/References/Cursor</link>
+    <guid>https://quartz.jzhao.xyz/References/Cursor</guid>
+    <description><![CDATA[ 🧠 First: Mental Model (IMPORTANT) Cursor has 3 main ways to interact: Inline AI (edit code directly) Command Palette AI (do something specific) Chat with full file / selection context If you only use chat → you’re using 30% of Cursor. ]]></description>
+    <pubDate>Tue, 03 Feb 2026 11:59:30 GMT</pubDate>
   </item><item>
-    <title>python env</title>
-    <link>https://quartz.jzhao.xyz/Coding/Python/python-env</link>
-    <guid>https://quartz.jzhao.xyz/Coding/Python/python-env</guid>
-    <description><![CDATA[ python When starting a new project that requires different dependencies—like using BeautifulSoup for web scraping—it’s best to create a separate project directory with its own virtual environment. ]]></description>
-    <pubDate>Sun, 01 Feb 2026 17:26:16 GMT</pubDate>
+    <title>Github Branching</title>
+    <link>https://quartz.jzhao.xyz/References/Github-Branching</link>
+    <guid>https://quartz.jzhao.xyz/References/Github-Branching</guid>
+    <description><![CDATA[ 🧭 1. Branch Naming Convention Use descriptive, consistent, and lowercase-with-dashes names. ]]></description>
+    <pubDate>Tue, 03 Feb 2026 11:59:30 GMT</pubDate>
   </item><item>
-    <title>leetcode cheetsheet</title>
-    <link>https://quartz.jzhao.xyz/Coding/Fundamentals/leetcode-cheetsheet</link>
-    <guid>https://quartz.jzhao.xyz/Coding/Fundamentals/leetcode-cheetsheet</guid>
-    <description><![CDATA[  # intuition # &lt;!--describe your thoughts on how to solve this problem --&gt; # approach # &lt;!--describe your approach on solving the problem --&gt; # - [[Time and Space Complexity of an algorithm|complexity]] # - time complexity : # &lt;!-- add your time complexity --&gt; # - space complexity ... ]]></description>
-    <pubDate>Sun, 01 Feb 2026 17:26:14 GMT</pubDate>
+    <title>Coding Method</title>
+    <link>https://quartz.jzhao.xyz/Coding/Fundamentals/Coding-Method</link>
+    <guid>https://quartz.jzhao.xyz/Coding/Fundamentals/Coding-Method</guid>
+    <description><![CDATA[ The “Why” Behind Every Line Let’s break down that test_protected view line by line, but with the decision tree that leads to each choice: The Mental Process (What You’re Missing) Step 1: “What do I actually want this endpoint to do?” I need a protected endpoint to test my auth It should return some ... ]]></description>
+    <pubDate>Tue, 03 Feb 2026 11:59:30 GMT</pubDate>
   </item><item>
-    <title>Web crawlers</title>
-    <link>https://quartz.jzhao.xyz/Coding/web/Web-crawlers</link>
-    <guid>https://quartz.jzhao.xyz/Coding/web/Web-crawlers</guid>
-    <description><![CDATA[ Class: web Topic: web webcrawler searchengines python Date: 16-05-2025 web crawler is a program that collects content from the web it can also be a bot that systematically browses the internet for indexing websites (see Web Scraping). ]]></description>
-    <pubDate>Sun, 01 Feb 2026 17:25:27 GMT</pubDate>
+    <title>DSA</title>
+    <link>https://quartz.jzhao.xyz/Coding/Fundamentals/DSA</link>
+    <guid>https://quartz.jzhao.xyz/Coding/Fundamentals/DSA</guid>
+    <description><![CDATA[ Class: DSA Topic: dsa algorithm excalidraw Date: 23-04-2025 Introduction Program vs Data Structure vs Algorithms A program A set of instruction which is written in order to solve a problem. ]]></description>
+    <pubDate>Tue, 03 Feb 2026 11:59:30 GMT</pubDate>
   </item><item>
-    <title>Web Scraping</title>
-    <link>https://quartz.jzhao.xyz/Coding/web/Web-Scraping</link>
-    <guid>https://quartz.jzhao.xyz/Coding/web/Web-Scraping</guid>
-    <description><![CDATA[ Course: web Subject: web webScraping data Date: 10-05-2025 Topic: data 📘 Web Scraping – A Comprehensive Note 🌐 What is Web Scraping? Web scraping, also known as web harvesting or web data extraction, is the process of automatically collecting data from websites. ]]></description>
-    <pubDate>Sun, 01 Feb 2026 17:25:25 GMT</pubDate>
+    <title>Database Recovery</title>
+    <link>https://quartz.jzhao.xyz/Coding/Fundamentals/Database-Recovery</link>
+    <guid>https://quartz.jzhao.xyz/Coding/Fundamentals/Database-Recovery</guid>
+    <description><![CDATA[ Course: Database Subject: database Date: 07-06-2025 Topic: DatabaseRecoveryTechniques Database Recovery purpose of database recovery To bring the database to the last consistent state, which existed before the failure. ]]></description>
+    <pubDate>Tue, 03 Feb 2026 11:59:30 GMT</pubDate>
+  </item><item>
+    <title>Leetcode Interview Tips</title>
+    <link>https://quartz.jzhao.xyz/Coding/Fundamentals/Leetcode-Interview-Tips</link>
+    <guid>https://quartz.jzhao.xyz/Coding/Fundamentals/Leetcode-Interview-Tips</guid>
+    <description><![CDATA[ Coding artifacts actual code variable and method names algorithms Non-coding artifacts clarifying the question constrains edge cases communications testing time and space complexity i am not that good at the coding artifacts so i need to leverage the non coding artifacts steps to leverage the non co... ]]></description>
+    <pubDate>Tue, 03 Feb 2026 11:59:30 GMT</pubDate>
+  </item><item>
+    <title>Linked lists</title>
+    <link>https://quartz.jzhao.xyz/Coding/Fundamentals/Linked-lists</link>
+    <guid>https://quartz.jzhao.xyz/Coding/Fundamentals/Linked-lists</guid>
+    <description><![CDATA[ Class: DSA Topic: linkedList dsa java Date: 26-03-2025 1️⃣ What is a Linked List? (Plain English) A linked list is a way to store data in nodes, where: Each node holds data And a reference (pointer) to the next node Unlike arrays: ❌ Elements are not stored next to each other ✅ You can easily insert ... ]]></description>
+    <pubDate>Tue, 03 Feb 2026 11:59:30 GMT</pubDate>
   </item><item>
     <title>The OSI reference model</title>
     <link>https://quartz.jzhao.xyz/Coding/Fundamentals/The-OSI-reference-model</link>
     <guid>https://quartz.jzhao.xyz/Coding/Fundamentals/The-OSI-reference-model</guid>
     <description><![CDATA[ Course: Computer Networks Subject: Computer_network Date: 11-06-2025 Topic: osi Introduction The OSI model has 7 layers, while he TCP model has 4 layers. ]]></description>
-    <pubDate>Sun, 01 Feb 2026 17:24:51 GMT</pubDate>
+    <pubDate>Tue, 03 Feb 2026 11:59:30 GMT</pubDate>
   </item><item>
-    <title>Spring Security Basics &amp; JWT</title>
-    <link>https://quartz.jzhao.xyz/Coding/Java/Spring-Security-Basics--and--JWT</link>
-    <guid>https://quartz.jzhao.xyz/Coding/Java/Spring-Security-Basics--and--JWT</guid>
-    <description><![CDATA[ Class: Spring Boot Topic: jwt authentication security backend Date: 25-03-2025 Spring Security Basics What is Spring Security? Spring security is a framework that provides authentication, authorization and protection against common security vulnerabilities by default, spring security secures all end... ]]></description>
-    <pubDate>Sun, 01 Feb 2026 17:24:42 GMT</pubDate>
-  </item><item>
-    <title>Spring Boot</title>
-    <link>https://quartz.jzhao.xyz/Coding/Java/Spring-Boot</link>
-    <guid>https://quartz.jzhao.xyz/Coding/Java/Spring-Boot</guid>
-    <description><![CDATA[ Class: Spring Boot Topic: Spring-boot java dependecies auto-configuration ioc REST exception-handling validation mongoDB db-migration backend Date: 21-03-2025 Spring-boot simplifies Java-based Backend development by providing auto-configuration, embedded servers and opinionated defaults. ]]></description>
-    <pubDate>Sun, 01 Feb 2026 17:24:39 GMT</pubDate>
+    <title>leetcode cheetsheet</title>
+    <link>https://quartz.jzhao.xyz/Coding/Fundamentals/leetcode-cheetsheet</link>
+    <guid>https://quartz.jzhao.xyz/Coding/Fundamentals/leetcode-cheetsheet</guid>
+    <description><![CDATA[  # intuition # &lt;!--describe your thoughts on how to solve this problem --&gt; # approach # &lt;!--describe your approach on solving the problem --&gt; # - [[Time and Space Complexity of an algorithm|complexity]] # - time complexity : # &lt;!-- add your time complexity --&gt; # - space complexity ... ]]></description>
+    <pubDate>Tue, 03 Feb 2026 11:59:30 GMT</pubDate>
   </item>
     </channel>
   </rss>
