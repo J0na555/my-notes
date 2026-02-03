@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>DSA</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Quartz 4"/><meta property="og:title" content="DSA"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="DSA"/><meta name="twitter:description" content="Class: DSA Topic: dsa algorithm excalidraw Date: 23-04-2025 Introduction Program vs Data Structure vs Algorithms A program A set of instruction which is written in order to solve a problem."/><meta property="og:description" content="Class: DSA Topic: dsa algorithm excalidraw Date: 23-04-2025 Introduction Program vs Data Structure vs Algorithms A program A set of instruction which is written in order to solve a problem."/><meta property="og:image:alt" content="Class: DSA Topic: dsa algorithm excalidraw Date: 23-04-2025 Introduction Program vs Data Structure vs Algorithms A program A set of instruction which is written in order to solve a problem."/><meta property="og:image" content="https://quartz.jzhao.xyz/static/og-image.png"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/static/og-image.png"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/Coding/Fundamentals/DSA"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/Coding/Fundamentals/DSA"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="Class: DSA Topic: dsa algorithm excalidraw Date: 23-04-2025 Introduction Program vs Data Structure vs Algorithms A program A set of instruction which is written in order to solve a problem."/><meta name="generator" content="Quartz"/><link href="../../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvam9uYXMvRG9jdW1lbnRzL3Byb2plY3RzL215LW5vdGVzL3F1YXJ0ei9jb21wb25lbnRzL3N0eWxlcyIsInNvdXJjZXMiOlsibWVybWFpZC5pbmxpbmUuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTs7O0FBS0Y7RUFDRTtFQUNBOzs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7O0FBSUY7RUFDRTtFQUNBO0VBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyIuZXhwYW5kLWJ1dHRvbiB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxvYXQ6IHJpZ2h0O1xuICBwYWRkaW5nOiAwLjRyZW07XG4gIG1hcmdpbjogMC4zcmVtO1xuICByaWdodDogMDsgLy8gTk9URTogcmlnaHQgd2lsbCBiZSBzZXQgaW4gbWVybWFpZC5pbmxpbmUudHNcbiAgY29sb3I6IHZhcigtLWdyYXkpO1xuICBib3JkZXItY29sb3I6IHZhcigtLWRhcmspO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gIGJvcmRlcjogMXB4IHNvbGlkO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIG9wYWNpdHk6IDA7XG4gIHRyYW5zaXRpb246IDAuMnM7XG5cbiAgJiA+IHN2ZyB7XG4gICAgZmlsbDogdmFyKC0tbGlnaHQpO1xuICAgIGZpbHRlcjogY29udHJhc3QoMC4zKTtcbiAgfVxuXG4gICY6aG92ZXIge1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICBib3JkZXItY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XG4gIH1cblxuICAmOmZvY3VzIHtcbiAgICBvdXRsaW5lOiAwO1xuICB9XG59XG5cbnByZSB7XG4gICY6aG92ZXIgPiAuZXhwYW5kLWJ1dHRvbiB7XG4gICAgb3BhY2l0eTogMTtcbiAgICB0cmFuc2l0aW9uOiAwLjJzO1xuICB9XG59XG5cbiNtZXJtYWlkLWNvbnRhaW5lciB7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgY29udGFpbjogbGF5b3V0O1xuICB6LWluZGV4OiA5OTk7XG4gIGxlZnQ6IDA7XG4gIHRvcDogMDtcbiAgd2lkdGg6IDEwMHZ3O1xuICBoZWlnaHQ6IDEwMHZoO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBkaXNwbGF5OiBub25lO1xuICBiYWNrZHJvcC1maWx0ZXI6IGJsdXIoNHB4KTtcbiAgYmFja2dyb3VuZDogcmdiYSgwLCAwLCAwLCAwLjUpO1xuXG4gICYuYWN0aXZlIHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIH1cblxuICAmID4gI21lcm1haWQtc3BhY2Uge1xuICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgdG9wOiA1MCU7XG4gICAgbGVmdDogNTAlO1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsIC01MCUpO1xuICAgIGhlaWdodDogODB2aDtcbiAgICB3aWR0aDogODB2dztcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRlbnQge1xuICAgICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgICAgdHJhbnNmb3JtLW9yaWdpbjogMCAwO1xuICAgICAgdHJhbnNpdGlvbjogdHJhbnNmb3JtIDAuMXMgZWFzZTtcbiAgICAgIG92ZXJmbG93OiB2aXNpYmxlO1xuICAgICAgbWluLWhlaWdodDogMjAwcHg7XG4gICAgICBtaW4td2lkdGg6IDIwMHB4O1xuXG4gICAgICBwcmUge1xuICAgICAgICBtYXJnaW46IDA7XG4gICAgICAgIGJvcmRlcjogbm9uZTtcbiAgICAgIH1cblxuICAgICAgc3ZnIHtcbiAgICAgICAgbWF4LXdpZHRoOiBub25lO1xuICAgICAgICBoZWlnaHQ6IGF1dG87XG4gICAgICB9XG4gICAgfVxuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRyb2xzIHtcbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgIGJvdHRvbTogMjBweDtcbiAgICAgIHJpZ2h0OiAyMHB4O1xuICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgIGdhcDogOHB4O1xuICAgICAgcGFkZGluZzogOHB4O1xuICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgIGJvcmRlci1yYWRpdXM6IDZweDtcbiAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsIDAsIDAsIDAuMSk7XG4gICAgICB6LWluZGV4OiAyO1xuXG4gICAgICAubWVybWFpZC1jb250cm9sLWJ1dHRvbiB7XG4gICAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgICAgICB3aWR0aDogMzJweDtcbiAgICAgICAgaGVpZ2h0OiAzMnB4O1xuICAgICAgICBwYWRkaW5nOiAwO1xuICAgICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICAgIGNvbG9yOiB2YXIoLS1kYXJrKTtcbiAgICAgICAgYm9yZGVyLXJhZGl1czogNHB4O1xuICAgICAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgICAgIGZvbnQtc2l6ZTogMTZweDtcbiAgICAgICAgZm9udC1mYW1pbHk6IHZhcigtLWJvZHlGb250KTtcbiAgICAgICAgdHJhbnNpdGlvbjogYWxsIDAuMnMgZWFzZTtcblxuICAgICAgICAmOmhvdmVyIHtcbiAgICAgICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgICB9XG5cbiAgICAgICAgJjphY3RpdmUge1xuICAgICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgxcHgpO1xuICAgICAgICB9XG5cbiAgICAgICAgLy8gU3R5bGUgdGhlIHJlc2V0IGJ1dHRvbiBkaWZmZXJlbnRseVxuICAgICAgICAmOm50aC1jaGlsZCgyKSB7XG4gICAgICAgICAgd2lkdGg6IGF1dG87XG4gICAgICAgICAgcGFkZGluZzogMCAxMnB4O1xuICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDtcbiAgICAgICAgfVxuICAgICAgfVxuICAgIH1cbiAgfVxufVxuIl19 */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://quartz.jzhao.xyz/index.xml"/></head><body data-slug="Coding/Fundamentals/DSA"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div></div><div class="page-header"><header><div class="forced-row "><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div></header><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../Coding/">_index</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../Coding/Fundamentals/">Fundamentals</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>DSA</a></div></nav></div></div><div class="center"><h1 class="article-title">DSA</h1><p show-comma="true" class="content-meta"><time datetime="2026-02-01T17:19:14.778Z">Feb 01, 2026</time><span>9 min read</span></p><ul class="tags"><li><a href="../../tags/dsa" class="internal tag-link">dsa</a></li><li><a href="../../tags/algorithm" class="internal tag-link">algorithm</a></li><li><a href="../../tags/excalidraw" class="internal tag-link">excalidraw</a></li></ul><article class="popover-hint"><h2 id="class-dsa">Class: <a href="../../000-Links/DSA" class="internal alias" data-slug="000-Links/DSA">DSA</a><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#class-dsa" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h2 id="topic-dsa-algorithm-excalidraw">Topic: <a href="../.././../tags/dsa" class="tag-link internal alias" data-slug="tags/dsa">dsa</a> <a href="../.././../tags/algorithm" class="tag-link internal alias" data-slug="tags/algorithm">algorithm</a> <a href="../.././../tags/excalidraw" class="tag-link internal alias" data-slug="tags/excalidraw">excalidraw</a><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#topic-dsa-algorithm-excalidraw" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h2 id="date-23-04-2025">Date: 23-04-2025<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#date-23-04-2025" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<hr/>
+<h1 id="introduction">Introduction<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#introduction" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="program-vs-data-structure-vs-algorithms">Program vs Data Structure vs Algorithms<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#program-vs-data-structure-vs-algorithms" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="a-program">A program<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#a-program" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p>A set of instruction which is written in order to solve a problem.</p>
+<ul>
+<li>A solution to a problem actually consists of two things:
+<ul>
+<li>A way to organize the data</li>
+<li>Sequence of steps to solve the</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>The way data are organized in a computers memory is said to be <strong>Data Structure</strong></p>
+</li>
+<li>
+<p>The sequence of computational steps to solve a problem is said to be an <strong>Algorithm</strong>.</p>
+</li>
+<li>
+<p>Therefore, a program is  <strong>Data structures</strong> plus <strong>Algorithm</strong>.</p>
+</li>
+<li>
+<p>The first step to solve the problem is obtaining ones own <strong>abstract view</strong>, or <strong>model</strong>, of the problem.</p>
+</li>
+<li>
+<p>This process of modeling is known as <strong>abstraction</strong>
+<strong>Abstraction</strong> is a process of classifying characteristics as <strong>relevant</strong> and <strong>irrelevant</strong> for the particular purpose at hand and ignoring the irrelevant ones.
+<strong>The model</strong></p>
+</li>
+<li>
+<p>The model defines an abstract view to the problem.</p>
+</li>
+<li>
+<p>The model should only focus on problem related stuff</p>
+</li>
+<li>
+<p>Using the model, a programmer tries to define the properties of the problem. • These properties include</p>
+<ul>
+<li>The data which are affected and</li>
+<li>The operations that are involved in the problem</li>
+</ul>
+</li>
+<li>
+<p>An entity with the properties just described is called an abstract data type (ADT).</p>
+</li>
+</ul>
+<h4 id="abstract-data-types">Abstract Data Types<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#abstract-data-types" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Is logical description of a problem</li>
+<li>An abstract data type (ADT) is the realization of a data type as a software component.</li>
+<li>Is a specification that describes a data set and the operation on that data.</li>
+<li>Think of an ADT as a picture of the data and the operations to manipulate and change that data.</li>
+<li>The ADT specifies:
+<ul>
+<li>What data is stored.</li>
+<li>What operations can be done on the data.</li>
+</ul>
+</li>
+<li>Does not specify how to store or how to implement the operation.</li>
+<li>Is independent of any programming language</li>
+</ul>
+<h4 id="data-structure">Data Structure<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#data-structure" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>A data structure is <strong>the implementation</strong> for an ADT</li>
+<li>It can be implemented and used with in an algorithm</li>
+<li>Data structure is a way of <strong>collecting and organizing data</strong> in such a way that we can perform operations in an <strong>effective way</strong></li>
+<li>Any thing that can store data can be called a data structure</li>
+<li>An ADT tells <strong>what is to be done</strong> and the DS tells <strong>how</strong> to be done</li>
+<li>ADT gives the <strong>blueprint</strong> while the DS provides the <strong>implementation</strong> part</li>
+</ul>
+<p></p><blockquote class="transclude" data-url="types-of-ds" data-block data-embed-alias="undefined"><a href="../../types-of-ds" class="transclude-inner internal alias" data-slug="types-of-ds">Transclude of types-of-ds</a></blockquote><p></p>
+<h6 id="linear-ds">linear DS<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#linear-ds" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h6>
+<p>The arrangement of the data in the sequential manner is known as linear DS.
+The data structure used for this purpose are</p>
+<ul>
+<li>
+<p><a href="../../arrays" class="internal" data-slug="arrays">arrays</a></p>
+</li>
+<li>
+<p><a href="../../Coding/Fundamentals/Linked-lists" class="internal alias" data-slug="Coding/Fundamentals/Linked-lists">Linked lists</a></p>
+</li>
+<li>
+<p><a href="../../Stacks" class="internal" data-slug="Stacks">Stacks</a> and</p>
+</li>
+<li>
+<p><a href="../../queues" class="internal" data-slug="queues">queues</a>
+In this DS, one element is connected to only one another element in a linear form.</p>
+</li>
+<li>
+<p>Linear DS can be further classified into <strong>static</strong> and <strong>dynamic</strong></p>
+<ul>
+<li>Static linear DS the memory is allocated at <strong>compile time</strong> so the <strong>max size is fixed</strong>  for example <strong>Arrays</strong></li>
+<li>dynamic linear DS the memory is allocated at <strong>runtime</strong> therefore the <strong>max size is flexible</strong> example of this can be <strong>linked lists, stacks, queues</strong></li>
+</ul>
+</li>
+</ul>
+<h6 id="none-linear-ds">None linear DS<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#none-linear-ds" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h6>
+<p>When one element is connected to the ‘n’ number of elements is known as non- linear DS.
+For example</p>
+<ul>
+<li><a href="../../trees" class="internal" data-slug="trees">trees</a></li>
+<li><a href="../../graphs" class="internal" data-slug="graphs">graphs</a>
+in this case, elements are arranged in a random manner.</li>
+</ul>
+<h5 id="operations-on-data-structure">Operations on data structure<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#operations-on-data-structure" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ol>
+<li><strong>Traversing</strong>: visiting each elements of data structure in order to perform some specific operation like <em>searching</em> or <em>sorting</em></li>
+<li><strong>Insertion</strong>: process of adding the elements to the DS at any location</li>
+<li><strong>Deletion</strong>: process of removing an element from the DS</li>
+<li><strong>Searching</strong>: process of finding an element with in the DS</li>
+</ol>
+<ul>
+<li>linear search</li>
+<li>binary search</li>
+</ul>
+<ol start="5">
+<li><strong>Sorting</strong>: process of arranging the data stricture in a specific order
+<ul>
+<li>insertion sort</li>
+<li>selection sort</li>
+<li>bubble sort</li>
+</ul>
+</li>
+</ol>
+<h5 id="selecting-a-data-structure">Selecting a Data Structure<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#selecting-a-data-structure" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ol>
+<li>Analyze the problem to determine the <strong>resource constraints</strong> a solution must meet.</li>
+<li>Determine the basic <strong>operations that must be supported</strong>. Quantify the resource constraints for each operation.</li>
+<li>Select the <strong>data structure</strong> that best meets these requirements.</li>
+</ol>
+<h4 id="algorithm">Algorithm<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#algorithm" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Algorithm is a <strong>method</strong> or a <strong>process</strong> followed to solve a problem</li>
+<li>If the problem is <strong>viewed as a function</strong>, then an algorithm is an <strong>implementation</strong> for the function that transforms an input to the corresponding output.</li>
+<li>A <strong>problem</strong> can be solved by many different algorithms where as A given algorithm <strong>solves only one problem</strong></li>
+<li>The quality of a data structure is related to its ability to successfully <strong>model the characteristics</strong> of the world (problem).</li>
+<li>Similarly, the quality of an algorithm is related to its ability to <strong>successfully simulate</strong> <strong>the changes</strong> in the world.</li>
+<li>However, the quality of <strong>data structure</strong> and <strong>Algorithms</strong> is determined by their <strong>ability to work together</strong> well(they are cooperative).</li>
+<li>Generally speaking, <strong>correct data structures</strong> lead to <strong>simple and efficient algorithms</strong> and <strong>correct algorithms</strong> lead to <strong>accurate and efficient data structures</strong></li>
+</ul>
+<h5 id="characteristics-of-an-algorithm">Characteristics of an algorithm<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#characteristics-of-an-algorithm" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ul>
+<li><strong>Input</strong>: an algorithm has some input values. we can pass 0 or some input value to an algorithm</li>
+<li><strong>Output</strong>: we will get 1 or more output at the end of an algorithm</li>
+<li><strong>Unambiguity</strong>: an algorithm should be unambiguous which means that it should be clear and simple</li>
+<li><strong>Finiteness</strong>: an algorithm should have limited number of instructions</li>
+<li><strong>Effectiveness</strong>: an algorithm should have finite as each instruction in - an algorithm affects the overall process</li>
+</ul>
+<h5 id="algorithm-efficiency">Algorithm efficiency<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#algorithm-efficiency" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<p>there are many approaches to solve a problem, so how do we choose between them?</p>
+<ul>
+<li>two goals of designing an algorithm</li>
+</ul>
+<ol>
+<li>to design an algorithm that is easy to <strong>understand, code, debug</strong></li>
+<li>to design an algorithm that makes <strong>efficient use of the computer’s resources</strong>
+An algorithm is said to be efficient if it solves the problem within its resource constraints .
+<ul>
+<li>Space</li>
+<li>Time</li>
+<li>Communication Band width
+The <strong>cost</strong> of a solution is the <strong>amount of resources that the solution consumes</strong>.</li>
+</ul>
+</li>
+</ol>
+<h5 id="how-to-measure-efficiency">How to measure efficiency?<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#how-to-measure-efficiency" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ol>
+<li><strong>Empirical comparison</strong>
+➢based on the total running time of the program.
+➢Uses actual system clock time.</li>
+<li><strong>Theoretical (Asymptotic Algorithm Analysis)</strong>
+➢Determining the quantity of resources required using mathematical concept.</li>
+</ol>
+<h4 id="approaches-in-algorithm">Approaches in Algorithm<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#approaches-in-algorithm" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li><strong>Brute force algorithm</strong>: also known as <strong>exhaustive algorithm</strong>. Search algorithm that searches all possibilities to provide the required solution. such algorithms have two types
+<ul>
+<li><strong>Optimizing</strong> : finding all solutions of a problem and then take out the best solution is known then it will terminate if the best solution is known.</li>
+<li><strong>Sacrificing</strong>: as soon as best solution is found, then it will stop</li>
+</ul>
+</li>
+<li><strong>Divide and Conquer</strong>: this breaks down the algorithm to solve the problem in different methods. It allows you to solve the problem into different methods and valid output is produced for the valid input.</li>
+<li><strong>Greedy algorithm</strong>: Its an algorithm paradigm that makes an optimal choice on each iteration with the hope of getting best solution. Its easy to implement and has faster execution time, but there are rare cases in which it provides the optimal solution.</li>
+</ol>
+<ul>
+<li>The <em>major categories of algorithms</em> are
+<ul>
+<li><strong>Sort</strong>: algorithm developed for sorting the items in certain order</li>
+<li><strong>Search</strong>: algorithm developed for searching the items inside a data structure</li>
+<li><strong>Delete</strong>: algorithm developed for deleting the existing element from the data structure</li>
+<li><strong>Insert</strong>: algorithm developed for inserting an item inside a data structure</li>
+<li><strong>Update</strong>: algorithm developed for updating the existing element inside a data structure</li>
+</ul>
+</li>
+</ul>
+<h4 id="algorithm-analysis">Algorithm analysis<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#algorithm-analysis" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>algorithm can be analyzed in two levels. First is before creating the algorithm and the second one is after creating the algorithm.</p>
+<ul>
+<li><strong>Priori analysis</strong>: is a theoretical analysis of an algorithm which is done before implementing the algorithm</li>
+<li><strong>Pasterion analysis</strong>: is a practical analysis of an algorithm. The practical analysis is achieved by implementing the algorithm using any programming language</li>
+</ul>
+<h4 id="algorithm-complexity">Algorithm Complexity<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#algorithm-complexity" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>To measure the goodness of data structures and algorithms, we need precise ways of analyzing them in terms of resource requirement.</li>
+<li>the main resources are
+<ul>
+<li><strong>Running time</strong> (computational time complexity)</li>
+<li><strong>Memory usage</strong> (computational space complexity)</li>
+<li><strong>Bandwidth usage</strong> (the total amount of data communicated among processing nodes in distributed computational environment)</li>
+</ul>
+</li>
+<li>There are two approaches to measure the efficiency of algorithms
+<ul>
+<li><strong>Empirical</strong>: Programming competing algorithms and trying them on different instances</li>
+<li><strong>Theoretical</strong>: Determining the quantity of resources required mathematically (Execution time, memory space, etc.) needed by each algorithm.</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><strong>Empirical  Approach</strong></li>
+</ol>
+<ul>
+<li>Involves <strong>implementing the algorithm</strong> and measuring its performance on real-world or synthetic datasets.</li>
+<li>Measures <strong>actual runtime, memory usage, and other metrics</strong> on specific hardware.</li>
+</ul>
+<p><strong>Advantages</strong>
+✔ <strong>Real-world accuracy</strong> – Measures actual performance on a given system.<br/>
+✔ <strong>Hardware/software-specific insights</strong> – Detects bottlenecks due to caching, compiler optimizations, etc.<br/>
+✔ <strong>Useful for validation</strong> – Verifies theoretical predictions.</p>
+<p><strong>Disadvantages</strong>
+✖ <strong>Hardware-dependent</strong> – Results vary across machines (CPU speed, RAM, OS).<br/>
+✖ <strong>Limited scalability</strong> – Testing very large inputs may be impractical.<br/>
+✖ <strong>Time-consuming</strong> – Requires implementation and multiple test runs.</p>
+<ol start="2">
+<li><strong>Theoretical  Approach</strong></li>
+</ol>
+<ul>
+<li>Uses <strong>mathematical models</strong> (asymptotic analysis) to estimate efficiency.</li>
+<li>Focuses on <strong>growth rate</strong> (Big-O, Ω, Θ) rather than exact runtime.</li>
+</ul>
+<p><strong>Advantages</strong>
+✔ <strong>Hardware-independent</strong> – Works for any machine.<br/>
+✔ <strong>Predicts scalability</strong> – Shows how the algorithm behaves as n→∞n→∞.<br/>
+✔ <strong>Faster than empirical testing</strong> – No need for implementation.</p>
+<p><strong>Disadvantages</strong>
+✖ <strong>Ignores constant factors</strong> – 106⋅n106⋅n vs. 0.5⋅n20.5⋅n2 may differ in practice.<br/>
+✖ <strong>Does not account for low-level optimizations</strong> (caching, parallelism).</p>
+<ul>
+<li>An algorithm can be analyzed under three specific cases
+<ul>
+<li><strong>Best case</strong></li>
+<li><strong>Average case</strong></li>
+<li><strong>Worst case</strong></li>
+</ul>
+</li>
+<li><strong>Best case analysis</strong>: We analyze the performance of the algorithm under the circumstances on which it works best.
+<ul>
+<li>In that way, we can determine the <strong>lower-bound</strong> of its performance</li>
+<li>However, you should note that we may obtain these results under very unusual or special circumstances and it may be difficult to find the optimum input data for such an analysis.</li>
+</ul>
+</li>
+<li><strong>Average case analysis</strong>: This gives an indication on how the algorithm performs on most probable data condition
+<ul>
+<li>It is possible that this analysis is made by taking all possible combinations of data, experimenting with them, and finally averaging them.</li>
+<li>However, such an analysis may not reflect the exact behavior of the algorithm you expect from a real-life data set.</li>
+<li>Nevertheless, this analysis gives you a better idea how this algorithm work for your problem.</li>
+</ul>
+</li>
+<li><strong>Worst case analysis</strong>:In contrast to the best-case analysis, this gives you an indication on how bad this algorithm can go,
+<ul>
+<li>in other words, it gives a <strong>upper-bound</strong> for its performance.</li>
+<li>Sometimes, this could be useful in determining the applicability of an algorithm on a mission-critical application.</li>
+</ul>
+</li>
+</ul>
+<h4 id="asymptotic-growth-rate-analysis">Asymptotic (growth rate) analysis<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#asymptotic-growth-rate-analysis" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Asymptotic analysis</strong> is concerned with how the running time of an algorithm increases with the size of input increases.</li>
+<li>It’s only concerned with what happens for very a <strong>large value of n</strong>.</li>
+</ul>
+<h5 id="types-of-asymptotic-analysis">Types of asymptotic analysis<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#types-of-asymptotic-analysis" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ol>
+<li>Big-Oh Notation (O)</li>
+<li>Big-Omega Notation ()</li>
+<li>Theta Notation ()</li>
+<li>Little-o Notation (o)</li>
+<li>Little-Omega Notation ()</li>
+</ol></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="backlinks"><h3>Backlinks</h3><ul id="list-0" class="overflow"><li><a href="../../Coding/Fundamentals/Linked-lists" class="internal">Linked lists</a></li><li class="overflow-end"></li></ul></div><div class="explorer desktop-only" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-6" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-1"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div><div class="explorer mobile-only" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-7"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explore</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-7" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-2"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><footer class><ul><li><a href="https://github.com/J0na555">GitHub</a></li></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../../postscript.js" type="module" data-persist="true"></script></html>
