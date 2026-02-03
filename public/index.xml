@@ -6,11 +6,47 @@
       <description>Last 10 notes on Quartz 4</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>Welcome to Quartz</title>
+    <title>_index</title>
+    <link>https://quartz.jzhao.xyz/Coding/</link>
+    <guid>https://quartz.jzhao.xyz/Coding/</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Mon, 02 Feb 2026 13:38:44 GMT</pubDate>
+  </item><item>
+    <title>Jonas Girma</title>
     <link>https://quartz.jzhao.xyz/</link>
     <guid>https://quartz.jzhao.xyz/</guid>
-    <description><![CDATA[  ]]></description>
-    <pubDate>Fri, 30 Jan 2026 21:35:10 GMT</pubDate>
+    <description><![CDATA[ I’m Jonas. a computer science student, lifelong learner, and maker of things. ]]></description>
+    <pubDate>Sun, 01 Feb 2026 21:00:00 GMT</pubDate>
+  </item><item>
+    <title>Drawing 2025-06-11 08.45.46.excalidraw</title>
+    <link>https://quartz.jzhao.xyz/static/Excalidraw/Drawing-2025-06-11-08.45.46.excalidraw</link>
+    <guid>https://quartz.jzhao.xyz/static/Excalidraw/Drawing-2025-06-11-08.45.46.excalidraw</guid>
+    <description><![CDATA[ ⚠ Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ]]></description>
+    <pubDate>Wed, 11 Jun 2025 06:15:11 GMT</pubDate>
+  </item><item>
+    <title>Drawing 2025-06-07 14.56.01.excalidraw</title>
+    <link>https://quartz.jzhao.xyz/static/Excalidraw/Drawing-2025-06-07-14.56.01.excalidraw</link>
+    <guid>https://quartz.jzhao.xyz/static/Excalidraw/Drawing-2025-06-07-14.56.01.excalidraw</guid>
+    <description><![CDATA[ ⚠ Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ]]></description>
+    <pubDate>Sat, 07 Jun 2025 11:58:01 GMT</pubDate>
+  </item><item>
+    <title>Drawing 2025-06-03 14.25.26.excalidraw</title>
+    <link>https://quartz.jzhao.xyz/static/Excalidraw/Drawing-2025-06-03-14.25.26.excalidraw</link>
+    <guid>https://quartz.jzhao.xyz/static/Excalidraw/Drawing-2025-06-03-14.25.26.excalidraw</guid>
+    <description><![CDATA[ ⚠ Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ]]></description>
+    <pubDate>Tue, 03 Jun 2025 12:06:23 GMT</pubDate>
+  </item><item>
+    <title>personal portfolio design</title>
+    <link>https://quartz.jzhao.xyz/static/Excalidraw/personal-portfolio-design</link>
+    <guid>https://quartz.jzhao.xyz/static/Excalidraw/personal-portfolio-design</guid>
+    <description><![CDATA[ ⚠ Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ]]></description>
+    <pubDate>Mon, 05 May 2025 10:30:14 GMT</pubDate>
+  </item><item>
+    <title>types of ds</title>
+    <link>https://quartz.jzhao.xyz/static/Excalidraw/types-of-ds</link>
+    <guid>https://quartz.jzhao.xyz/static/Excalidraw/types-of-ds</guid>
+    <description><![CDATA[ ⚠ Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ]]></description>
+    <pubDate>Fri, 25 Apr 2025 08:19:10 GMT</pubDate>
   </item>
     </channel>
   </rss>
