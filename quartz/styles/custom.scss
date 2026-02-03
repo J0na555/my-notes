@@ -5,6 +5,16 @@ body {
   background-color: #0f1116; // Deep matte charcoal for app background
 }
 
+/* Hide the main title on the index.md page (the homepage) */
+[data-slug="index"] header h1 {
+  display: none;
+}
+
+/* Hide the metadata (including reading time, date, etc.) on the homepage */
+.home-page .content-meta {
+  display: none;
+}
+
 #quartz-body {
   background-color: #0f1116; // Match deep charcoal - creates strong contrast with card
   min-height: 100vh;

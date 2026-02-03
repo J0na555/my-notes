@@ -10,43 +10,61 @@
     <link>https://quartz.jzhao.xyz/Coding/</link>
     <guid>https://quartz.jzhao.xyz/Coding/</guid>
     <description><![CDATA[  ]]></description>
-    <pubDate>Mon, 02 Feb 2026 13:38:44 GMT</pubDate>
+    <pubDate>Mon, 02 Feb 2026 14:02:55 GMT</pubDate>
   </item><item>
-    <title>Jonas Girma</title>
+    <title>🐧 Arch Linux - Overview</title>
+    <link>https://quartz.jzhao.xyz/References/Arch</link>
+    <guid>https://quartz.jzhao.xyz/References/Arch</guid>
+    <description><![CDATA[ 🐧 Arch Linux - Overview Arch Linux is a lightweight, flexible, and rolling-release Linux distribution aimed at users who want full control over their system. ]]></description>
+    <pubDate>Mon, 02 Feb 2026 12:40:59 GMT</pubDate>
+  </item><item>
+    <title>Jonas&#039;s Digital Garden</title>
     <link>https://quartz.jzhao.xyz/</link>
     <guid>https://quartz.jzhao.xyz/</guid>
-    <description><![CDATA[ I’m Jonas. a computer science student, lifelong learner, and maker of things. ]]></description>
+    <description><![CDATA[  I’m Jonas. a computer science student, lifelong learner, and maker of things. ]]></description>
     <pubDate>Sun, 01 Feb 2026 21:00:00 GMT</pubDate>
   </item><item>
-    <title>Drawing 2025-06-11 08.45.46.excalidraw</title>
-    <link>https://quartz.jzhao.xyz/static/Excalidraw/Drawing-2025-06-11-08.45.46.excalidraw</link>
-    <guid>https://quartz.jzhao.xyz/static/Excalidraw/Drawing-2025-06-11-08.45.46.excalidraw</guid>
-    <description><![CDATA[ ⚠ Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ]]></description>
-    <pubDate>Wed, 11 Jun 2025 06:15:11 GMT</pubDate>
+    <title>python env</title>
+    <link>https://quartz.jzhao.xyz/Coding/Python/python-env</link>
+    <guid>https://quartz.jzhao.xyz/Coding/Python/python-env</guid>
+    <description><![CDATA[ python When starting a new project that requires different dependencies—like using BeautifulSoup for web scraping—it’s best to create a separate project directory with its own virtual environment. ]]></description>
+    <pubDate>Sun, 01 Feb 2026 17:26:16 GMT</pubDate>
   </item><item>
-    <title>Drawing 2025-06-07 14.56.01.excalidraw</title>
-    <link>https://quartz.jzhao.xyz/static/Excalidraw/Drawing-2025-06-07-14.56.01.excalidraw</link>
-    <guid>https://quartz.jzhao.xyz/static/Excalidraw/Drawing-2025-06-07-14.56.01.excalidraw</guid>
-    <description><![CDATA[ ⚠ Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ]]></description>
-    <pubDate>Sat, 07 Jun 2025 11:58:01 GMT</pubDate>
+    <title>leetcode cheetsheet</title>
+    <link>https://quartz.jzhao.xyz/Coding/Fundamentals/leetcode-cheetsheet</link>
+    <guid>https://quartz.jzhao.xyz/Coding/Fundamentals/leetcode-cheetsheet</guid>
+    <description><![CDATA[  # intuition # &lt;!--describe your thoughts on how to solve this problem --&gt; # approach # &lt;!--describe your approach on solving the problem --&gt; # - [[Time and Space Complexity of an algorithm|complexity]] # - time complexity : # &lt;!-- add your time complexity --&gt; # - space complexity ... ]]></description>
+    <pubDate>Sun, 01 Feb 2026 17:26:14 GMT</pubDate>
   </item><item>
-    <title>Drawing 2025-06-03 14.25.26.excalidraw</title>
-    <link>https://quartz.jzhao.xyz/static/Excalidraw/Drawing-2025-06-03-14.25.26.excalidraw</link>
-    <guid>https://quartz.jzhao.xyz/static/Excalidraw/Drawing-2025-06-03-14.25.26.excalidraw</guid>
-    <description><![CDATA[ ⚠ Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ]]></description>
-    <pubDate>Tue, 03 Jun 2025 12:06:23 GMT</pubDate>
+    <title>Web crawlers</title>
+    <link>https://quartz.jzhao.xyz/Coding/web/Web-crawlers</link>
+    <guid>https://quartz.jzhao.xyz/Coding/web/Web-crawlers</guid>
+    <description><![CDATA[ Class: web Topic: web webcrawler searchengines python Date: 16-05-2025 web crawler is a program that collects content from the web it can also be a bot that systematically browses the internet for indexing websites (see Web Scraping). ]]></description>
+    <pubDate>Sun, 01 Feb 2026 17:25:27 GMT</pubDate>
   </item><item>
-    <title>personal portfolio design</title>
-    <link>https://quartz.jzhao.xyz/static/Excalidraw/personal-portfolio-design</link>
-    <guid>https://quartz.jzhao.xyz/static/Excalidraw/personal-portfolio-design</guid>
-    <description><![CDATA[ ⚠ Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ]]></description>
-    <pubDate>Mon, 05 May 2025 10:30:14 GMT</pubDate>
+    <title>Web Scraping</title>
+    <link>https://quartz.jzhao.xyz/Coding/web/Web-Scraping</link>
+    <guid>https://quartz.jzhao.xyz/Coding/web/Web-Scraping</guid>
+    <description><![CDATA[ Course: web Subject: web webScraping data Date: 10-05-2025 Topic: data 📘 Web Scraping – A Comprehensive Note 🌐 What is Web Scraping? Web scraping, also known as web harvesting or web data extraction, is the process of automatically collecting data from websites. ]]></description>
+    <pubDate>Sun, 01 Feb 2026 17:25:25 GMT</pubDate>
   </item><item>
-    <title>types of ds</title>
-    <link>https://quartz.jzhao.xyz/static/Excalidraw/types-of-ds</link>
-    <guid>https://quartz.jzhao.xyz/static/Excalidraw/types-of-ds</guid>
-    <description><![CDATA[ ⚠ Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ]]></description>
-    <pubDate>Fri, 25 Apr 2025 08:19:10 GMT</pubDate>
+    <title>The OSI reference model</title>
+    <link>https://quartz.jzhao.xyz/Coding/Fundamentals/The-OSI-reference-model</link>
+    <guid>https://quartz.jzhao.xyz/Coding/Fundamentals/The-OSI-reference-model</guid>
+    <description><![CDATA[ Course: Computer Networks Subject: Computer_network Date: 11-06-2025 Topic: osi Introduction The OSI model has 7 layers, while he TCP model has 4 layers. ]]></description>
+    <pubDate>Sun, 01 Feb 2026 17:24:51 GMT</pubDate>
+  </item><item>
+    <title>Spring Security Basics &amp; JWT</title>
+    <link>https://quartz.jzhao.xyz/Coding/Java/Spring-Security-Basics--and--JWT</link>
+    <guid>https://quartz.jzhao.xyz/Coding/Java/Spring-Security-Basics--and--JWT</guid>
+    <description><![CDATA[ Class: Spring Boot Topic: jwt authentication security backend Date: 25-03-2025 Spring Security Basics What is Spring Security? Spring security is a framework that provides authentication, authorization and protection against common security vulnerabilities by default, spring security secures all end... ]]></description>
+    <pubDate>Sun, 01 Feb 2026 17:24:42 GMT</pubDate>
+  </item><item>
+    <title>Spring Boot</title>
+    <link>https://quartz.jzhao.xyz/Coding/Java/Spring-Boot</link>
+    <guid>https://quartz.jzhao.xyz/Coding/Java/Spring-Boot</guid>
+    <description><![CDATA[ Class: Spring Boot Topic: Spring-boot java dependecies auto-configuration ioc REST exception-handling validation mongoDB db-migration backend Date: 21-03-2025 Spring-boot simplifies Java-based Backend development by providing auto-configuration, embedded servers and opinionated defaults. ]]></description>
+    <pubDate>Sun, 01 Feb 2026 17:24:39 GMT</pubDate>
   </item>
     </channel>
   </rss>
