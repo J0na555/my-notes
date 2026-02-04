@@ -1,5 +1,5 @@
 ---
-title: Week 1
+title: Agentic Ai
 tags:
   - agenticai
   - ai
