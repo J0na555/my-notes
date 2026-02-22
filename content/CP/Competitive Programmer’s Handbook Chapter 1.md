@@ -1,5 +1,5 @@
 ---
-title: Competitive Programmer’s Handbook
+title: Competitive Programmer’s Handbook chapter 1
 tags:
   - dsa
   - CP
@@ -26,6 +26,7 @@ Competitive programming combines two topics
 
 ## Mathematics
 Mathematics plays an important role in competitive programming.
+
 
 ### Sum Formulas
 
