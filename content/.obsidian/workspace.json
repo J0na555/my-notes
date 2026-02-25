@@ -43,13 +43,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CP/Competitive Programmer’s Handbook Chapter 1.md",
+                "file": "DSA & CP/Sorting Basics.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Competitive Programmer’s Handbook Chapter 1"
+              "title": "Sorting Basics"
             }
           },
           {
@@ -58,17 +58,17 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "References/Competitive Programming Math Notes — Writing Guide.md",
+                "file": "DSA & CP/Sorting Basics.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Competitive Programming Math Notes — Writing Guide"
+              "title": "Sorting Basics"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -125,7 +125,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 313.5
+    "width": 313.5,
+    "collapsed": true
   },
   "right": {
     "id": "5e975ba4e83c3b2b",
@@ -231,19 +232,21 @@
       "bases:Create new base": false
     }
   },
-  "active": "45b9878f4c0cf516",
+  "active": "c7c00bdf7afddcd2",
   "lastOpenFiles": [
-    "In-place algorithm.md",
-    "CP/Competitive Programmer’s Handbook Chapter 1.md",
     "Untitled.md",
+    "DSA & CP/Sorting Basics.md",
+    "index.md",
+    "Coding/Python/python env.md",
+    "DSA & CP/Competitive Programmer’s Handbook Chapter 1.md",
+    "In-place algorithm.md",
     "References/Competitive Programming Math Notes — Writing Guide.md",
     "References/Rich library.md",
     "References/Typer.md",
     "Rich.md",
     "References/Monolithic Project Structures.md",
-    "CP",
+    "DSA & CP",
     "Time and Space complexity.md",
-    "index.md",
     "Coding/Fundamentals/Time  and Space Complexity of an algorithm.md",
     "References/Agentic AI (m1w1l1).md",
     "References/Arch.md",
@@ -263,8 +266,6 @@
     "Coding/Python/Python with examples.md",
     "Coding/Fundamentals/Operating System.md",
     "Coding/Fundamentals/IP Control.md",
-    "Coding/Fundamentals/The OSI reference model.md",
-    "Coding/Fundamentals/Process Management.md",
     "static/Images/Pasted Image 20260125121023_337.png",
     "static/Images/Pasted Image 20260125120826_461.png",
     "static/Images/Pasted Image 20260125120630_345.png",
