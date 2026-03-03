@@ -23,6 +23,33 @@
             }
           },
           {
+            "id": "740311b0d1a6c3c6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Sudoku puzzle engine.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Sudoku puzzle engine"
+            }
+          },
+          {
+            "id": "2d46d81a8a00c99a",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.12.4"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.12.4"
+            }
+          },
+          {
             "id": "bf43ab9d4a25c8ab",
             "type": "leaf",
             "state": {
@@ -43,13 +70,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DSA & CP/Sorting Basics.md",
+                "file": "index.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Sorting Basics"
+              "title": "index"
             }
           },
           {
@@ -58,17 +85,17 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DSA & CP/Sorting Basics.md",
+                "file": "References/Competitive Programming Math Notes — Writing Guide.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Sorting Basics"
+              "title": "Competitive Programming Math Notes — Writing Guide"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -125,8 +152,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 313.5,
-    "collapsed": true
+    "width": 313.5
   },
   "right": {
     "id": "5e975ba4e83c3b2b",
@@ -232,19 +258,19 @@
       "bases:Create new base": false
     }
   },
-  "active": "c7c00bdf7afddcd2",
+  "active": "2d46d81a8a00c99a",
   "lastOpenFiles": [
-    "Untitled.md",
-    "DSA & CP/Sorting Basics.md",
+    "References/Monolithic Project Structures.md",
+    "Sudoku puzzle engine.md",
+    "References/Typer.md",
     "index.md",
+    "References/Competitive Programming Math Notes — Writing Guide.md",
+    "DSA & CP/Sorting Basics.md",
     "Coding/Python/python env.md",
     "DSA & CP/Competitive Programmer’s Handbook Chapter 1.md",
     "In-place algorithm.md",
-    "References/Competitive Programming Math Notes — Writing Guide.md",
     "References/Rich library.md",
-    "References/Typer.md",
     "Rich.md",
-    "References/Monolithic Project Structures.md",
     "DSA & CP",
     "Time and Space complexity.md",
     "Coding/Fundamentals/Time  and Space Complexity of an algorithm.md",
