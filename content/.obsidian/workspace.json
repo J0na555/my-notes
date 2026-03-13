@@ -23,30 +23,18 @@
             }
           },
           {
-            "id": "740311b0d1a6c3c6",
+            "id": "5c522b43653f1e3c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Sudoku puzzle engine.md",
-                "mode": "source",
+                "file": "DSA & CP/Two Pointers.md",
+                "mode": "preview",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Sudoku puzzle engine"
-            }
-          },
-          {
-            "id": "2d46d81a8a00c99a",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.12.4"
-              },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.12.4"
+              "title": "Two Pointers"
             }
           },
           {
@@ -56,7 +44,7 @@
               "type": "markdown",
               "state": {
                 "file": "References/Typer.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false,
                 "backlinks": false
               },
@@ -86,16 +74,31 @@
               "type": "markdown",
               "state": {
                 "file": "References/Competitive Programming Math Notes — Writing Guide.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
               "title": "Competitive Programming Math Notes — Writing Guide"
             }
+          },
+          {
+            "id": "c0abf66162c9e2c8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "References/Jupyter Notebook.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Jupyter Notebook"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -258,13 +261,18 @@
       "bases:Create new base": false
     }
   },
-  "active": "2d46d81a8a00c99a",
+  "active": "c0abf66162c9e2c8",
   "lastOpenFiles": [
-    "References/Monolithic Project Structures.md",
-    "Sudoku puzzle engine.md",
+    "References/Competitive Programming Math Notes — Writing Guide.md",
+    "References/Jupyter Notebook.md",
     "References/Typer.md",
     "index.md",
-    "References/Competitive Programming Math Notes — Writing Guide.md",
+    "DSA & CP/Two Pointers.md",
+    "References/Monolithic Project Structures.md",
+    "Projects/Sudoku puzzle engine.md",
+    "static/Images/Pasted image 20260304095454.png",
+    "static/Images/Pasted image 20260304095544.png",
+    "static/Images/Pasted image 20260304090501.png",
     "DSA & CP/Sorting Basics.md",
     "Coding/Python/python env.md",
     "DSA & CP/Competitive Programmer’s Handbook Chapter 1.md",
@@ -290,14 +298,9 @@
     "Coding/Python/Python asyncio.md",
     "Coding/_index.md",
     "Coding/Python/Python with examples.md",
-    "Coding/Fundamentals/Operating System.md",
-    "Coding/Fundamentals/IP Control.md",
     "static/Images/Pasted Image 20260125121023_337.png",
     "static/Images/Pasted Image 20260125120826_461.png",
     "static/Images/Pasted Image 20260125120630_345.png",
-    "static/Images/Pasted Image 20260125115751_864.png",
-    "static/Images/Pasted Image 20260125115501_770.png",
-    "static/Images/Pasted image 20251222110930.png",
     "static/Images",
     "static/Excalidraw",
     "static",
