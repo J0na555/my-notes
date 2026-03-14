@@ -68,33 +68,33 @@
             }
           },
           {
-            "id": "c7c00bdf7afddcd2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "References/Competitive Programming Math Notes — Writing Guide.md",
-                "mode": "preview",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "Competitive Programming Math Notes — Writing Guide"
-            }
-          },
-          {
             "id": "c0abf66162c9e2c8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "References/Jupyter Notebook.md",
+                "file": "Projects/Sudoku puzzle engine.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Jupyter Notebook"
+              "title": "Sudoku puzzle engine"
+            }
+          },
+          {
+            "id": "9e20348dfea77922",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Projects/anime tracker (launcher, companion).md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "anime tracker (launcher, companion)"
             }
           }
         ],
@@ -155,7 +155,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 313.5
+    "width": 215.5
   },
   "right": {
     "id": "5e975ba4e83c3b2b",
@@ -261,15 +261,16 @@
       "bases:Create new base": false
     }
   },
-  "active": "c0abf66162c9e2c8",
+  "active": "9e20348dfea77922",
   "lastOpenFiles": [
-    "References/Competitive Programming Math Notes — Writing Guide.md",
+    "Projects/Sudoku puzzle engine.md",
+    "Projects/anime tracker (launcher, companion).md",
     "References/Jupyter Notebook.md",
+    "References/Competitive Programming Math Notes — Writing Guide.md",
     "References/Typer.md",
     "index.md",
     "DSA & CP/Two Pointers.md",
     "References/Monolithic Project Structures.md",
-    "Projects/Sudoku puzzle engine.md",
     "static/Images/Pasted image 20260304095454.png",
     "static/Images/Pasted image 20260304095544.png",
     "static/Images/Pasted image 20260304090501.png",
@@ -297,7 +298,6 @@
     "static/Pasted image.png",
     "Coding/Python/Python asyncio.md",
     "Coding/_index.md",
-    "Coding/Python/Python with examples.md",
     "static/Images/Pasted Image 20260125121023_337.png",
     "static/Images/Pasted Image 20260125120826_461.png",
     "static/Images/Pasted Image 20260125120630_345.png",
