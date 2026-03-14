@@ -6,7 +6,7 @@ tags:
 date: 2026-03-14
 type: plan
 status: draft
-source:
+source: chatgpt
 ---
 # the core goal of the app
 the app is not anime tracker, but companion + launcher
@@ -817,3 +817,1223 @@ anime opens instantly
 ↓
 tracker auto updates
 ```
+
+---
+
+
+# 1. System Overview
+
+High-level architecture:
+
+```
+Frontend
+   │
+Backend (Django)
+   │
+Service Layer
+   │
+ ├── Tracker Service
+ ├── Streaming Service
+ ├── Match Engine
+ ├── Productivity Service
+ └── Recommendation Service
+   │
+Database
+   │
+External APIs
+   └── AniList (initial)
+```
+
+Important rule:
+
+**Services talk to each other — not directly to external APIs.**
+
+---
+
+# 2. Database Schema (Core)
+
+Your DB stores **three types of data**:
+
+1. Users
+    
+2. Anime metadata cache
+    
+3. Streaming mappings
+    
+
+---
+
+# 3. User Table
+
+Stores authentication and tracker info.
+
+```
+User
+--------------------------------
+id (PK)
+username
+email
+tracker_type
+tracker_user_id
+access_token
+refresh_token
+created_at
+updated_at
+```
+
+Example:
+
+```
+id: 1
+tracker_type: anilist
+tracker_user_id: 543210
+```
+
+Later you can add:
+
+```
+tracker_type: mal
+```
+
+---
+
+# 4. Anime Table (Metadata Cache)
+
+You should cache anime metadata from **AniList** so you don't call the API constantly.
+
+```
+Anime
+--------------------------------
+id (PK)
+tracker_id
+tracker_type
+title_english
+title_romaji
+title_native
+episode_count
+release_year
+season
+studio
+cover_image
+created_at
+updated_at
+```
+
+Example:
+
+```
+tracker_id: 16498
+tracker_type: anilist
+title_english: Attack on Titan
+episode_count: 25
+release_year: 2013
+```
+
+---
+
+# 5. UserAnime Table
+
+Stores the user's progress snapshot.
+
+```
+UserAnime
+--------------------------------
+id (PK)
+user_id (FK)
+anime_id (FK)
+watched_episodes
+status
+score
+started_at
+completed_at
+updated_at
+```
+
+Status examples:
+
+```
+watching
+completed
+planned
+dropped
+paused
+```
+
+Important:
+
+This is **synced with AniList**, not the source of truth.
+
+---
+
+# 6. StreamingSource Table
+
+Stores all streaming platforms.
+
+```
+StreamingSource
+--------------------------------
+id (PK)
+name
+base_url
+search_url
+episode_pattern
+priority
+is_active
+created_at
+```
+
+Example:
+
+```
+name: hianime
+base_url: https://hianime.to
+episode_pattern: /watch/{slug}?ep={episode}
+priority: 1
+```
+
+---
+
+# 7. AnimeStreamingMapping Table
+
+This is the **result of the match engine**.
+
+```
+AnimeStreamingMapping
+--------------------------------
+id (PK)
+anime_id (FK)
+source_id (FK)
+slug
+confidence_score
+verified
+created_at
+updated_at
+```
+
+Example:
+
+```
+anime_id: 15
+source_id: 1
+slug: attack-on-titan-112
+confidence_score: 0.91
+verified: true
+```
+
+This prevents running the matcher again.
+
+---
+
+# 8. UserSettings Table
+
+For productivity features and limits.
+
+```
+UserSettings
+--------------------------------
+id (PK)
+user_id (FK)
+max_watching_limit
+auto_update_tracker
+preferred_source
+created_at
+```
+
+Example:
+
+```
+max_watching_limit: 5
+```
+
+---
+
+# 9. AnimeStats Table (Optional Cache)
+
+For productivity analytics.
+
+```
+AnimeStats
+--------------------------------
+id (PK)
+user_id
+episodes_watched_total
+episodes_watched_week
+anime_started
+anime_completed
+completion_rate
+last_updated
+```
+
+This can also be computed dynamically if you prefer.
+
+---
+
+# 10. Service Layer (Critical Design)
+
+You should structure backend logic like this:
+
+```
+services/
+    auth_service.py
+    tracker_service.py
+    anime_service.py
+    streaming_service.py
+    match_service.py
+    productivity_service.py
+    recommendation_service.py
+```
+
+Each service has **clear responsibility**.
+
+---
+
+# 11. Tracker Service
+
+Handles communication with **AniList**.
+
+Responsibilities:
+
+```
+login
+fetch_user_list
+update_episode_progress
+fetch_anime_metadata
+fetch_recommendations
+```
+
+Later you plug in:
+
+```
+MalTrackerAdapter
+```
+
+for **MyAnimeList**.
+
+---
+
+# 12. Anime Service
+
+Handles anime metadata.
+
+Responsibilities:
+
+```
+get_or_create_anime
+update_anime_cache
+fetch_from_tracker_if_missing
+```
+
+Prevents duplicate API calls.
+
+---
+
+# 13. Match Service
+
+Implements the **matching algorithm** we discussed.
+
+Responsibilities:
+
+```
+search_streaming_sites
+score_candidates
+select_best_match
+store_mapping
+```
+
+Uses:
+
+```
+title similarity
+episode count
+release year
+studio
+```
+
+---
+
+# 14. Streaming Service
+
+Handles launching episodes.
+
+Responsibilities:
+
+```
+resume_watching
+generate_episode_url
+select_best_source
+check_source_availability
+```
+
+Flow:
+
+```
+user clicks resume
+↓
+get watched episodes
+↓
+calculate next episode
+↓
+get slug mapping
+↓
+generate streaming URL
+```
+
+---
+
+# 15. Productivity Service
+
+Calculates stats.
+
+Responsibilities:
+
+```
+calculate_completion_rate
+count_current_watching
+episodes_watched_week
+detect_limit_exceeded
+```
+
+---
+
+# 16. Recommendation Service
+
+Initially simple.
+
+Sources:
+
+```
+AniList recommendations
+genre similarity
+user scores
+```
+
+Later you could implement:
+
+```
+collaborative filtering
+```
+
+---
+
+# 17. API Endpoints (Backend)
+
+Example REST endpoints:
+
+```
+GET  /api/dashboard
+GET  /api/anime/watching
+POST /api/anime/update-progress
+GET  /api/anime/resume/{anime_id}
+GET  /api/recommendations
+GET  /api/releases/today
+```
+
+---
+
+# 18. Resume Watching Full Flow
+
+```
+User clicks Resume
+        ↓
+Streaming Service
+        ↓
+UserAnime → get watched episodes
+        ↓
+next_episode = watched + 1
+        ↓
+check AnimeStreamingMapping
+        ↓
+if mapping missing
+     run Match Service
+        ↓
+generate episode URL
+        ↓
+redirect user
+```
+
+---
+
+# 19. Performance Strategy
+
+Cache aggressively:
+
+```
+anime metadata
+streaming mappings
+user stats
+```
+
+Avoid unnecessary calls to **AniList**.
+
+---
+
+# 20. MVP Implementation Order
+
+Do NOT build everything at once.
+
+Phase 1:
+
+```
+AniList login
+fetch user anime list
+store anime metadata
+```
+
+Phase 2:
+
+```
+resume watching
+streaming router
+match engine
+```
+
+Phase 3:
+
+```
+productivity stats
+anime limit system
+```
+
+Phase 4:
+
+```
+recommendations
+release tracker
+```
+
+Phase 5:
+
+```
+add MAL support
+```
+
+
+---
+
+---
+
+# 2. Django Project Layout
+
+Your project should separate **apps (features)** from **services (logic)**.
+
+Structure:
+
+```
+aniflow/
+│
+├── manage.py
+│
+├── config/              # Django project settings
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── asgi.py
+│   └── wsgi.py
+│
+├── apps/
+│   │
+│   ├── users/
+│   │   ├── models.py
+│   │   ├── views.py
+│   │   ├── urls.py
+│   │   ├── admin.py
+│   │   └── serializers.py
+│   │
+│   ├── anime/
+│   │   ├── models.py
+│   │   ├── views.py
+│   │   ├── urls.py
+│   │   ├── services.py
+│   │   └── admin.py
+│   │
+│   ├── streaming/
+│   │   ├── models.py
+│   │   ├── views.py
+│   │   ├── router.py
+│   │   ├── matcher.py
+│   │   └── sources/
+│   │       ├── base_source.py
+│   │       ├── hianime.py
+│   │       └── gogoanime.py
+│   │
+│   ├── tracker/
+│   │   ├── adapters/
+│   │   │   ├── base_adapter.py
+│   │   │   ├── anilist_adapter.py
+│   │   │   └── mal_adapter.py
+│   │   │
+│   │   ├── services.py
+│   │   └── views.py
+│   │
+│   ├── productivity/
+│   │   ├── services.py
+│   │   ├── views.py
+│   │   └── models.py
+│   │
+│   └── recommendations/
+│       ├── services.py
+│       └── views.py
+│
+├── services/             # global reusable services
+│   ├── cache_service.py
+│   ├── http_client.py
+│   └── utils.py
+│
+├── templates/
+│
+├── static/
+│
+└── requirements.txt
+```
+
+---
+
+# 3. Core Django Apps
+
+### users
+
+Handles:
+
+- login
+    
+- tracker OAuth
+    
+- user settings
+    
+
+Models:
+
+```
+User
+UserSettings
+```
+
+---
+
+### anime
+
+Handles:
+
+- anime metadata
+    
+- user progress
+    
+
+Models:
+
+```
+Anime
+UserAnime
+```
+
+---
+
+### tracker
+
+Handles communication with trackers.
+
+Adapters:
+
+```
+base_adapter
+anilist_adapter
+mal_adapter (future)
+```
+
+Responsibilities:
+
+```
+fetch_user_list
+update_progress
+fetch_anime_metadata
+```
+
+---
+
+### streaming
+
+Handles:
+
+- streaming sources
+    
+- slug matching
+    
+- resume watching
+    
+
+Files:
+
+```
+router.py
+matcher.py
+sources/
+```
+
+Models:
+
+```
+StreamingSource
+AnimeStreamingMapping
+```
+
+---
+
+### productivity
+
+Handles:
+
+```
+completion rate
+watching limit
+episodes per week
+```
+
+---
+
+### recommendations
+
+Handles:
+
+```
+genre recommendations
+tracker recommendations
+```
+
+---
+
+# 4. Streaming Sources Plugin System
+
+This makes adding new sites easy.
+
+```
+sources/
+    base_source.py
+    hianime.py
+    gogoanime.py
+```
+
+Example base interface:
+
+```python
+class StreamingSource:
+
+    def search(self, title):
+        pass
+
+    def build_episode_url(self, slug, episode):
+        pass
+```
+
+Every site just implements this.
+
+So adding a new site later is literally:
+
+```
+create new file
+implement interface
+register source
+```
+
+---
+
+# 5. Match Engine Location
+
+```
+apps/streaming/matcher.py
+```
+
+Responsibilities:
+
+```
+title fuzzy matching
+episode comparison
+year comparison
+score calculation
+```
+
+---
+
+# 6. Resume Watching Logic
+
+Location:
+
+```
+apps/streaming/router.py
+```
+
+Flow:
+
+```
+get anime
+get watched episodes
+next_episode = watched + 1
+check slug mapping
+if missing → run matcher
+generate episode URL
+redirect user
+```
+
+---
+
+# 7. Service Pattern
+
+Inside each app:
+
+```
+services.py
+```
+
+Example:
+
+```
+anime/services.py
+tracker/services.py
+productivity/services.py
+```
+
+Views should **call services**, not contain logic.
+
+---
+
+# 8. Database Models (Core)
+
+You will implement these models first:
+
+```
+User
+UserSettings
+Anime
+UserAnime
+StreamingSource
+AnimeStreamingMapping
+```
+
+Everything else builds on top.
+
+---
+
+# 9. Development Phases
+
+### Phase 1
+
+```
+AniList OAuth
+fetch user anime list
+store Anime + UserAnime
+```
+
+---
+
+### Phase 2
+
+```
+streaming sources
+match engine
+resume watching
+```
+
+---
+
+### Phase 3
+
+```
+productivity stats
+watch limit
+dashboard
+```
+
+---
+
+### Phase 4
+
+```
+recommendations
+weekly releases
+```
+
+---
+
+### Phase 5
+
+```
+MAL adapter
+multi-tracker support
+```
+
+---
+
+# 1. Custom User Model
+
+You should **extend Django's AbstractUser** so you can add tracker fields.
+
+`apps/users/models.py`
+
+```python
+from django.contrib.auth.models import AbstractUser
+from django.db import models
+
+
+class User(AbstractUser):
+
+    TRACKER_CHOICES = [
+        ("anilist", "AniList"),
+        ("mal", "MyAnimeList"),
+    ]
+
+    tracker_type = models.CharField(
+        max_length=20,
+        choices=TRACKER_CHOICES,
+        default="anilist"
+    )
+
+    tracker_user_id = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True
+    )
+
+    access_token = models.TextField(
+        blank=True,
+        null=True
+    )
+
+    refresh_token = models.TextField(
+        blank=True,
+        null=True
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+```
+
+Important setting:
+
+```python
+AUTH_USER_MODEL = "users.User"
+```
+
+---
+
+# 2. UserSettings Model
+
+Stores personal configuration like **watching limits**.
+
+```python
+class UserSettings(models.Model):
+
+    user = models.OneToOneField(
+        "users.User",
+        on_delete=models.CASCADE,
+        related_name="settings"
+    )
+
+    max_watching_limit = models.PositiveIntegerField(
+        default=5
+    )
+
+    auto_update_tracker = models.BooleanField(
+        default=True
+    )
+
+    preferred_source = models.ForeignKey(
+        "streaming.StreamingSource",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True)
+```
+
+Relationship:
+
+```
+User 1 ─── 1 UserSettings
+```
+
+---
+
+# 3. Anime Model
+
+Stores cached metadata from **AniList**.
+
+`apps/anime/models.py`
+
+```python
+class Anime(models.Model):
+
+    TRACKER_CHOICES = [
+        ("anilist", "AniList"),
+        ("mal", "MyAnimeList"),
+    ]
+
+    tracker_id = models.CharField(
+        max_length=100
+    )
+
+    tracker_type = models.CharField(
+        max_length=20,
+        choices=TRACKER_CHOICES
+    )
+
+    title_english = models.CharField(
+        max_length=255,
+        blank=True,
+        null=True
+    )
+
+    title_romaji = models.CharField(
+        max_length=255
+    )
+
+    title_native = models.CharField(
+        max_length=255,
+        blank=True,
+        null=True
+    )
+
+    episode_count = models.PositiveIntegerField(
+        blank=True,
+        null=True
+    )
+
+    release_year = models.PositiveIntegerField(
+        blank=True,
+        null=True
+    )
+
+    season = models.CharField(
+        max_length=50,
+        blank=True,
+        null=True
+    )
+
+    studio = models.CharField(
+        max_length=255,
+        blank=True,
+        null=True
+    )
+
+    cover_image = models.URLField(
+        blank=True,
+        null=True
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+```
+
+Important rule:
+
+```
+tracker_id + tracker_type must be unique
+```
+
+Add this:
+
+```python
+class Meta:
+    unique_together = ("tracker_id", "tracker_type")
+```
+
+---
+
+# 4. UserAnime Model
+
+Stores **user progress**.
+
+```python
+class UserAnime(models.Model):
+
+    STATUS_CHOICES = [
+        ("watching", "Watching"),
+        ("completed", "Completed"),
+        ("planned", "Plan To Watch"),
+        ("dropped", "Dropped"),
+        ("paused", "Paused"),
+    ]
+
+    user = models.ForeignKey(
+        "users.User",
+        on_delete=models.CASCADE,
+        related_name="anime_list"
+    )
+
+    anime = models.ForeignKey(
+        "anime.Anime",
+        on_delete=models.CASCADE,
+        related_name="user_entries"
+    )
+
+    watched_episodes = models.PositiveIntegerField(
+        default=0
+    )
+
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default="planned"
+    )
+
+    score = models.PositiveIntegerField(
+        blank=True,
+        null=True
+    )
+
+    started_at = models.DateField(
+        blank=True,
+        null=True
+    )
+
+    completed_at = models.DateField(
+        blank=True,
+        null=True
+    )
+
+    updated_at = models.DateTimeField(auto_now=True)
+```
+
+Relationship:
+
+```
+User ─── many UserAnime
+Anime ─── many UserAnime
+```
+
+---
+
+# 5. StreamingSource Model
+
+`apps/streaming/models.py`
+
+Stores streaming platforms.
+
+```python
+class StreamingSource(models.Model):
+
+    name = models.CharField(
+        max_length=100,
+        unique=True
+    )
+
+    base_url = models.URLField()
+
+    search_url = models.URLField()
+
+    episode_pattern = models.CharField(
+        max_length=255
+    )
+
+    priority = models.IntegerField(
+        default=1
+    )
+
+    is_active = models.BooleanField(
+        default=True
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True)
+```
+
+Example record:
+
+```
+name: hianime
+base_url: https://hianime.to
+search_url: https://hianime.to/search?q=
+episode_pattern: /watch/{slug}?ep={episode}
+```
+
+---
+
+# 6. AnimeStreamingMapping Model
+
+Stores result of the **match engine**.
+
+```python
+class AnimeStreamingMapping(models.Model):
+
+    anime = models.ForeignKey(
+        "anime.Anime",
+        on_delete=models.CASCADE,
+        related_name="streaming_mappings"
+    )
+
+    source = models.ForeignKey(
+        "streaming.StreamingSource",
+        on_delete=models.CASCADE,
+        related_name="anime_mappings"
+    )
+
+    slug = models.CharField(
+        max_length=255
+    )
+
+    confidence_score = models.FloatField(
+        default=0
+    )
+
+    verified = models.BooleanField(
+        default=False
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+```
+
+Constraint:
+
+```python
+class Meta:
+    unique_together = ("anime", "source")
+```
+
+Meaning:
+
+```
+1 anime → 1 slug per streaming source
+```
+
+---
+
+# Final Database Relationships
+
+```
+User
+ │
+ ├── UserSettings (1:1)
+ │
+ └── UserAnime (1:N)
+          │
+          ▼
+        Anime
+          │
+          └── AnimeStreamingMapping (1:N)
+                         │
+                         ▼
+                  StreamingSource
+```
+
+---
+
+# First Migration Plan
+
+Your **first commit** should include:
+
+```
+users app
+anime app
+streaming app
+```
+
+Then run:
+
+```
+python manage.py makemigrations
+python manage.py migrate
+```
+
+After that your **database foundation is complete**.
+
+---
+
