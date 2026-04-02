@@ -43,13 +43,13 @@ Mobile computing is supported by three primary pillars:
 
 The success of a mobile computing system relies on four identified factors:
 
-|   |   |
-|---|---|
-|Principle|Description|
-|**Portability**|Nodes must facilitate mobility despite potential limitations in power and capabilities.|
-|**Connectivity**|High Quality of Service (QoS) with minimal downtime or lag, unaffected by the movement of nodes.|
-|**Interactivity**|The ability for nodes to communicate and collaborate through active data transactions.|
-|**Individuality**|The system's ability to adopt technology to meet specific individual needs and obtain contextual information.|
+|                   |                                                                                                               |
+| ----------------- | ------------------------------------------------------------------------------------------------------------- |
+| Principle         | Description                                                                                                   |
+| **Portability**   | Nodes must facilitate mobility despite potential limitations in power and capabilities.                       |
+| **Connectivity**  | High Quality of Service (QoS) with minimal downtime or lag, unaffected by the movement of nodes.              |
+| **Interactivity** | The ability for nodes to communicate and collaborate through active data transactions.                        |
+| **Individuality** | The system's ability to adopt technology to meet specific individual needs and obtain contextual information. |
 
 --------------------------------------------------------------------------------
 
