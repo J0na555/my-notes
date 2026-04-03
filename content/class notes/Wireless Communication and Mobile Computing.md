@@ -31,13 +31,13 @@ Communication is the process of sharing ideas and information between two entiti
 
 Based on the Shannon model, an information exchange system between two points comprises five key elements:
 
-|Element|Function|Examples|
-|---|---|---|
-|**Source**|Generates the data to be transmitted.|Telephone, Personal Computer|
-|**Transmitter**|Acts as an encoder/transducer; transforms non-electrical signals into electrical signals for transmission.|Modem|
-|**Transmission System**|The network facility connecting source and destination.|Wired (Coaxial, Fiber) or Wireless (Satellite, Radio)|
-|**Receiver**|Accepts signals from the transmission system and decodes them for the destination.|Modem|
-|**Destination**|The device that receives the incoming data from the receiver.|Final hardware endpoint|
+| Element                 | Function                                                                                                   | Examples                                              |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| **Source**              | Generates the data to be transmitted.                                                                      | Telephone, Personal Computer                          |
+| **Transmitter**         | Acts as an encoder/transducer; transforms non-electrical signals into electrical signals for transmission. | Modem                                                 |
+| **Transmission System** | The network facility connecting source and destination.                                                    | Wired (Coaxial, Fiber) or Wireless (Satellite, Radio) |
+| **Receiver**            | Accepts signals from the transmission system and decodes them for the destination.                         | Modem                                                 |
+| **Destination**         | The device that receives the incoming data from the receiver.                                              | Final hardware endpoint                               |
 
 
 --------------------------------------------------------------------------------
