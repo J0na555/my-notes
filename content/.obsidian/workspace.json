@@ -58,13 +58,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "class notes/Comprehensive Briefing Fundamentals and Applications of Artificial Intelligence.md",
+                "file": "class notes/Fundamentals of Intelligent Agents Architecture, Environments, and Taxonomy.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Comprehensive Briefing Fundamentals and Applications of Artificial Intelligence"
+              "title": "Fundamentals of Intelligent Agents Architecture, Environments, and Taxonomy"
             }
           }
         ],
@@ -233,10 +233,10 @@
   },
   "active": "e86b9ab0fdec7ac9",
   "lastOpenFiles": [
-    "class notes/Artificial Intelligence Searching and Planning for Problem-Solving Agents.md",
     "class notes/Comprehensive Briefing Fundamentals and Applications of Artificial Intelligence.md",
+    "class notes/Artificial Intelligence Searching and Planning for Problem-Solving Agents.md",
     "class notes/Artificial Intelligence Local Search, Adversarial Planning, and Knowledge Representation.md",
-    "Fundamentals of Intelligent Agents Architecture, Environments, and Taxonomy.md",
+    "class notes/Fundamentals of Intelligent Agents Architecture, Environments, and Taxonomy.md",
     "class notes/Wireless Communication and Mobile Computing.md",
     "Projects/anime tracker (launcher, companion).md",
     "class notes/Computer Graphics and Hardware Systems.md",
