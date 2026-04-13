@@ -43,13 +43,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Coding/backend/Rest API Design.md",
+                "file": "DSA & CP/Graph Theory.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Rest API Design"
+              "title": "Graph Theory"
             }
           }
         ],
@@ -127,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "References/Rich library.md",
+                "file": "DSA & CP/Graph Theory.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -137,7 +137,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Rich library"
+              "title": "Backlinks for Graph Theory"
             }
           },
           {
@@ -146,12 +146,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CP/Competitive Programmer’s Handbook Chapter 1.md",
+                "file": "DSA & CP/Graph Theory.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Competitive Programmer’s Handbook Chapter 1"
+              "title": "Outgoing links from Graph Theory"
             }
           },
           {
@@ -189,17 +189,17 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "here.md",
+                "file": "DSA & CP/Graph Theory.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of here"
+              "title": "Outline of Graph Theory"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -219,12 +219,24 @@
   },
   "active": "587f460ec05b6703",
   "lastOpenFiles": [
-    "Coding/backend/HTTP Request.md",
+    "static/Images/Pasted image 20260413125623.png",
+    "static/Images/Pasted image 20260413125114.png",
+    "static/Images/Pasted image 20260413125102.png",
+    "static/Images/Pasted image 20260413125031.png",
+    "static/Images/Pasted image 20260413123108.png",
+    "static/Images/Pasted image 20260413122557.png",
+    "static/Images/Pasted image 20260413121613.png",
+    "static/Images/Pasted image 20260413111536.png",
+    "static/Images/Pasted image 20260413111356.png",
+    "DSA & CP/Graph Theory.md",
+    "Coding/Fundamentals/DSA.md",
+    "graphs.md",
     "Coding/ML/Machine Learning.md",
+    "Coding/backend/HTTP Request.md",
     "Coding/backend/Rest API Design.md",
+    "Untitled.md",
     "class notes/Fundamentals and Applications of Mobile Computing.md",
     "class notes/Comprehensive Briefing Fundamentals and Applications of Artificial Intelligence.md",
-    "Untitled.md",
     "2026-04-07.md",
     "index.md",
     "Coding/backend",
@@ -245,21 +257,9 @@
     "References/Monolithic Project Structures.md",
     "static/Images/Pasted image 20260304095454.png",
     "static/Images/Pasted image 20260304095544.png",
-    "static/Images/Pasted image 20260304090501.png",
     "DSA & CP/Sorting Basics.md",
-    "Coding/Python/python env.md",
-    "DSA & CP/Competitive Programmer’s Handbook Chapter 1.md",
-    "In-place algorithm.md",
-    "References/Rich library.md",
     "DSA & CP",
     "_templates",
-    "static/Images/Pasted image 20260202234443.png",
-    "static/Images/cats banner.png",
-    "static/cats banner.png",
-    "static/Pasted image.png",
-    "static/Images/Pasted Image 20260125121023_337.png",
-    "static/Images/Pasted Image 20260125120826_461.png",
-    "static/Images/Pasted Image 20260125120630_345.png",
     "static/Images",
     "static/Excalidraw",
     "static",

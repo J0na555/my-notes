@@ -73,7 +73,7 @@ In this DS, one element is connected to only one another element in a linear for
 When one element is connected to the 'n' number of elements is known as non- linear DS.
 For example
  - [[trees]]
- - [[graphs]]
+ - [[Graph Theory]]
 in this case, elements are arranged in a random manner.
 
 ##### Operations on data structure
