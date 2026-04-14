@@ -110,8 +110,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 215.5,
-    "collapsed": true
+    "width": 215.5
   },
   "right": {
     "id": "5e975ba4e83c3b2b",
@@ -203,8 +202,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -219,20 +217,21 @@
   },
   "active": "587f460ec05b6703",
   "lastOpenFiles": [
-    "static/Images/Pasted image 20260413125623.png",
-    "static/Images/Pasted image 20260413125114.png",
-    "static/Images/Pasted image 20260413125102.png",
-    "static/Images/Pasted image 20260413125031.png",
-    "static/Images/Pasted image 20260413123108.png",
-    "static/Images/Pasted image 20260413122557.png",
-    "static/Images/Pasted image 20260413121613.png",
-    "static/Images/Pasted image 20260413111536.png",
-    "static/Images/Pasted image 20260413111356.png",
+    "Coding/backend/HTTP Request.md",
+    "Coding/ML/Machine Learning.md",
     "DSA & CP/Graph Theory.md",
+    "static/Images/Pasted image 20260414170136.png",
+    "static/Images/Pasted image 20260414170037.png",
+    "static/Images/Pasted image 20260414163513.png",
+    "static/Images/Pasted image 20260414163310.png",
+    "static/Images/Pasted image 20260414132536.png",
+    "static/Images/Pasted image 20260414132456.png",
+    "static/Images/Pasted image 20260414132422.png",
+    "static/Images/Pasted image 20260414125034.png",
+    "static/Images/Pasted image 20260414124852.png",
+    "static/Images/Pasted image 20260413125623.png",
     "Coding/Fundamentals/DSA.md",
     "graphs.md",
-    "Coding/ML/Machine Learning.md",
-    "Coding/backend/HTTP Request.md",
     "Coding/backend/Rest API Design.md",
     "Untitled.md",
     "class notes/Fundamentals and Applications of Mobile Computing.md",
@@ -255,8 +254,6 @@
     "References/Typer.md",
     "DSA & CP/Two Pointers.md",
     "References/Monolithic Project Structures.md",
-    "static/Images/Pasted image 20260304095454.png",
-    "static/Images/Pasted image 20260304095544.png",
     "DSA & CP/Sorting Basics.md",
     "DSA & CP",
     "_templates",
