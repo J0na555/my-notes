@@ -3,6 +3,7 @@ title: Stacks in C++ (see also [[Stacks]])
 tags:
   - dsa
   - stacks
+  - "#java"
 date: 2025-06-16
 ---
 

@@ -43,13 +43,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DSA & CP/Graph Theory.md",
+                "file": "DSA & CP/Stacks, Queues and Monotonicity.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Graph Theory"
+              "title": "Stacks, Queues and Monotonicity"
             }
           }
         ],
@@ -188,13 +188,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DSA & CP/Graph Theory.md",
+                "file": "DSA & CP/Stacks, Queues and Monotonicity.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Graph Theory"
+              "title": "Outline of Stacks, Queues and Monotonicity"
             }
           }
         ],
@@ -215,25 +215,28 @@
       "bases:Create new base": false
     }
   },
-  "active": "587f460ec05b6703",
+  "active": "1313e9b1499f93c5",
   "lastOpenFiles": [
+    "static/Images/Pasted image 20260415145512.png",
+    "static/Images/Pasted image 20260415145348.png",
+    "static/Images/Pasted image 20260415144723.png",
+    "static/Images/Pasted image 20260415144402.png",
+    "Pasted image 20260415144330.png",
+    "DSA & CP/Stacks, Queues and Monotonicity.md",
+    "Coding/Fundamentals/stack.md",
+    "Untitled.md",
+    "DSA & CP/Graph Theory.md",
     "Coding/backend/HTTP Request.md",
     "Coding/ML/Machine Learning.md",
-    "DSA & CP/Graph Theory.md",
     "static/Images/Pasted image 20260414170136.png",
     "static/Images/Pasted image 20260414170037.png",
     "static/Images/Pasted image 20260414163513.png",
     "static/Images/Pasted image 20260414163310.png",
     "static/Images/Pasted image 20260414132536.png",
     "static/Images/Pasted image 20260414132456.png",
-    "static/Images/Pasted image 20260414132422.png",
-    "static/Images/Pasted image 20260414125034.png",
-    "static/Images/Pasted image 20260414124852.png",
-    "static/Images/Pasted image 20260413125623.png",
     "Coding/Fundamentals/DSA.md",
     "graphs.md",
     "Coding/backend/Rest API Design.md",
-    "Untitled.md",
     "class notes/Fundamentals and Applications of Mobile Computing.md",
     "class notes/Comprehensive Briefing Fundamentals and Applications of Artificial Intelligence.md",
     "2026-04-07.md",
@@ -253,8 +256,6 @@
     "References/Competitive Programming Math Notes — Writing Guide.md",
     "References/Typer.md",
     "DSA & CP/Two Pointers.md",
-    "References/Monolithic Project Structures.md",
-    "DSA & CP/Sorting Basics.md",
     "DSA & CP",
     "_templates",
     "static/Images",
