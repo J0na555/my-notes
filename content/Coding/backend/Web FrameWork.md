@@ -31,10 +31,10 @@ Content-Type: application/json
 ```
 
 ### Steps to implement
-- [ ] Read socket until `\r\n\r\n` (end of headers)
-- [ ] Parse request line → `method`, `path`, `version`
-- [ ] Parse headers into dict (case-insensitive keys)
-- [ ] Read body using `Content-Length` header
+-  Read socket until `\r\n\r\n` (end of headers)
+-  Parse request line → `method`, `path`, `version`
+-  Parse headers into dict (case-insensitive keys)
+-  Read body using `Content-Length` header
 
 ### Code skeleton
 ```python
@@ -49,10 +49,10 @@ class Request:
 ```
 
 ### Edge cases
-- [ ] Missing headers
-- [ ] Chunked transfer encoding
-- [ ] Large bodies (need streaming)
-- [ ] URL-encoded query params
+-  Missing headers
+-  Chunked transfer encoding
+-  Large bodies (need streaming)
+-  URL-encoded query params
 
 **Related:** [[#Routing]] | [[#Error handling]]
 
@@ -71,10 +71,10 @@ def add_route(method, path, handler):
 ```
 
 ### Path parameter support
-| Pattern | Example | Captured |
-|---------|---------|----------|
-| `/users/:id` | `/users/42` | `id=42` |
-| `/files/*` | `/files/js/app.js` | wildcard capture |
+| Pattern      | Example            | Captured         |
+| ------------ | ------------------ | ---------------- |
+| `/users/:id` | `/users/42`        | `id=42`          |
+| `/files/*`   | `/files/js/app.js` | wildcard capture |
 
 ### Matching logic (priority order)
 1. Static routes (exact match)
@@ -83,9 +83,9 @@ def add_route(method, path, handler):
 4. 404 if none match
 
 ### Expansion ideas
-- [ ] Trie/radix tree for performance
-- [ ] Reverse routing (generate URL from route name)
-- [ ] Route groups/prefixes
+- Trie/radix tree for performance
+- Reverse routing (generate URL from route name)
+- Route groups/prefixes
 
 **Related:** [[#Controller handlers]] | [[#HTTP parser]]
 
@@ -163,11 +163,11 @@ def logger_middleware(request, next_middleware):
 ```
 
 ### Built-in middleware ideas
-- [ ] Logger
-- [ ] Auth (sets `request.user`)
-- [ ] CORS
-- [ ] Rate limiter
-- [ ] Compression
+- Logger
+- Auth (sets `request.user`)
+- CORS
+- Rate limiter
+- Compression
 
 **Related:** [[#Error handling]] | [[#Controller handlers]]
 
@@ -176,12 +176,12 @@ def logger_middleware(request, next_middleware):
 ## Error handling
 
 ### Error types to handle
-| Error | HTTP Status | When |
-|-------|-------------|------|
-| `RouteNotFoundError` | 404 | No route matches |
-| `MethodNotAllowedError` | 405 | Path exists but wrong method |
-| `BadRequestError` | 400 | Malformed HTTP/invalid params |
-| `InternalError` | 500 | Uncaught exception |
+| Error                   | HTTP Status | When                          |
+| ----------------------- | ----------- | ----------------------------- |
+| `RouteNotFoundError`    | 404         | No route matches              |
+| `MethodNotAllowedError` | 405         | Path exists but wrong method  |
+| `BadRequestError`       | 400         | Malformed HTTP/invalid params |
+| `InternalError`         | 500         | Uncaught exception            |
 
 ### Centralized handler
 ```python
@@ -250,10 +250,10 @@ def render_template(template_name, context):
 ```
 
 ### Expansion ideas
-- [ ] Template inheritance (`{% extends %}`)
-- [ ] Auto-escaping (XSS prevention)
-- [ ] Caching compiled templates
-- [ ] Support Jinja2 as alternative
+- Template inheritance (`{% extends %}`)
+- Auto-escaping (XSS prevention)
+- Caching compiled templates
+- Support Jinja2 as alternative
 
 **Related:** [[#Controller handlers]] | [[#Error handling]]
 
@@ -287,15 +287,15 @@ def render_template(template_name, context):
 
 ## Implementation order
 
-1. [ ] HTTP parser + basic Response (static "Hello World")
-2. [ ] Router (static routes only)
-3. [ ] Error handling (404, 500)
-4. [ ] Controller handlers (Request → Response)
-5. [ ] Middleware pipeline
-6. [ ] Path parameters (dynamic routes)
-7. [ ] Query string parsing
-8. [ ] Template engine
-9. [ ] Production hardening (keep-alive, chunked, streaming)
+1. HTTP parser + basic Response (static "Hello World")
+2. Router (static routes only)
+3. Error handling (404, 500)
+4. Controller handlers (Request → Response)
+5. Middleware pipeline
+6. Path parameters (dynamic routes)
+7. Query string parsing
+8. Template engine
+9. Production hardening (keep-alive, chunked, streaming)
 
 ---
 
