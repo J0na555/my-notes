@@ -6,14 +6,21 @@ publish: "true"
 ---
 ## Contents
 
+> - [[#Request lifecycle]]
 > - [[#HTTP parser]]
 > - [[#Routing]]
 > - [[#Controller handlers]]
+> - [[#framework API design checklist]]
 > - [[#Middleware pipeline]]
 > - [[#Error handling]]
 > - [[#Template engine]]
 > - [[#Complete request flow]]
-> - [[#Implementation order]]
+> - [[#Quick reference table]]
+> - [[#Framework Comparison Table]]
+> - [[#Future Improvements]]
+> - [[#Out of Scope]]
+> - [[#Framework Architecture Decisions]]
+> - [[#Lessons learned]]]
 
 ---
 When I first thought about building a web framework, I assumed parsing HTTP would take maybe 30 minutes.
