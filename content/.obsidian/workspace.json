@@ -188,13 +188,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Coding/backend/Let’s Build A Web Server 2.md",
-                "followCursor": false,
-                "showSearch": false,
+                "file": "Coding/backend/Web FrameWork.md",
+                "followCursor": true,
+                "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Let’s Build A Web Server 2"
+              "title": "Outline of Web FrameWork"
             }
           }
         ],
@@ -202,8 +202,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 394.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -216,16 +215,16 @@
       "bases:Create new base": false
     }
   },
-  "active": "e2f512fe54233842",
+  "active": "2fa9b9740ab3b700",
   "lastOpenFiles": [
-    "_templates/writing.md",
+    "Coding/backend/Let’s Build A Web Server 2.md",
     "Coding/backend/Web FrameWork.md",
+    "_templates/writing.md",
     "_templates/default-note.md.md",
     "Coding/test-publish/my-test-note.md",
     "Coding/test-publish",
     "Projects/Summer 2026 Build In Public Engineering Journey.md",
     "Coding/backend/Let’s Build A Web Server 1.md",
-    "Coding/backend/Let’s Build A Web Server 2.md",
     "Coding/backend/HTTP Request.md",
     "static/Images/Pasted image 20260529214712.png",
     "static/Images/Pasted image 20260529212837.png",
