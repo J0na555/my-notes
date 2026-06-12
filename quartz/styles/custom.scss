@@ -1,40 +1,208 @@
 @use "./base.scss";
 
-// Create depth with layered backgrounds: deep charcoal app → lifted obsidian card
-body {
-  background-color: #0f1116; // Deep matte charcoal for app background
+/* =========================================================
+   BRAINLKADRE DESIGN TOKENS
+   Supplement Quartz's palette (--light/--dark/--secondary...)
+   with surface + accent-glow tokens the mockup relies on.
+   ========================================================= */
+:root {
+  --surface: #161616;
+  --surface-hover: #1a1a1a;
+  --elevated: #1f1f1f;
+  --accent: #d4a0a0;
+  --accent-dim: #b88888;
+  --accent-glow: rgba(212, 160, 160, 0.1);
+  --callout-bg: rgba(212, 160, 160, 0.06);
+  --callout-border: rgba(212, 160, 160, 0.2);
+
+  --content-width: 720px;
+  --rail-width: 280px;
+  --nav-height: 3.5rem;
 }
 
-/* Hide the main title on the index.md page (the homepage) */
+:root[saved-theme="light"] {
+  --surface: #f1ebeb;
+  --surface-hover: #e9e0e0;
+  --elevated: #ffffff;
+  --accent: #b06a6a;
+  --accent-dim: #c98a8a;
+  --accent-glow: rgba(176, 106, 106, 0.08);
+  --callout-bg: rgba(176, 106, 106, 0.05);
+  --callout-border: rgba(176, 106, 106, 0.18);
+}
+
+/* =========================================================
+   FULL-BLEED SHELL (drop the card, hug the edges)
+   ========================================================= */
+body {
+  background-color: var(--light);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--light);
+}
+
+/* Hide the main title + meta on the index.md homepage */
 [data-slug="index"] header h1 {
   display: none;
 }
-
-/* Hide the metadata (including reading time, date, etc.) on the homepage */
 .home-page .content-meta {
   display: none;
 }
 
-#quartz-body {
-  background-color: #0f1116; // Match deep charcoal - creates strong contrast with card
-  min-height: 100vh;
-  column-gap: 2.5rem !important; // Prevent sidebar overlap with generous gutter
-  padding-top: 2rem;
+.page {
+  // Full-bleed: let the grid span the whole viewport
+  max-width: 100% !important;
+  margin: 0 !important;
+  // Establish a stacking context above the fixed particle field
+  position: relative;
+  z-index: 1;
 }
 
-// Horizontal Header Alignment - Above bordered content
+#quartz-body {
+  // Transparent so the body background (and particles behind it) show through
+  // the gaps of the centered content column
+  background-color: transparent;
+  min-height: 100vh;
+  column-gap: 0 !important;
+  padding: 0 !important;
+
+  // Three-column rail layout on desktop, tuned to the mockup's 280px rails
+  @media all and (min-width: 1200px) {
+    grid-template-columns: var(--rail-width) minmax(0, 1fr) var(--rail-width) !important;
+    grid-template-areas:
+      "grid-sidebar-left grid-header grid-sidebar-right"
+      "grid-sidebar-left grid-center grid-sidebar-right"
+      "grid-sidebar-left grid-footer grid-sidebar-right" !important;
+  }
+}
+
+/* =========================================================
+   SIDEBARS — full-height sticky panels with dividers
+   ========================================================= */
+.page > #quartz-body .sidebar {
+  height: 100vh !important;
+  max-height: 100vh;
+  position: sticky !important;
+  top: 0 !important;
+  margin: 0 !important;
+  padding: 1.75rem 1.25rem !important;
+  gap: 1.5rem;
+  background-color: var(--light);
+  overflow-y: auto;
+  border-radius: 0;
+
+  @media all and (max-width: 1200px) {
+    height: auto !important;
+    max-height: none;
+    position: relative !important;
+    overflow-y: visible;
+  }
+}
+
+.page > #quartz-body .sidebar.left {
+  border-right: 1px solid var(--lightgray);
+
+  @media all and (max-width: 1200px) {
+    border-right: none;
+    border-bottom: 1px solid var(--lightgray);
+    padding: 0.75rem 1rem !important;
+  }
+}
+
+.page > #quartz-body .sidebar.right {
+  border-left: 1px solid var(--lightgray);
+
+  @media all and (max-width: 1200px) {
+    border-left: none;
+  }
+}
+
+/* =========================================================
+   CENTER CONTENT — no card, centered 720px column
+   ========================================================= */
+.center {
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  max-width: var(--content-width) !important;
+  width: 100%;
+  margin: 0 auto !important;
+  padding: 3rem 2.5rem 6rem !important;
+  min-height: auto !important;
+  animation: fx-fade-in 0.4s ease-out;
+
+  @media all and (max-width: 800px) {
+    padding: 1.5rem 1.25rem 4rem !important;
+  }
+
+  & > .article-title {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 300;
+    line-height: 1.25;
+    color: var(--dark);
+  }
+
+  & > .content-meta {
+    margin-top: 0 !important;
+    margin-bottom: 1rem;
+    font-family: var(--codeFont);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--gray);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  & > ul.tags {
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  & > article {
+    margin-top: 1rem;
+  }
+}
+
+@keyframes fx-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .center {
+    animation: none;
+  }
+}
+
+/* =========================================================
+   PAGE HEADER — breadcrumb left, search/darkmode right
+   ========================================================= */
 .page-header {
   display: flex;
-  flex-direction: row-reverse; // Search/Darkmode on right, Breadcrumbs on left
-  align-items: center; // Vertically center all items on the same horizontal line
+  flex-direction: row-reverse;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  margin-top: 0 !important;
-  margin-bottom: 1rem; // Space between header and bordered content box
-  padding: 0 1rem;
+  max-width: var(--content-width);
+  width: 100%;
+  margin: 0 auto !important;
+  padding: 1rem 2.5rem 0;
 
-  // Search and Dark Mode icons (grouped on the right)
-  &>header {
+  & > header {
     width: auto;
     padding: 0;
     margin: 0;
@@ -44,266 +212,321 @@ body {
     gap: 0.75rem;
   }
 
-  // Breadcrumbs on the left
-  &>.popover-hint {
+  & > .popover-hint {
     flex-grow: 1;
     display: flex;
     align-items: center;
 
     .breadcrumb-container {
       margin: 0;
+      font-family: var(--codeFont);
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
     }
+  }
+
+  .breadcrumb-container a:first-child {
+    color: var(--accent);
+    font-weight: 600;
   }
 
   @media all and (max-width: 800px) {
     flex-direction: column;
     align-items: flex-start;
+    padding: 1rem 1.25rem 0;
 
-    &>header {
+    & > header {
       width: 100%;
       justify-content: space-between;
     }
   }
-
-  // Breadcrumb Home Accent
-  .breadcrumb-container a:first-child {
-    color: var(--tertiary);
-    font-weight: 600;
-  }
 }
 
-// Strict Max Width to Prevent Sidebar Overlap
-.center {
-  background-color: var(--light);
-  border: 1px solid var(--gray); // Warm copper/bronze border for premium feel
-  border-radius: 12px;
-  padding: 2rem 4rem 4rem 4rem;
-  margin-top: 0; // Header now provides spacing above
-  margin-bottom: 2rem;
-  // Enhanced shadow for depth: larger, softer shadow with warm undertone
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(139, 115, 85, 0.15);
-  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-
-  // Ensure vertical prominence
-  min-height: calc(100vh - 12rem);
-
-  // The center column should never exceed 100% of its grid area
-  max-width: 100% !important;
-  width: 100%;
-  box-sizing: border-box;
-
-  // On mobile, we might want less padding
-  @media all and (max-width: 800px) {
-    padding: 1rem;
-    margin: 1rem 0;
-    min-height: auto;
-  }
-
-  // On tablet and desktop, enforce strict width bounds
-  @media all and (min-width: 801px) {
-    // Ensure the content stays within its grid area and doesn't overflow
-    overflow-x: hidden;
-  }
-
-  // Article Title & Content Metadata - Style when inside bordered content container
-  &>.article-title {
-    margin-top: 1.5rem !important;
-    margin-bottom: 0.5rem;
-    font-size: 2rem;
-    line-height: 1.3;
-    color: var(--dark);
-    padding-top: 0;
-  }
-
-  &>.content-meta {
-    margin-top: 0 !important;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-    opacity: 0.8;
-
-    // Ensure reading time and date are on the same horizontal line
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    align-items: center;
-  }
-
-  &>ul.tags {
-    margin-top: 0.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  // Add spacing to article content to separate from title/metadata
-  &>article {
-    margin-top: 1rem;
-  }
-}
-
-// Ensure sidebars sit independently and are sticky
-.sidebar {
-  height: fit-content !important;
-  max-height: calc(100vh - 4rem);
-  position: sticky !important;
-  top: 2rem !important;
-  padding-top: 1rem !important;
-
-  // Remove default background if any, and keep them floating
-  background-color: rgba(255, 255, 255, 0.03) !important;
-  border-radius: 8px;
-  padding: 1rem !important;
-  margin-top: 2rem !important; // Align with card top
-}
-
-// Optional: Subtle border for sidebars to match the "framed" aesthetic
-// .sidebar.left {
-//   border-right: 1px solid var(--lightgray);
-// }
-// .sidebar.right {
-//   border-left: 1px solid var(--lightgray);
-// }
-
-// Override dark backgrounds when light mode is active
-:root[saved-theme="light"] {
-
-  // Full Page Override: Clean white/light grey for entire site
-  body {
-    background-color: #f8f9fa !important; // Very light cool grey for app background
-  }
-
-  #quartz-body {
-    background-color: #f8f9fa !important; // Match the body background perfectly
-  }
-
-  // Card Contrast: White card with soft grey border
-  .center {
-    background-color: #ffffff !important; // Pure white for main content card
-    border-color: #e1e4e8 !important; // Soft light grey border (minimalist)
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04) !important; // Subtle light mode shadow
-  }
-
-  // Page container background consistency
-  .page {
-    background-color: #f8f9fa !important;
-  }
-
-  // Sidebar Harmony: Ensure sidebars match page background
-  .sidebar {
-    background-color: rgba(0, 0, 0, 0.02) !important; // Subtle contrast in light mode
-
-    // Sidebar text colors - dark text on light background
-    color: var(--darkgray);
-
-    * {
-      color: var(--darkgray); // Ensure all child elements have dark text
-    }
-
-    // Links in sidebar
-    a {
-      color: var(--secondary);
-
-      &:hover {
-        color: var(--tertiary);
-      }
-    }
-
-    // Headings in sidebar
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      color: var(--dark);
-    }
-  }
-
-  // Explorer component specific overrides
+/* =========================================================
+   LEFT NAV (Explorer) — mono, section-style hover/active
+   Long labels wrap instead of clipping at the rail edge.
+   ========================================================= */
+.sidebar.left {
   .explorer {
-    background-color: transparent !important;
+    min-width: 0;
+    overflow: visible;
+  }
 
-    .folder,
-    .file {
-      color: var(--darkgray);
+  .explorer-content {
+    overflow-x: visible;
+    overflow-y: auto;
+    min-width: 0;
+    max-height: none !important;
+
+    // Quartz's OverflowList caps height at 350px and adds a bottom fade;
+    // in the left rail we want the full tree scrollable without clipping text.
+    ul.explorer-ul.overflow {
+      max-height: calc(100vh - 10rem);
+      mask-image: none;
+
+      &::after {
+        display: none;
+      }
+
+      &.gradient-active {
+        mask-image: none;
+      }
     }
 
-    .folder-title {
-      color: var(--dark);
+    & ul li > a,
+    .folder-container div > a,
+    .folder-container div > button span {
+      font-family: var(--codeFont);
+      font-size: 0.78rem;
+      letter-spacing: 0.01em;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      line-height: 1.45;
     }
 
-    button {
-      color: var(--darkgray);
+    & ul li > a {
+      display: block;
+      padding: 6px 10px;
+      border-radius: 4px;
+      border-left: 2px solid transparent;
+      transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
 
       &:hover {
+        background-color: var(--surface);
         color: var(--dark);
+        opacity: 1;
+      }
+
+      &.active {
+        background-color: var(--accent-glow);
+        color: var(--accent);
+        border-left-color: var(--accent);
+        opacity: 1;
+      }
+    }
+
+    .folder-container {
+      min-width: 0;
+
+      & > div {
+        min-width: 0;
+        flex: 1;
       }
     }
   }
+}
 
-  // Backlinks component
-  .backlinks {
-    background-color: transparent !important;
-
-    h3 {
-      color: var(--dark);
-    }
-
-    li,
-    a {
-      color: var(--darkgray);
-    }
+/* =========================================================
+   GRAPH — recolor + framed surface like the mockup
+   ========================================================= */
+.graph {
+  & > h3 {
+    font-family: var(--codeFont);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gray);
   }
 
-  // Graph View overrides
-  .graph {
-    background-color: transparent !important;
+  .graph-outer {
+    border: 1px solid var(--lightgray);
+    border-radius: 6px;
+    background-color: var(--surface);
+  }
+}
 
-    canvas {
-      background-color: transparent !important;
-    }
+/* =========================================================
+   TABLE OF CONTENTS — left border rail like the mockup
+   ========================================================= */
+.toc {
+  & > h3,
+  & .toc-title {
+    font-family: var(--codeFont);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gray);
   }
 
-  // Ensure page header matches background
-  .page-header {
-    background-color: transparent !important;
-
-    .breadcrumb-container {
-
-      a,
-      span {
-        color: var(--darkgray);
-      }
-    }
-  }
-
-  // Search and darkmode toggle
-  .search,
-  .darkmode {
-    svg {
-      fill: var(--darkgray);
-
-      &:hover {
-        fill: var(--dark);
-      }
-    }
-  }
-
-  // Article title and metadata in light mode
-  .article-title {
-    color: var(--dark) !important;
-  }
-
-  .content-meta {
-    color: var(--darkgray) !important;
-  }
-
-  // Tags in light mode
-  .tags a {
-    color: var(--darkgray);
-    background-color: rgba(0, 0, 0, 0.05);
+  ul li > a {
+    border-left: 2px solid var(--lightgray);
+    padding: 6px 0 6px 12px;
+    transition:
+      color 0.15s ease,
+      border-color 0.15s ease;
 
     &:hover {
       color: var(--dark);
-      background-color: rgba(0, 0, 0, 0.08);
+      border-left-color: var(--accent);
     }
+
+    &.in-view {
+      color: var(--accent);
+      border-left-color: var(--accent);
+    }
+  }
+}
+
+/* =========================================================
+   BACKLINKS — keep Quartz's tree spine, just mono-style the title
+   (colors inherit from the rose palette via --tertiary/--lightgray)
+   ========================================================= */
+.backlinks > h3 {
+  font-family: var(--codeFont);
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gray);
+}
+
+/* =========================================================
+   TAGS — rose pill chips
+   ========================================================= */
+.tags > li > a,
+a.internal.tag-link {
+  font-family: var(--codeFont);
+  font-size: 0.7rem;
+  color: var(--accent);
+  background-color: var(--accent-glow);
+  border: 1px solid var(--callout-border);
+  border-radius: 4px;
+  padding: 4px 10px;
+
+  &:hover {
+    color: var(--accent);
+    background-color: var(--callout-bg);
+  }
+}
+
+/* =========================================================
+   SEARCH + DARKMODE icons recolor
+   ========================================================= */
+.search .search-button {
+  background-color: var(--surface);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+
+  & svg,
+  & p {
+    color: var(--gray);
+    fill: var(--gray);
+  }
+
+  &:hover {
+    & svg,
+    & p {
+      color: var(--accent);
+      fill: var(--accent);
+    }
+  }
+}
+
+.darkmode svg {
+  fill: var(--gray);
+
+  &:hover {
+    fill: var(--accent);
+  }
+}
+
+/* =========================================================
+   MOBILE — sticky header bar + slide-in drawer (mockup style)
+   ========================================================= */
+@media all and (max-width: 800px) {
+  // Collapse side rails out of the document flow — header controls are fixed
+  #quartz-body {
+    grid-template-areas:
+      "grid-center"
+      "grid-footer" !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto auto !important;
+    row-gap: 0 !important;
+    padding: 0 !important;
+  }
+
+  // Hide desktop-only right rail on mobile
+  .sidebar.right {
+    display: none !important;
+  }
+
+  // Content sits below the fixed mobile header
+  .center {
+    padding-top: calc(var(--nav-height) + 1.5rem) !important;
+    max-width: 100% !important;
+
+    & > .article-title {
+      text-align: center;
+      font-weight: 300;
+    }
+
+    & > .content-meta {
+      justify-content: center;
+    }
+  }
+
+  // Theme toggle pinned to the top-right of the header bar
+  .page-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 301;
+    width: auto;
+    max-width: none;
+    margin: 0 !important;
+    padding: 0 1rem 0 0;
+    height: var(--nav-height);
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+
+    & > .popover-hint {
+      display: none;
+    }
+
+    & > header {
+      pointer-events: auto;
+      height: 100%;
+      align-items: center;
+      gap: 0;
+
+      .search {
+        display: none;
+      }
+    }
+  }
+
+  // Left sidebar becomes the fixed header shell (hamburger + brand live inside .explorer)
+  .page > #quartz-body .sidebar.left {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 0 !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    z-index: 300;
+    overflow: visible;
+    background: transparent !important;
+  }
+
+  // Hide scroll vine on mobile — it overlaps the drawer edge
+  .scroll-vine,
+  #fx-scroll-vine {
+    display: none !important;
+  }
+}
+
+@media all and (max-width: 1200px) {
+  .sidebar.left:has(.explorer) {
+    background-color: var(--light) !important;
   }
 }

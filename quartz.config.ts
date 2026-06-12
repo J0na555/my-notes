@@ -8,7 +8,7 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Quartz 4",
+    pageTitle: "Jonas's Garden",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
@@ -24,33 +24,34 @@ const config: QuartzConfig = {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Schibsted Grotesk",
-        body: "Source Sans Pro",
-        code: "IBM Plex Mono",
+        header: "IBM Plex Sans",
+        body: "IBM Plex Sans",
+        code: "JetBrains Mono",
       },
       colors: {
         lightMode: {
-          light: "#faf8f8",
-          lightgray: "#e5e5e5",
-          gray: "#b8b8b8",
-          darkgray: "#4e4e4e",
-          dark: "#2b2b2b",
-          secondary: "#284b63",
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
-          textHighlight: "#fff23688",
+          // Brainlkadre rose — light variant (warm off-white + muted rose)
+          light: "#faf7f7",        // App + content background
+          lightgray: "#ece5e5",    // Borders, dividers, code surfaces
+          gray: "#b8a8a8",         // Muted text, graph links
+          darkgray: "#5a5050",     // Body text
+          dark: "#2b2424",         // Headings, strong text
+          secondary: "#b06a6a",    // Links / primary rose accent (contrast-safe on light)
+          tertiary: "#c98a8a",     // Hover accent
+          highlight: "rgba(176, 106, 106, 0.1)",   // Internal link + selection tint
+          textHighlight: "#d4a0a059",              // Highlighted text background
         },
         darkMode: {
-          // Dark Academy / Deep Tech Color Scheme
-          light: "#1a1d23",        // Card Background: Lifted obsidian-grey for main content container
-          lightgray: "#252930",    // Subtle elevated surfaces (code blocks, hover states)
-          gray: "#8b7355",         // Border: Warm muted copper/bronze for premium borders
-          darkgray: "#a8a29e",     // Metadata: Muted warm grey for secondary text (reading time, dates)
-          dark: "#f5f1ed",         // Typography: High-contrast warm off-white for titles and body
-          secondary: "#60d5e8",    // Accent: Soft glowing cyan for links and interactive elements
-          tertiary: "#d4a574",     // Tertiary Accent: Warm amber/gold for hover states and highlights
-          highlight: "rgba(96, 213, 232, 0.12)",  // Link/selection highlight with cyan tint
-          textHighlight: "#d4a57433",             // Text highlight with warm amber tint
+          // Brainlkadre rose — dark + rose on near-black
+          light: "#0d0d0d",        // App + content background (full-bleed)
+          lightgray: "#252525",    // Borders, dividers
+          gray: "#666666",         // Muted text, graph links
+          darkgray: "#c9c9c9",     // Body text
+          dark: "#e8e8e8",         // Headings, strong text
+          secondary: "#d4a0a0",    // Links / primary rose accent
+          tertiary: "#e8b8b8",     // Hover accent
+          highlight: "rgba(212, 160, 160, 0.1)",   // Internal link + selection tint (accent-glow)
+          textHighlight: "rgba(212, 160, 160, 0.2)", // Highlighted text background
         },
       },
     },

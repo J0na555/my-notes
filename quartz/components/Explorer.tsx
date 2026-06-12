@@ -76,11 +76,13 @@ export default ((userOpts?: Partial<Options>) => {
           mapFn: opts.mapFn.toString(),
         })}
       >
+        <span class="mobile-brand mobile-only">{cfg.pageTitle.toUpperCase()}</span>
         <button
           type="button"
           class="explorer-toggle mobile-explorer hide-until-loaded"
           data-mobile={true}
           aria-controls={id}
+          aria-label="Open menu"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -120,8 +122,29 @@ export default ((userOpts?: Partial<Options>) => {
           </svg>
         </button>
         <div id={id} class="explorer-content" aria-expanded={false} role="group">
+          <div class="mobile-drawer-header mobile-only">
+            <span class="mobile-drawer-brand">{cfg.pageTitle.toUpperCase()}</span>
+            <button
+              type="button"
+              class="explorer-toggle mobile-drawer-close"
+              aria-label="Close menu"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
           <OverflowList class="explorer-ul" />
         </div>
+        <div class="mobile-explorer-overlay mobile-only" aria-hidden="true"></div>
         <template id="template-file">
           <li>
             <a href="#"></a>
