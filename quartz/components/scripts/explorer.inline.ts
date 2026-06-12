@@ -20,6 +20,18 @@ type FolderState = {
 }
 
 let currentExplorerState: Array<FolderState>
+
+function setMobileExplorerOpen(open: boolean) {
+  document.getElementById("quartz-body")?.classList.toggle("mobile-explorer-open", open)
+}
+
+function closeMobileExplorer(explorer: HTMLElement) {
+  explorer.classList.add("collapsed")
+  explorer.setAttribute("aria-expanded", "false")
+  document.documentElement.classList.remove("mobile-no-scroll")
+  setMobileExplorerOpen(false)
+}
+
 function toggleExplorer(this: HTMLElement) {
   const nearestExplorer = this.closest(".explorer") as HTMLElement
   if (!nearestExplorer) return
@@ -32,8 +44,10 @@ function toggleExplorer(this: HTMLElement) {
   if (!explorerCollapsed) {
     // Stop <html> from being scrollable when mobile explorer is open
     document.documentElement.classList.add("mobile-no-scroll")
+    setMobileExplorerOpen(true)
   } else {
     document.documentElement.classList.remove("mobile-no-scroll")
+    setMobileExplorerOpen(false)
   }
 }
 
@@ -241,6 +255,13 @@ async function setupExplorer(currentSlug: FullSlug) {
       window.addCleanup(() => button.removeEventListener("click", toggleExplorer))
     }
 
+    const overlay = explorer.querySelector(".mobile-explorer-overlay") as HTMLElement | null
+    if (overlay) {
+      const onOverlayClick = () => closeMobileExplorer(explorer)
+      overlay.addEventListener("click", onOverlayClick)
+      window.addCleanup(() => overlay.removeEventListener("click", onOverlayClick))
+    }
+
     // Set up folder click handlers
     if (opts.folderClickBehavior === "collapse") {
       const folderButtons = explorer.getElementsByClassName(
@@ -276,7 +297,7 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
   // if mobile hamburger is visible, collapse by default
   for (const explorer of document.getElementsByClassName("explorer")) {
     const mobileExplorer = explorer.querySelector(".mobile-explorer")
-    if (!mobileExplorer) return
+    if (!mobileExplorer) continue
 
     if (mobileExplorer.checkVisibility()) {
       explorer.classList.add("collapsed")
@@ -284,6 +305,7 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
 
       // Allow <html> to be scrollable when mobile explorer is collapsed
       document.documentElement.classList.remove("mobile-no-scroll")
+      setMobileExplorerOpen(false)
     }
 
     mobileExplorer.classList.remove("hide-until-loaded")

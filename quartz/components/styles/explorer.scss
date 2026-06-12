@@ -2,23 +2,24 @@
 
 @media all and ($mobile) {
   .page > #quartz-body {
-    // Shift page position when toggling Explorer on mobile.
-    & > :not(.sidebar.left:has(.explorer)) {
-      transition: transform 300ms ease-in-out;
-    }
-
-    &.lock-scroll > :not(.sidebar.left:has(.explorer)) {
-      transform: translateX(100dvw);
-      transition: transform 300ms ease-in-out;
+    // Dim overlay is handled by .mobile-explorer-overlay inside .explorer
+    &.mobile-explorer-open {
+      overflow: hidden;
     }
 
     // Sticky top bar (stays in place when scrolling down on mobile).
     .sidebar.left:has(.explorer) {
       box-sizing: border-box;
-      position: sticky;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
       background-color: var(--light);
-      padding: 1rem 0 1rem 0;
+      padding: 0 1rem !important;
       margin: 0;
+      z-index: 300;
+      border-bottom: 1px solid var(--lightgray);
     }
 
     .hide-until-loaded ~ .explorer-content {
@@ -113,7 +114,7 @@ button.desktop-explorer {
 
 .explorer-content {
   list-style: none;
-  overflow: hidden;
+  overflow-x: visible;
   overflow-y: auto;
   margin-top: 0.5rem;
 
@@ -130,6 +131,9 @@ button.desktop-explorer {
       color: var(--dark);
       opacity: 0.75;
       pointer-events: all;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      word-break: break-word;
 
       &.active {
         opacity: 1;
@@ -163,8 +167,14 @@ button.desktop-explorer {
 .folder-container {
   flex-direction: row;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   user-select: none;
+  min-width: 0;
+
+  & div {
+    min-width: 0;
+    flex: 1;
+  }
 
   & div > a {
     color: var(--secondary);
@@ -173,6 +183,9 @@ button.desktop-explorer {
     font-weight: $semiBoldWeight;
     line-height: 1.5rem;
     display: inline-block;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   & div > a:hover {
@@ -199,6 +212,9 @@ button.desktop-explorer {
       margin: 0;
       line-height: 1.5rem;
       pointer-events: none;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
   }
 }
@@ -222,52 +238,152 @@ li:has(> .folder-outer:not(.open)) > .folder-container > svg {
 
 .explorer {
   @media all and ($mobile) {
+    width: 100%;
+    height: var(--nav-height, 3.5rem);
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 301;
+    background-color: var(--light);
+    border-bottom: 1px solid var(--lightgray);
+    padding: 0 1rem;
+    overflow: visible;
+
+    .mobile-brand {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--codeFont);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dark);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
     &.collapsed {
-      flex: 0 0 34px;
+      flex: 0 0 auto;
 
       & > .explorer-content {
-        transform: translateX(-100vw);
+        transform: translateX(-105%);
         visibility: hidden;
+      }
+
+      .mobile-explorer-overlay {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
       }
     }
 
     &:not(.collapsed) {
-      flex: 0 0 34px;
+      flex: 0 0 auto;
 
       & > .explorer-content {
         transform: translateX(0);
         visibility: visible;
       }
+
+      .mobile-explorer-overlay {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+    }
+
+    .mobile-explorer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 250;
+      transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
     }
 
     .explorer-content {
       box-sizing: border-box;
-      z-index: 100;
-      position: absolute;
+      z-index: 260;
+      position: fixed;
       top: 0;
       left: 0;
       margin-top: 0;
       background-color: var(--light);
-      max-width: 100vw;
-      width: 100vw;
-      transform: translateX(-100vw);
+      width: min(300px, 85vw);
+      max-width: 85vw;
+      transform: translateX(-105%);
       transition:
-        transform 200ms ease,
-        visibility 200ms ease;
-      overflow: hidden;
-      padding: 4rem 0 2rem 0;
+        transform 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+        visibility 0.3s ease;
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding: 0 0 2rem;
       height: 100dvh;
       max-height: 100dvh;
       visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid var(--lightgray);
+
+      .mobile-drawer-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.25rem 1.25rem 1rem;
+        border-bottom: 1px solid var(--lightgray);
+        flex-shrink: 0;
+      }
+
+      .mobile-drawer-brand {
+        font-family: var(--codeFont);
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--dark);
+      }
+
+      .mobile-drawer-close {
+        width: 2.25rem;
+        height: 2.25rem;
+        display: grid;
+        place-items: center;
+        padding: 0;
+        color: var(--gray);
+
+        svg {
+          stroke: currentColor;
+        }
+      }
+
+      .explorer-ul.overflow {
+        max-height: none;
+        flex: 1;
+        overflow-y: auto;
+        padding: 1rem 0;
+        margin: 0;
+        mask-image: none;
+
+        &::after {
+          display: none;
+        }
+      }
     }
 
     .mobile-explorer {
       margin: 0;
-      padding: 5px;
-      z-index: 101;
+      padding: 0.5rem;
+      z-index: 301;
+      position: relative;
 
       .lucide-menu {
-        stroke: var(--darkgray);
+        stroke: var(--dark);
       }
     }
   }
