@@ -1,70 +1,70 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
     <channel>
-      <title>Quartz 4</title>
+      <title>Jonas&#039;s Garden</title>
       <link>https://quartz.jzhao.xyz</link>
-      <description>Last 10 notes on Quartz 4</description>
+      <description>Last 10 notes on Jonas&#039;s Garden</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>🐧 Arch Linux - Overview</title>
-    <link>https://quartz.jzhao.xyz/References/Arch</link>
-    <guid>https://quartz.jzhao.xyz/References/Arch</guid>
-    <description><![CDATA[ 🐧 Arch Linux - Overview Arch Linux is a lightweight, flexible, and rolling-release Linux distribution aimed at users who want full control over their system. ]]></description>
-    <pubDate>Tue, 03 Feb 2026 11:59:30 GMT</pubDate>
+    <title>[object Object]</title>
+    <link>https://quartz.jzhao.xyz/_templates/default-note.md</link>
+    <guid>https://quartz.jzhao.xyz/_templates/default-note.md</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Fri, 12 Jun 2026 10:30:58 GMT</pubDate>
   </item><item>
-    <title>Cursor</title>
-    <link>https://quartz.jzhao.xyz/References/Cursor</link>
-    <guid>https://quartz.jzhao.xyz/References/Cursor</guid>
-    <description><![CDATA[ 🧠 First: Mental Model (IMPORTANT) Cursor has 3 main ways to interact: Inline AI (edit code directly) Command Palette AI (do something specific) Chat with full file / selection context If you only use chat → you’re using 30% of Cursor. ]]></description>
-    <pubDate>Tue, 03 Feb 2026 11:59:30 GMT</pubDate>
+    <title>writing</title>
+    <link>https://quartz.jzhao.xyz/_templates/writing</link>
+    <guid>https://quartz.jzhao.xyz/_templates/writing</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Wed, 10 Jun 2026 13:56:03 GMT</pubDate>
   </item><item>
-    <title>Github Branching</title>
-    <link>https://quartz.jzhao.xyz/References/Github-Branching</link>
-    <guid>https://quartz.jzhao.xyz/References/Github-Branching</guid>
-    <description><![CDATA[ 🧭 1. Branch Naming Convention Use descriptive, consistent, and lowercase-with-dashes names. ]]></description>
-    <pubDate>Tue, 03 Feb 2026 11:59:30 GMT</pubDate>
+    <title>Web Framework</title>
+    <link>https://quartz.jzhao.xyz/Coding/backend/Web-FrameWork</link>
+    <guid>https://quartz.jzhao.xyz/Coding/backend/Web-FrameWork</guid>
+    <description><![CDATA[ Contents Request lifecycle HTTP parser Routing Controller handlers framework API design checklist Middleware pipeline Error handling Template engine Complete request flow Quick reference table Framework Comparison Table Future Improvements Out of Scope Framework Architecture Decisions Lessons learne... ]]></description>
+    <pubDate>Tue, 09 Jun 2026 21:00:00 GMT</pubDate>
   </item><item>
-    <title>Coding Method</title>
-    <link>https://quartz.jzhao.xyz/Coding/Fundamentals/Coding-Method</link>
-    <guid>https://quartz.jzhao.xyz/Coding/Fundamentals/Coding-Method</guid>
-    <description><![CDATA[ The “Why” Behind Every Line Let’s break down that test_protected view line by line, but with the decision tree that leads to each choice: The Mental Process (What You’re Missing) Step 1: “What do I actually want this endpoint to do?” I need a protected endpoint to test my auth It should return some ... ]]></description>
-    <pubDate>Tue, 03 Feb 2026 11:59:30 GMT</pubDate>
+    <title>Summer 2026 Build In Public Engineering Journey</title>
+    <link>https://quartz.jzhao.xyz/Projects/Summer-2026-Build-In-Public-Engineering-Journey</link>
+    <guid>https://quartz.jzhao.xyz/Projects/Summer-2026-Build-In-Public-Engineering-Journey</guid>
+    <description><![CDATA[ Become known as the developer who builds computer science concepts from scratch and explains how they work. ]]></description>
+    <pubDate>Sat, 30 May 2026 00:18:29 GMT</pubDate>
   </item><item>
-    <title>DSA</title>
-    <link>https://quartz.jzhao.xyz/Coding/Fundamentals/DSA</link>
-    <guid>https://quartz.jzhao.xyz/Coding/Fundamentals/DSA</guid>
-    <description><![CDATA[ Class: DSA Topic: dsa algorithm excalidraw Date: 23-04-2025 Introduction Program vs Data Structure vs Algorithms A program A set of instruction which is written in order to solve a problem. ]]></description>
-    <pubDate>Tue, 03 Feb 2026 11:59:30 GMT</pubDate>
+    <title>Let’s Build A Web Server 1</title>
+    <link>https://quartz.jzhao.xyz/Coding/backend/Let%E2%80%99s-Build-A-Web-Server-1</link>
+    <guid>https://quartz.jzhao.xyz/Coding/backend/Let%E2%80%99s-Build-A-Web-Server-1</guid>
+    <description><![CDATA[ “When you know the whole system and understand how different pieces fit together, you can identify and fix problems faster.” What is a Web Server? Its a networking server that sits on a physical server and waits for a client to send a request. ]]></description>
+    <pubDate>Thu, 28 May 2026 21:00:00 GMT</pubDate>
   </item><item>
-    <title>Database Recovery</title>
-    <link>https://quartz.jzhao.xyz/Coding/Fundamentals/Database-Recovery</link>
-    <guid>https://quartz.jzhao.xyz/Coding/Fundamentals/Database-Recovery</guid>
-    <description><![CDATA[ Course: Database Subject: database Date: 07-06-2025 Topic: DatabaseRecoveryTechniques Database Recovery purpose of database recovery To bring the database to the last consistent state, which existed before the failure. ]]></description>
-    <pubDate>Tue, 03 Feb 2026 11:59:30 GMT</pubDate>
+    <title>Let’s Build A Web Server 2</title>
+    <link>https://quartz.jzhao.xyz/Coding/backend/Let%E2%80%99s-Build-A-Web-Server-2</link>
+    <guid>https://quartz.jzhao.xyz/Coding/backend/Let%E2%80%99s-Build-A-Web-Server-2</guid>
+    <description><![CDATA[ how to run Web server with multiple Web frameworks without making code changes either to the Web server or to the Web frameworks? The answer is WSGI(“wizgy”) WSGI allowed developers to separate choice of a Web framework from choice of a Web server. ]]></description>
+    <pubDate>Thu, 28 May 2026 21:00:00 GMT</pubDate>
   </item><item>
-    <title>Leetcode Interview Tips</title>
-    <link>https://quartz.jzhao.xyz/Coding/Fundamentals/Leetcode-Interview-Tips</link>
-    <guid>https://quartz.jzhao.xyz/Coding/Fundamentals/Leetcode-Interview-Tips</guid>
-    <description><![CDATA[ Coding artifacts actual code variable and method names algorithms Non-coding artifacts clarifying the question constrains edge cases communications testing time and space complexity i am not that good at the coding artifacts so i need to leverage the non coding artifacts steps to leverage the non co... ]]></description>
-    <pubDate>Tue, 03 Feb 2026 11:59:30 GMT</pubDate>
+    <title>Build you own x</title>
+    <link>https://quartz.jzhao.xyz/Projects/Build-you-own-x</link>
+    <guid>https://quartz.jzhao.xyz/Projects/Build-you-own-x</guid>
+    <description><![CDATA[ i wanted to make low level projects from scratch and i thought this might be good starting list for my own Web Server HTTP sockets request/response cycle routing concurrency basics Shell processes stdin/stdout pipes execution environment variables Git hashing blobs trees commits content-addressable ... ]]></description>
+    <pubDate>Thu, 28 May 2026 10:22:08 GMT</pubDate>
   </item><item>
-    <title>Linked lists</title>
-    <link>https://quartz.jzhao.xyz/Coding/Fundamentals/Linked-lists</link>
-    <guid>https://quartz.jzhao.xyz/Coding/Fundamentals/Linked-lists</guid>
-    <description><![CDATA[ Class: DSA Topic: linkedList dsa java Date: 26-03-2025 1️⃣ What is a Linked List? (Plain English) A linked list is a way to store data in nodes, where: Each node holds data And a reference (pointer) to the next node Unlike arrays: ❌ Elements are not stored next to each other ✅ You can easily insert ... ]]></description>
-    <pubDate>Tue, 03 Feb 2026 11:59:30 GMT</pubDate>
+    <title>Machine learning course outline</title>
+    <link>https://quartz.jzhao.xyz/Projects/Machine-learning-course-outline</link>
+    <guid>https://quartz.jzhao.xyz/Projects/Machine-learning-course-outline</guid>
+    <description><![CDATA[ Machine Learning Roadmap Goal Understand core ML concepts deeply Be able to build and evaluate models from scratch Finish with real mini-projects RULES (read once, follow always) Don’t watch videos passively Every topic → code it yourself Always: Learn → Code → Break → Fix → Extend If something feel... ]]></description>
+    <pubDate>Thu, 23 Apr 2026 11:09:20 GMT</pubDate>
   </item><item>
-    <title>The OSI reference model</title>
-    <link>https://quartz.jzhao.xyz/Coding/Fundamentals/The-OSI-reference-model</link>
-    <guid>https://quartz.jzhao.xyz/Coding/Fundamentals/The-OSI-reference-model</guid>
-    <description><![CDATA[ Course: Computer Networks Subject: Computer_network Date: 11-06-2025 Topic: osi Introduction The OSI model has 7 layers, while he TCP model has 4 layers. ]]></description>
-    <pubDate>Tue, 03 Feb 2026 11:59:30 GMT</pubDate>
+    <title>Binary Search</title>
+    <link>https://quartz.jzhao.xyz/DSA--and--CP/Binary-Search</link>
+    <guid>https://quartz.jzhao.xyz/DSA--and--CP/Binary-Search</guid>
+    <description><![CDATA[ Binary Search Binary Search is a searching algorithm that operates on a sorted or monotonic search space, repeatedly dividing it into halves to find a target value or optimal answer in logarithmic time O(log N). ]]></description>
+    <pubDate>Tue, 21 Apr 2026 21:00:00 GMT</pubDate>
   </item><item>
-    <title>leetcode cheetsheet</title>
-    <link>https://quartz.jzhao.xyz/Coding/Fundamentals/leetcode-cheetsheet</link>
-    <guid>https://quartz.jzhao.xyz/Coding/Fundamentals/leetcode-cheetsheet</guid>
-    <description><![CDATA[  # intuition # &lt;!--describe your thoughts on how to solve this problem --&gt; # approach # &lt;!--describe your approach on solving the problem --&gt; # - [[Time and Space Complexity of an algorithm|complexity]] # - time complexity : # &lt;!-- add your time complexity --&gt; # - space complexity ... ]]></description>
-    <pubDate>Tue, 03 Feb 2026 11:59:30 GMT</pubDate>
+    <title>Recursion</title>
+    <link>https://quartz.jzhao.xyz/DSA--and--CP/Recursion</link>
+    <guid>https://quartz.jzhao.xyz/DSA--and--CP/Recursion</guid>
+    <description><![CDATA[ Recursion Recursion in Python is a powerful concept where a function solves a problem by calling itself with a simpler version of the same problem, mirroring how we break down complex tasks in everyday thinking. ]]></description>
+    <pubDate>Thu, 16 Apr 2026 21:00:00 GMT</pubDate>
   </item>
     </channel>
   </rss>

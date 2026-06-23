@@ -1,25 +1,4 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"><url>
-    <loc>https://quartz.jzhao.xyz/</loc>
-    <lastmod>2026-02-01T21:00:00.000Z</lastmod>
-  </url><url>
-    <loc>https://quartz.jzhao.xyz/References/Agentic-AI-(m1w1l1)</loc>
-    <lastmod>2025-10-27T21:00:00.000Z</lastmod>
-  </url><url>
-    <loc>https://quartz.jzhao.xyz/References/Arch</loc>
-    <lastmod>2026-02-03T11:59:30.000Z</lastmod>
-  </url><url>
-    <loc>https://quartz.jzhao.xyz/References/CICD-explained</loc>
-    <lastmod>2025-10-27T21:00:00.000Z</lastmod>
-  </url><url>
-    <loc>https://quartz.jzhao.xyz/References/Cursor</loc>
-    <lastmod>2026-02-03T11:59:30.000Z</lastmod>
-  </url><url>
-    <loc>https://quartz.jzhao.xyz/References/Git-branching</loc>
-    <lastmod>2025-09-06T21:00:00.000Z</lastmod>
-  </url><url>
-    <loc>https://quartz.jzhao.xyz/References/Github-Branching</loc>
-    <lastmod>2026-02-03T11:59:30.000Z</lastmod>
-  </url><url>
     <loc>https://quartz.jzhao.xyz/Coding/Fundamentals/14-LeetCode-Patterns-to-Solve-Any-Question</loc>
     <lastmod>2025-10-12T21:00:00.000Z</lastmod>
   </url><url>
@@ -30,7 +9,7 @@
     <lastmod>2025-06-05T21:00:00.000Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/Coding/Fundamentals/DSA</loc>
-    <lastmod>2026-02-03T11:59:30.000Z</lastmod>
+    <lastmod>2026-04-13T13:47:37.000Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/Coding/Fundamentals/Database-Recovery</loc>
     <lastmod>2026-02-03T11:59:30.000Z</lastmod>
@@ -86,6 +65,9 @@
     <loc>https://quartz.jzhao.xyz/Coding/Java/Spring-Security-Basics--and--JWT</loc>
     <lastmod>2026-02-03T11:59:30.000Z</lastmod>
   </url><url>
+    <loc>https://quartz.jzhao.xyz/Coding/ML/Machine-Learning</loc>
+    <lastmod>2026-03-30T21:00:00.000Z</lastmod>
+  </url><url>
     <loc>https://quartz.jzhao.xyz/Coding/Python/Concurrency-and-async,await</loc>
     <lastmod>2025-12-07T21:00:00.000Z</lastmod>
   </url><url>
@@ -109,6 +91,21 @@
   </url><url>
     <loc>https://quartz.jzhao.xyz/Coding/Python/python-env</loc>
     <lastmod>2026-02-03T11:59:30.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/Coding/backend/HTTP-Request</loc>
+    <lastmod>2026-04-06T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/Coding/backend/Let%E2%80%99s-Build-A-Web-Server-1</loc>
+    <lastmod>2026-05-28T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/Coding/backend/Let%E2%80%99s-Build-A-Web-Server-2</loc>
+    <lastmod>2026-05-28T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/Coding/backend/Rest-API-Design</loc>
+    <lastmod>2026-04-06T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/Coding/backend/Web-FrameWork</loc>
+    <lastmod>2026-06-09T21:00:00.000Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/Coding/web/DRF-principles</loc>
     <lastmod>2025-08-24T21:00:00.000Z</lastmod>
@@ -175,4 +172,106 @@
   </url><url>
     <loc>https://quartz.jzhao.xyz/Coding/web/%F0%9F%94%91-JWT-Auth-Setup-(Django-+-React)</loc>
     <lastmod>2025-08-17T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/DSA--and--CP/Binary-Search</loc>
+    <lastmod>2026-04-21T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/DSA--and--CP/Competitive-Programmer%E2%80%99s-Handbook-Chapter-1</loc>
+    <lastmod>2026-02-10T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/DSA--and--CP/Graph-Theory</loc>
+    <lastmod>2026-04-12T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/DSA--and--CP/Recursion</loc>
+    <lastmod>2026-04-16T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/DSA--and--CP/Sorting-Basics</loc>
+    <lastmod>2026-02-24T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/DSA--and--CP/Stacks,-Queues-and-Monotonicity</loc>
+    <lastmod>2026-04-14T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/DSA--and--CP/Two-Pointers</loc>
+    <lastmod>2026-03-03T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/Projects/Build-you-own-x</loc>
+    <lastmod>2026-05-28T10:22:08.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/Projects/Machine-learning-course-outline</loc>
+    <lastmod>2026-04-23T11:09:20.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/Projects/Sudoku-puzzle-engine</loc>
+    <lastmod>2026-02-27T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/Projects/Summer-2026-Build-In-Public-Engineering-Journey</loc>
+    <lastmod>2026-05-30T00:18:29.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/Projects/anime-tracker-(launcher,-companion)</loc>
+    <lastmod>2026-03-13T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/References/Agentic-AI-(m1w1l1)</loc>
+    <lastmod>2025-10-27T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/References/Arch</loc>
+    <lastmod>2026-02-03T11:59:30.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/References/CICD-explained</loc>
+    <lastmod>2025-10-27T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/References/Competitive-Programming-Math-Notes-%E2%80%94-Writing-Guide</loc>
+    <lastmod>2026-02-17T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/References/Cursor</loc>
+    <lastmod>2026-02-03T11:59:30.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/References/Git-branching</loc>
+    <lastmod>2025-09-06T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/References/Github-Branching</loc>
+    <lastmod>2026-02-03T11:59:30.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/References/Jupyter-Notebook</loc>
+    <lastmod>2026-03-12T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/References/Monolithic-Project-Structures</loc>
+    <lastmod>2026-02-03T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/References/Rich-library</loc>
+    <lastmod>2026-02-16T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/References/Typer</loc>
+    <lastmod>2026-02-16T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/_templates/default-note.md</loc>
+    <lastmod>2026-06-12T10:30:58.646Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/_templates/writing</loc>
+    <lastmod>2026-06-10T13:56:03.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/class-notes/Artificial-Intelligence-Local-Search,-Adversarial-Planning,-and-Knowledge-Representation</loc>
+    <lastmod>2026-04-02T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/class-notes/Artificial-Intelligence-Searching-and-Planning-for-Problem-Solving-Agents</loc>
+    <lastmod>2026-04-02T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/class-notes/Comprehensive-Briefing-Fundamentals-and-Applications-of-Artificial-Intelligence</loc>
+    <lastmod>2026-04-02T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/class-notes/Computer-Graphics-and-Hardware-Systems</loc>
+    <lastmod>2026-04-01T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/class-notes/Computer-Graphics</loc>
+    <lastmod>2026-04-01T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/class-notes/Fundamentals-and-Applications-of-Mobile-Computing</loc>
+    <lastmod>2026-03-28T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/class-notes/Fundamentals-of-Intelligent-Agents-Architecture,-Environments,-and-Taxonomy</loc>
+    <lastmod>2026-04-02T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/class-notes/Wireless-Communication-and-Mobile-Computing</loc>
+    <lastmod>2026-03-28T21:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/</loc>
+    <lastmod>2026-02-01T21:00:00.000Z</lastmod>
   </url></urlset>

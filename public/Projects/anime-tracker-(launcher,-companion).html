@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>anime tracker/launcher/companion</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM Plex Sans:wght@400;700&amp;family=IBM Plex Sans:ital,wght@0,400;0,600;1,400;1,600&amp;family=JetBrains Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Jonas's Garden"/><meta property="og:title" content="anime tracker/launcher/companion"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="anime tracker/launcher/companion"/><meta name="twitter:description" content="the core goal of the app the app is not anime tracker, but companion + launcher core responsibilities Sync anime list from tracker Provide resume watching Route to working streaming sites Provide productivity stats Provide recommendations Track weekly releases core architecture design in layers Fron..."/><meta property="og:description" content="the core goal of the app the app is not anime tracker, but companion + launcher core responsibilities Sync anime list from tracker Provide resume watching Route to working streaming sites Provide productivity stats Provide recommendations Track weekly releases core architecture design in layers Fron..."/><meta property="og:image:alt" content="the core goal of the app the app is not anime tracker, but companion + launcher core responsibilities Sync anime list from tracker Provide resume watching Route to working streaming sites Provide productivity stats Provide recommendations Track weekly releases core architecture design in layers Fron..."/><meta property="og:image" content="https://quartz.jzhao.xyz/static/og-image.png"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/static/og-image.png"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/Projects/anime-tracker-(launcher,-companion)"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/Projects/anime-tracker-(launcher,-companion)"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="the core goal of the app the app is not anime tracker, but companion + launcher core responsibilities Sync anime list from tracker Provide resume watching Route to working streaming sites Provide productivity stats Provide recommendations Track weekly releases core architecture design in layers Fron..."/><meta name="generator" content="Quartz"/><link href="../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvam9uYXMvRG9jdW1lbnRzL3Byb2plY3RzL215LW5vdGVzL3F1YXJ0ei9jb21wb25lbnRzL3N0eWxlcyIsInNvdXJjZXMiOlsibWVybWFpZC5pbmxpbmUuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTs7O0FBS0Y7RUFDRTtFQUNBOzs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7O0FBSUY7RUFDRTtFQUNBO0VBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyIuZXhwYW5kLWJ1dHRvbiB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxvYXQ6IHJpZ2h0O1xuICBwYWRkaW5nOiAwLjRyZW07XG4gIG1hcmdpbjogMC4zcmVtO1xuICByaWdodDogMDsgLy8gTk9URTogcmlnaHQgd2lsbCBiZSBzZXQgaW4gbWVybWFpZC5pbmxpbmUudHNcbiAgY29sb3I6IHZhcigtLWdyYXkpO1xuICBib3JkZXItY29sb3I6IHZhcigtLWRhcmspO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gIGJvcmRlcjogMXB4IHNvbGlkO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIG9wYWNpdHk6IDA7XG4gIHRyYW5zaXRpb246IDAuMnM7XG5cbiAgJiA+IHN2ZyB7XG4gICAgZmlsbDogdmFyKC0tbGlnaHQpO1xuICAgIGZpbHRlcjogY29udHJhc3QoMC4zKTtcbiAgfVxuXG4gICY6aG92ZXIge1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICBib3JkZXItY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XG4gIH1cblxuICAmOmZvY3VzIHtcbiAgICBvdXRsaW5lOiAwO1xuICB9XG59XG5cbnByZSB7XG4gICY6aG92ZXIgPiAuZXhwYW5kLWJ1dHRvbiB7XG4gICAgb3BhY2l0eTogMTtcbiAgICB0cmFuc2l0aW9uOiAwLjJzO1xuICB9XG59XG5cbiNtZXJtYWlkLWNvbnRhaW5lciB7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgY29udGFpbjogbGF5b3V0O1xuICB6LWluZGV4OiA5OTk7XG4gIGxlZnQ6IDA7XG4gIHRvcDogMDtcbiAgd2lkdGg6IDEwMHZ3O1xuICBoZWlnaHQ6IDEwMHZoO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBkaXNwbGF5OiBub25lO1xuICBiYWNrZHJvcC1maWx0ZXI6IGJsdXIoNHB4KTtcbiAgYmFja2dyb3VuZDogcmdiYSgwLCAwLCAwLCAwLjUpO1xuXG4gICYuYWN0aXZlIHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIH1cblxuICAmID4gI21lcm1haWQtc3BhY2Uge1xuICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgdG9wOiA1MCU7XG4gICAgbGVmdDogNTAlO1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsIC01MCUpO1xuICAgIGhlaWdodDogODB2aDtcbiAgICB3aWR0aDogODB2dztcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRlbnQge1xuICAgICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgICAgdHJhbnNmb3JtLW9yaWdpbjogMCAwO1xuICAgICAgdHJhbnNpdGlvbjogdHJhbnNmb3JtIDAuMXMgZWFzZTtcbiAgICAgIG92ZXJmbG93OiB2aXNpYmxlO1xuICAgICAgbWluLWhlaWdodDogMjAwcHg7XG4gICAgICBtaW4td2lkdGg6IDIwMHB4O1xuXG4gICAgICBwcmUge1xuICAgICAgICBtYXJnaW46IDA7XG4gICAgICAgIGJvcmRlcjogbm9uZTtcbiAgICAgIH1cblxuICAgICAgc3ZnIHtcbiAgICAgICAgbWF4LXdpZHRoOiBub25lO1xuICAgICAgICBoZWlnaHQ6IGF1dG87XG4gICAgICB9XG4gICAgfVxuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRyb2xzIHtcbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgIGJvdHRvbTogMjBweDtcbiAgICAgIHJpZ2h0OiAyMHB4O1xuICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgIGdhcDogOHB4O1xuICAgICAgcGFkZGluZzogOHB4O1xuICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgIGJvcmRlci1yYWRpdXM6IDZweDtcbiAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsIDAsIDAsIDAuMSk7XG4gICAgICB6LWluZGV4OiAyO1xuXG4gICAgICAubWVybWFpZC1jb250cm9sLWJ1dHRvbiB7XG4gICAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgICAgICB3aWR0aDogMzJweDtcbiAgICAgICAgaGVpZ2h0OiAzMnB4O1xuICAgICAgICBwYWRkaW5nOiAwO1xuICAgICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICAgIGNvbG9yOiB2YXIoLS1kYXJrKTtcbiAgICAgICAgYm9yZGVyLXJhZGl1czogNHB4O1xuICAgICAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgICAgIGZvbnQtc2l6ZTogMTZweDtcbiAgICAgICAgZm9udC1mYW1pbHk6IHZhcigtLWJvZHlGb250KTtcbiAgICAgICAgdHJhbnNpdGlvbjogYWxsIDAuMnMgZWFzZTtcblxuICAgICAgICAmOmhvdmVyIHtcbiAgICAgICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgICB9XG5cbiAgICAgICAgJjphY3RpdmUge1xuICAgICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgxcHgpO1xuICAgICAgICB9XG5cbiAgICAgICAgLy8gU3R5bGUgdGhlIHJlc2V0IGJ1dHRvbiBkaWZmZXJlbnRseVxuICAgICAgICAmOm50aC1jaGlsZCgyKSB7XG4gICAgICAgICAgd2lkdGg6IGF1dG87XG4gICAgICAgICAgcGFkZGluZzogMCAxMnB4O1xuICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDtcbiAgICAgICAgfVxuICAgICAgfVxuICAgIH1cbiAgfVxufVxuIl19 */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://quartz.jzhao.xyz/index.xml"/></head><body data-slug="Projects/anime-tracker-(launcher,-companion)"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><span class="mobile-brand mobile-only">JONAS'S GARDEN</span><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-69" aria-label="Open menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explore</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-69" class="explorer-content" aria-expanded="false" role="group"><div class="mobile-drawer-header mobile-only"><span class="mobile-drawer-brand">JONAS'S GARDEN</span><button type="button" class="explorer-toggle mobile-drawer-close" aria-label="Close menu"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"></path></svg></button></div><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><div class="mobile-explorer-overlay mobile-only" aria-hidden="true"></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="page-header"><header><div class="forced-row "><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div></header><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../Projects/">Projects</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>anime tracker/launcher/companion</a></div></nav></div></div><div class="center"><h1 class="article-title">anime tracker/launcher/companion</h1><p show-comma="true" class="content-meta"><time datetime="2026-03-13T21:00:00.000Z">Mar 14, 2026</time><span>13 min read</span></p><ul class="tags"><li><a href="../tags/project" class="internal tag-link">project</a></li><li><a href="../tags/anime" class="internal tag-link">anime</a></li></ul><article class="popover-hint"><h1 id="the-core-goal-of-the-app">the core goal of the app<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#the-core-goal-of-the-app" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>the app is not anime tracker, but companion + launcher</p>
+<p>core responsibilities</p>
+<ul>
+<li>Sync anime list from tracker</li>
+<li>Provide <strong>resume watching</strong></li>
+<li>Route to working <strong>streaming sites</strong></li>
+<li>Provide <strong>productivity stats</strong></li>
+<li>Provide <strong>recommendations</strong></li>
+<li>Track <strong>weekly releases</strong></li>
+</ul>
+<h1 id="core-architecture">core architecture<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#core-architecture" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<ul>
+<li>design in layers</li>
+</ul>
+<pre><code>Frontend
+   │
+Backend API
+   │
+Service Layer
+   │
+Tracker Adapter Layer
+   │
+External APIs (AniList / MAL later)
+</code></pre>
+<ul>
+<li>modules</li>
+</ul>
+<pre><code>auth/
+tracker/
+streaming/
+anime/
+productivity/
+recommendation/
+release_tracker/
+</code></pre>
+<h1 id="tracker-abstraction-layer">Tracker abstraction layer<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tracker-abstraction-layer" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>base interface</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="python" data-theme="github-light github-dark"><code data-language="python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">class</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> TrackerAdapter</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    def</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> get_user_list</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(user_token):</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">        pass</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    def</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> update_progress</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(user_token, anime_id, episode):</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">        pass</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    def</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> search_anime</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(query):</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">        pass</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    def</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> get_recommendations</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(anime_id):</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">        pass</span></span></code></pre></figure>
+<p>implementation</p>
+<pre><code>tracker/
+   base_adapter.py
+   anilist_adapter.py
+   mal_adapter.py (future)
+</code></pre>
+<p>the app only calls</p>
+<pre><code>tracker.get_user_list()
+tracker.update_progress()
+</code></pre>
+<p>it never calls the anilist API directly outside the adapter
+this guarantees easy MAL support later.</p>
+<h1 id="database-design">Database Design<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#database-design" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>the DB doesn’t replace the anilist, it only stores the extra data the app needs.</p>
+<h3 id="user">User<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#user" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>User
+---------
+id
+username
+tracker_type
+tracker_user_id
+access_token
+created_at
+</code></pre>
+<h3 id="anime-cache">Anime cache<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#anime-cache" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Cache metadata to avoid repeated API calls.</p>
+<pre><code>Anime
+---------
+id
+tracker_id
+tracker_type
+title
+episodes
+cover_image
+genres
+slug
+</code></pre>
+<h3 id="useranime">UserAnime<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#useranime" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>User progress snapshot.</p>
+<pre><code>UserAnime  
+---------  
+id  
+user_id  
+anime_id  
+watched_episodes  
+status  
+score  
+updated_at
+</code></pre>
+<p>This is synced with AniList.</p>
+<h3 id="streaming-source">Streaming Source<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#streaming-source" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>StreamingSource  
+---------------  
+id  
+name  
+base_url  
+episode_pattern  
+priority  
+active
+</code></pre>
+<p>Example:</p>
+<pre><code>HiAnime  
+Aniwave  
+GogoAnime
+</code></pre>
+<h3 id="animestreamingmapping">AnimeStreamingMapping<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#animestreamingmapping" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Maps anime → streaming slug.</p>
+<pre><code>AnimeStreamingMapping  
+---------------------  
+anime_id  
+source_id  
+slug
+</code></pre>
+<p>Example:</p>
+<pre><code>Attack on Titan  
+source: HiAnime  
+slug: attack-on-titan-112
+</code></pre>
+<h1 id="resume-watching-system">Resume watching system<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#resume-watching-system" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>core logic</p>
+<pre><code>next_episode = watched + 1
+</code></pre>
+<p>process</p>
+<pre><code>User clicks Resume
+        ↓
+Find anime
+        ↓
+Get streaming slug
+        ↓
+Select active source
+        ↓
+Generate episode URL
+        ↓
+Open player
+</code></pre>
+<p>example generated URL</p>
+<pre><code>site/watch/{slug}?ep={episode}
+</code></pre>
+<h1 id="streaming-router">streaming router<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#streaming-router" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>if streaming sites go down (like hi-anime is gone)
+the router handles</p>
+<pre><code>source_priority = [
+    hianime,
+    aniwave,
+    gogoanime
+]
+</code></pre>
+<p>algorithm</p>
+<pre><code>for source in sources:
+    if source_online():
+        return episode_url
+</code></pre>
+<p>test the availability by</p>
+<pre><code>HEAD request
+</code></pre>
+<p>or fallback on failure</p>
+<h1 id="the-anime-limit-system">the anime limit system<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#the-anime-limit-system" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>user rule</p>
+<pre><code>max_current_watcging = 5
+</code></pre>
+<p>logic</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="python" data-theme="github-light github-dark"><code data-language="python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> watching_count </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> limit:</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">	warn user</span></span></code></pre></figure>
+<p>optional override</p>
+<h1 id="productivity-engine">productivity engine<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#productivity-engine" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>stats to compute</p>
+<pre><code>completion_rate
+episodes_watched_week
+anime_started
+anime_completed
+current_watching
+longest_unfinished
+</code></pre>
+<p>example dashboard</p>
+<pre><code>Started: 42
+Completed: 21
+Completion Rate: 50%
+
+Watching: 6
+Limit: 5 ⚠️
+</code></pre>
+<h1 id="weekly-release-tracker">weekly release tracker<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#weekly-release-tracker" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>using anilist weekly release schedule
+display</p>
+<pre><code>Monday
+Frieren ep 22
+
+Thursday
+Jujutsu Kaisen ep 18
+</code></pre>
+<p>can be marked watched quickly</p>
+<h1 id="recommendation-engine">recommendation engine<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#recommendation-engine" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Options:</p>
+<ol>
+<li>Use AniList recommendations</li>
+<li>Genre-based filtering</li>
+<li>Score-based similarity</li>
+</ol>
+<p>maybe later</p>
+<pre><code>collaborative filtering
+</code></pre>
+<h1 id="login-system">login system<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#login-system" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>first version</p>
+<pre><code>Login with AniList
+</code></pre>
+<p>flow</p>
+<pre><code>OAuth redirect
+↓
+Receive token
+↓
+Store token
+↓
+Fetch anime list
+</code></pre>
+<p>later</p>
+<pre><code>Login with MAL
+</code></pre>
+<p>uses same architecture.</p>
+<h1 id="frontend-pages">frontend pages<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#frontend-pages" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>minimal UI structure</p>
+<h3 id="dashboard">Dashboard<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#dashboard" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>Continue Watching  
+------------------  
+Vinland Saga → Ep 8  
+Frieren → Ep 11
+</code></pre>
+<h3 id="watching-list">Watching List<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#watching-list" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>Currently Watching  
+------------------  
+Attack on Titan 7/25  
+Jujutsu Kaisen 4/24
+</code></pre>
+<h3 id="plan-to-watch">Plan to Watch<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#plan-to-watch" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>Steins;Gate  
+Monster
+</code></pre>
+<h3 id="productivity">Productivity<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#productivity" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>Charts:
+
+completion rate  
+episodes/week
+</code></pre>
+<h3 id="releases">Releases<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#releases" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>Today's Episodes
+</code></pre>
+<h3 id="recommendations">Recommendations<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#recommendations" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>Because you liked...
+</code></pre>
+<h1 id="tech-stack">Tech Stack<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tech-stack" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Backend:</p>
+<pre><code>Django  
+PostgreSQL  
+Redis (optional cache)
+</code></pre>
+<p>Frontend:</p>
+<pre><code>Django templates  
+HTMX or Alpine.js
+</code></pre>
+<p>External APIs:</p>
+<pre><code>AniList GraphQL
+</code></pre>
+<p>Later:</p>
+<pre><code>MAL REST API
+</code></pre>
+<h1 id="future-plans">Future Plans<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#future-plans" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<pre><code>browser extension auto tracking
+discord rich presence
+mobile PWA
+auto MAL sync
+community watchlists
+</code></pre>
+<h1 id="mvp-scope-very-important">MVP Scope (Very Important)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#mvp-scope-very-important" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>the <strong>first working version</strong> should only include:</p>
+<ol>
+<li>AniList login</li>
+<li>Sync anime list</li>
+<li>Resume watching</li>
+<li>Streaming router</li>
+<li>Episode progress update</li>
+<li>Watching limit system</li>
+<li>Basic productivity stats</li>
+</ol>
+<hr/>
+<h1 id="1-goal-of-the-streaming-match-engine">1. Goal of the Streaming Match Engine<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-goal-of-the-streaming-match-engine" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Input:</p>
+<pre><code>AniList anime
+</code></pre>
+<p>Output:</p>
+<pre><code>Best streaming page slug
+</code></pre>
+<p>Example:</p>
+<pre><code>Input:
+Attack on Titan (AniList ID)
+
+Output:
+source: HiAnime
+slug: attack-on-titan-112
+confidence: 0.92
+</code></pre>
+<p>The system should:</p>
+<ol>
+<li>search streaming site</li>
+<li>score results</li>
+<li>pick best match</li>
+<li>store mapping</li>
+</ol>
+<p>After first match → <strong>cached forever</strong>.</p>
+<hr/>
+<h1 id="2-module-structure">2. Module Structure<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-module-structure" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Create a separate module.</p>
+<pre><code>streaming/
+    router.py
+    matcher.py
+    metadata.py
+    source_adapters/
+        base_source.py
+        hianime_source.py
+        gogoanime_source.py
+</code></pre>
+<p>Responsibilities:</p>
+<pre><code>router → choose streaming site
+matcher → find best anime match
+metadata → extract AniList info
+source_adapters → talk to streaming sites
+</code></pre>
+<hr/>
+<h1 id="3-metadata-extraction-anilist">3. Metadata Extraction (AniList)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-metadata-extraction-anilist" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>it need normalized metadata first.</p>
+<p>Example object:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="python" data-theme="github-light github-dark"><code data-language="python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">class</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> AnimeMetadata</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    title_english: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">str</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    title_romaji: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">str</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    year: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">int</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    season: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">str</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    episode_count: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">int</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    studio: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">str</span></span></code></pre></figure>
+<p>Example fetched from <strong>AniList</strong>.</p>
+<p>Use:</p>
+<pre><code>title.english
+title.romaji
+seasonYear
+episodes
+studios
+</code></pre>
+<hr/>
+<h1 id="4-streaming-site-search">4. Streaming Site Search<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4-streaming-site-search" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Each streaming site adapter implements:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="python" data-theme="github-light github-dark"><code data-language="python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">class</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> StreamingSource</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    def</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> search</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(self, query):</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">        pass</span></span></code></pre></figure>
+<p>Example return:</p>
+<pre><code>[
+  {
+    &quot;title&quot;: &quot;Attack on Titan&quot;,
+    &quot;year&quot;: 2013,
+    &quot;episodes&quot;: 25,
+    &quot;url&quot;: &quot;.../attack-on-titan-112&quot;
+  },
+  {
+    &quot;title&quot;: &quot;Attack on Titan Final Season&quot;,
+    &quot;year&quot;: 2020,
+    &quot;episodes&quot;: 16,
+    &quot;url&quot;: &quot;.../attack-on-titan-final&quot;
+  }
+]
+</code></pre>
+<hr/>
+<h1 id="5-matching-algorithm">5. Matching Algorithm<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5-matching-algorithm" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Each candidate gets a <strong>score</strong>.</p>
+<p>Final score = weighted sum.</p>
+<pre><code>score =
+    title_similarity * 0.5
+  + episode_match * 0.2
+  + year_match * 0.2
+  + studio_match * 0.1
+</code></pre>
+<p>Weights can be adjusted later.</p>
+<hr/>
+<h1 id="6-title-similarity">6. Title Similarity<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#6-title-similarity" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Use fuzzy matching.</p>
+<p>Example library:</p>
+<pre><code>rapidfuzz
+</code></pre>
+<p>Example:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="python" data-theme="github-light github-dark"><code data-language="python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">score </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> fuzz.token_sort_ratio(anilist_title, streaming_title)</span></span></code></pre></figure>
+<p>Range:</p>
+<pre><code>0 – 100
+</code></pre>
+<p>Normalize to:</p>
+<pre><code>0 – 1
+</code></pre>
+<hr/>
+<h1 id="7-episode-match">7. Episode Match<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#7-episode-match" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Logic:</p>
+<pre><code>difference = abs(anime_episodes - result_episodes)
+</code></pre>
+<p>Scoring:</p>
+<pre><code>0 difference → 1.0
+≤3 difference → 0.8
+≤10 difference → 0.5
+else → 0
+</code></pre>
+<p>Why?</p>
+<p>Some sites include <strong>OVA episodes</strong>.</p>
+<hr/>
+<h1 id="8-year-match">8. Year Match<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#8-year-match" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<pre><code>difference = abs(anime_year - result_year)
+</code></pre>
+<p>Score:</p>
+<pre><code>0 difference → 1.0
+1 year → 0.8
+2 years → 0.5
+else → 0
+</code></pre>
+<hr/>
+<h1 id="9-studio-match-optional">9. Studio Match (Optional)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#9-studio-match-optional" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Many sites don’t include studio.</p>
+<p>If available:</p>
+<pre><code>exact match → 1
+else → 0
+</code></pre>
+<p>If unavailable:</p>
+<pre><code>ignore factor
+</code></pre>
+<hr/>
+<h1 id="10-final-candidate-selection">10. Final Candidate Selection<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#10-final-candidate-selection" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Example results:</p>
+<pre><code>Candidate A
+score = 0.91
+
+Candidate B
+score = 0.64
+
+Candidate C
+score = 0.45
+</code></pre>
+<p>Pick:</p>
+<pre><code>max(score)
+</code></pre>
+<p>If:</p>
+<pre><code>score > 0.75
+</code></pre>
+<p>accept.</p>
+<p>Else:</p>
+<pre><code>mark as uncertain
+</code></pre>
+<hr/>
+<h1 id="11-mapping-storage">11. Mapping Storage<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#11-mapping-storage" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Database table:</p>
+<pre><code>AnimeStreamingMapping
+---------------------
+anime_id
+source_id
+slug
+confidence_score
+verified
+</code></pre>
+<p>Example:</p>
+<pre><code>AOT | hianime | attack-on-titan-112 | 0.92 | true
+</code></pre>
+<p>This avoids running the matcher again.</p>
+<hr/>
+<h1 id="12-resume-watching-flow">12. Resume Watching Flow<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#12-resume-watching-flow" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<pre><code>User clicks Resume
+        ↓
+Check mapping exists
+        ↓
+YES → generate episode URL
+NO  → run Streaming Match Engine
+        ↓
+store mapping
+        ↓
+open episode
+</code></pre>
+<hr/>
+<h1 id="13-url-generation">13. URL Generation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#13-url-generation" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Once slug exists:</p>
+<pre><code>episode_url = base_url + slug + &quot;?ep=&quot; + next_episode
+</code></pre>
+<p>Example:</p>
+<pre><code>hianime/watch/attack-on-titan-112?ep=8
+</code></pre>
+<hr/>
+<h1 id="14-multi-source-support">14. Multi-Source Support<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#14-multi-source-support" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Router logic:</p>
+<pre><code>for source in priority_list:
+    if mapping exists:
+        return episode_url
+    else:
+        run matcher
+</code></pre>
+<hr/>
+<h1 id="15-failure-handling">15. Failure Handling<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#15-failure-handling" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>If matching fails:</p>
+<pre><code>confidence &lt; threshold
+</code></pre>
+<p>Fallback:</p>
+<pre><code>open search results page
+</code></pre>
+<p>Example:</p>
+<pre><code>site/search?q=attack+on+titan
+</code></pre>
+<p>User selects manually → mapping saved.</p>
+<hr/>
+<h1 id="16-performance-strategy">16. Performance Strategy<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#16-performance-strategy" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Cache results:</p>
+<pre><code>AnimeStreamingMapping
+</code></pre>
+<p>Only match <strong>once per anime per source</strong>.</p>
+<hr/>
+<h1 id="17-future-improvements">17. Future Improvements<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#17-future-improvements" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Possible upgrades:</p>
+<pre><code>ML similarity model
+episode title comparison
+community verified mappings
+crowdsourced corrections
+</code></pre>
+<p>But <strong>not needed initially</strong>.</p>
+<hr/>
+<h1 id="18-implementation-order">18. Implementation Order<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#18-implementation-order" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Build order:</p>
+<ol>
+<li>AniList metadata fetch</li>
+<li>Streaming site search adapter</li>
+<li>Fuzzy title matching</li>
+<li>Episode/year scoring</li>
+<li>Mapping database</li>
+<li>Resume watching integration</li>
+</ol>
+<hr/>
+<pre><code>login
+↓
+click resume
+↓
+anime opens instantly
+↓
+tracker auto updates
+</code></pre>
+<hr/>
+<h1 id="1-system-overview">1. System Overview<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-system-overview" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>High-level architecture:</p>
+<pre><code>Frontend
+   │
+Backend (Django)
+   │
+Service Layer
+   │
+ ├── Tracker Service
+ ├── Streaming Service
+ ├── Match Engine
+ ├── Productivity Service
+ └── Recommendation Service
+   │
+Database
+   │
+External APIs
+   └── AniList (initial)
+</code></pre>
+<p>Important rule:</p>
+<p><strong>Services talk to each other — not directly to external APIs.</strong></p>
+<hr/>
+<h1 id="2-database-schema-core">2. Database Schema (Core)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-database-schema-core" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Your DB stores <strong>three types of data</strong>:</p>
+<ol>
+<li>
+<p>Users</p>
+</li>
+<li>
+<p>Anime metadata cache</p>
+</li>
+<li>
+<p>Streaming mappings</p>
+</li>
+</ol>
+<hr/>
+<h1 id="3-user-table">3. User Table<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-user-table" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Stores authentication and tracker info.</p>
+<pre><code>User
+--------------------------------
+id (PK)
+username
+email
+tracker_type
+tracker_user_id
+access_token
+refresh_token
+created_at
+updated_at
+</code></pre>
+<p>Example:</p>
+<pre><code>id: 1
+tracker_type: anilist
+tracker_user_id: 543210
+</code></pre>
+<p>Later you can add:</p>
+<pre><code>tracker_type: mal
+</code></pre>
+<hr/>
+<h1 id="4-anime-table-metadata-cache">4. Anime Table (Metadata Cache)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4-anime-table-metadata-cache" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>You should cache anime metadata from <strong>AniList</strong> so you don’t call the API constantly.</p>
+<pre><code>Anime
+--------------------------------
+id (PK)
+tracker_id
+tracker_type
+title_english
+title_romaji
+title_native
+episode_count
+release_year
+season
+studio
+cover_image
+created_at
+updated_at
+</code></pre>
+<p>Example:</p>
+<pre><code>tracker_id: 16498
+tracker_type: anilist
+title_english: Attack on Titan
+episode_count: 25
+release_year: 2013
+</code></pre>
+<hr/>
+<h1 id="5-useranime-table">5. UserAnime Table<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5-useranime-table" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Stores the user’s progress snapshot.</p>
+<pre><code>UserAnime
+--------------------------------
+id (PK)
+user_id (FK)
+anime_id (FK)
+watched_episodes
+status
+score
+started_at
+completed_at
+updated_at
+</code></pre>
+<p>Status examples:</p>
+<pre><code>watching
+completed
+planned
+dropped
+paused
+</code></pre>
+<p>Important:</p>
+<p>This is <strong>synced with AniList</strong>, not the source of truth.</p>
+<hr/>
+<h1 id="6-streamingsource-table">6. StreamingSource Table<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#6-streamingsource-table" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Stores all streaming platforms.</p>
+<pre><code>StreamingSource
+--------------------------------
+id (PK)
+name
+base_url
+search_url
+episode_pattern
+priority
+is_active
+created_at
+</code></pre>
+<p>Example:</p>
+<pre><code>name: hianime
+base_url: https://hianime.to
+episode_pattern: /watch/{slug}?ep={episode}
+priority: 1
+</code></pre>
+<hr/>
+<h1 id="7-animestreamingmapping-table">7. AnimeStreamingMapping Table<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#7-animestreamingmapping-table" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>This is the <strong>result of the match engine</strong>.</p>
+<pre><code>AnimeStreamingMapping
+--------------------------------
+id (PK)
+anime_id (FK)
+source_id (FK)
+slug
+confidence_score
+verified
+created_at
+updated_at
+</code></pre>
+<p>Example:</p>
+<pre><code>anime_id: 15
+source_id: 1
+slug: attack-on-titan-112
+confidence_score: 0.91
+verified: true
+</code></pre>
+<p>This prevents running the matcher again.</p>
+<hr/>
+<h1 id="8-usersettings-table">8. UserSettings Table<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#8-usersettings-table" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>For productivity features and limits.</p>
+<pre><code>UserSettings
+--------------------------------
+id (PK)
+user_id (FK)
+max_watching_limit
+auto_update_tracker
+preferred_source
+created_at
+</code></pre>
+<p>Example:</p>
+<pre><code>max_watching_limit: 5
+</code></pre>
+<hr/>
+<h1 id="9-animestats-table-optional-cache">9. AnimeStats Table (Optional Cache)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#9-animestats-table-optional-cache" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>For productivity analytics.</p>
+<pre><code>AnimeStats
+--------------------------------
+id (PK)
+user_id
+episodes_watched_total
+episodes_watched_week
+anime_started
+anime_completed
+completion_rate
+last_updated
+</code></pre>
+<p>This can also be computed dynamically if you prefer.</p>
+<hr/>
+<h1 id="10-service-layer-critical-design">10. Service Layer (Critical Design)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#10-service-layer-critical-design" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>You should structure backend logic like this:</p>
+<pre><code>services/
+    auth_service.py
+    tracker_service.py
+    anime_service.py
+    streaming_service.py
+    match_service.py
+    productivity_service.py
+    recommendation_service.py
+</code></pre>
+<p>Each service has <strong>clear responsibility</strong>.</p>
+<hr/>
+<h1 id="11-tracker-service">11. Tracker Service<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#11-tracker-service" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Handles communication with <strong>AniList</strong>.</p>
+<p>Responsibilities:</p>
+<pre><code>login
+fetch_user_list
+update_episode_progress
+fetch_anime_metadata
+fetch_recommendations
+</code></pre>
+<p>Later you plug in:</p>
+<pre><code>MalTrackerAdapter
+</code></pre>
+<p>for <strong>MyAnimeList</strong>.</p>
+<hr/>
+<h1 id="12-anime-service">12. Anime Service<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#12-anime-service" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Handles anime metadata.</p>
+<p>Responsibilities:</p>
+<pre><code>get_or_create_anime
+update_anime_cache
+fetch_from_tracker_if_missing
+</code></pre>
+<p>Prevents duplicate API calls.</p>
+<hr/>
+<h1 id="13-match-service">13. Match Service<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#13-match-service" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Implements the <strong>matching algorithm</strong> we discussed.</p>
+<p>Responsibilities:</p>
+<pre><code>search_streaming_sites
+score_candidates
+select_best_match
+store_mapping
+</code></pre>
+<p>Uses:</p>
+<pre><code>title similarity
+episode count
+release year
+studio
+</code></pre>
+<hr/>
+<h1 id="14-streaming-service">14. Streaming Service<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#14-streaming-service" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Handles launching episodes.</p>
+<p>Responsibilities:</p>
+<pre><code>resume_watching
+generate_episode_url
+select_best_source
+check_source_availability
+</code></pre>
+<p>Flow:</p>
+<pre><code>user clicks resume
+↓
+get watched episodes
+↓
+calculate next episode
+↓
+get slug mapping
+↓
+generate streaming URL
+</code></pre>
+<hr/>
+<h1 id="15-productivity-service">15. Productivity Service<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#15-productivity-service" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Calculates stats.</p>
+<p>Responsibilities:</p>
+<pre><code>calculate_completion_rate
+count_current_watching
+episodes_watched_week
+detect_limit_exceeded
+</code></pre>
+<hr/>
+<h1 id="16-recommendation-service">16. Recommendation Service<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#16-recommendation-service" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Initially simple.</p>
+<p>Sources:</p>
+<pre><code>AniList recommendations
+genre similarity
+user scores
+</code></pre>
+<p>Later you could implement:</p>
+<pre><code>collaborative filtering
+</code></pre>
+<hr/>
+<h1 id="17-api-endpoints-backend">17. API Endpoints (Backend)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#17-api-endpoints-backend" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Example REST endpoints:</p>
+<pre><code>GET  /api/dashboard
+GET  /api/anime/watching
+POST /api/anime/update-progress
+GET  /api/anime/resume/{anime_id}
+GET  /api/recommendations
+GET  /api/releases/today
+</code></pre>
+<hr/>
+<h1 id="18-resume-watching-full-flow">18. Resume Watching Full Flow<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#18-resume-watching-full-flow" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<pre><code>User clicks Resume
+        ↓
+Streaming Service
+        ↓
+UserAnime → get watched episodes
+        ↓
+next_episode = watched + 1
+        ↓
+check AnimeStreamingMapping
+        ↓
+if mapping missing
+     run Match Service
+        ↓
+generate episode URL
+        ↓
+redirect user
+</code></pre>
+<hr/>
+<h1 id="19-performance-strategy">19. Performance Strategy<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#19-performance-strategy" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Cache aggressively:</p>
+<pre><code>anime metadata
+streaming mappings
+user stats
+</code></pre>
+<p>Avoid unnecessary calls to <strong>AniList</strong>.</p>
+<hr/>
+<h1 id="20-mvp-implementation-order">20. MVP Implementation Order<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#20-mvp-implementation-order" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Do NOT build everything at once.</p>
+<p>Phase 1:</p>
+<pre><code>AniList login
+fetch user anime list
+store anime metadata
+</code></pre>
+<p>Phase 2:</p>
+<pre><code>resume watching
+streaming router
+match engine
+</code></pre>
+<p>Phase 3:</p>
+<pre><code>productivity stats
+anime limit system
+</code></pre>
+<p>Phase 4:</p>
+<pre><code>recommendations
+release tracker
+</code></pre>
+<p>Phase 5:</p>
+<pre><code>add MAL support
+</code></pre>
+<hr/>
+<hr/>
+<h1 id="2-django-project-layout">2. Django Project Layout<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-django-project-layout" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Your project should separate <strong>apps (features)</strong> from <strong>services (logic)</strong>.</p>
+<p>Structure:</p>
+<pre><code>aniflow/
+│
+├── manage.py
+│
+├── config/              # Django project settings
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── asgi.py
+│   └── wsgi.py
+│
+├── apps/
+│   │
+│   ├── users/
+│   │   ├── models.py
+│   │   ├── views.py
+│   │   ├── urls.py
+│   │   ├── admin.py
+│   │   └── serializers.py
+│   │
+│   ├── anime/
+│   │   ├── models.py
+│   │   ├── views.py
+│   │   ├── urls.py
+│   │   ├── services.py
+│   │   └── admin.py
+│   │
+│   ├── streaming/
+│   │   ├── models.py
+│   │   ├── views.py
+│   │   ├── router.py
+│   │   ├── matcher.py
+│   │   └── sources/
+│   │       ├── base_source.py
+│   │       ├── hianime.py
+│   │       └── gogoanime.py
+│   │
+│   ├── tracker/
+│   │   ├── adapters/
+│   │   │   ├── base_adapter.py
+│   │   │   ├── anilist_adapter.py
+│   │   │   └── mal_adapter.py
+│   │   │
+│   │   ├── services.py
+│   │   └── views.py
+│   │
+│   ├── productivity/
+│   │   ├── services.py
+│   │   ├── views.py
+│   │   └── models.py
+│   │
+│   └── recommendations/
+│       ├── services.py
+│       └── views.py
+│
+├── services/             # global reusable services
+│   ├── cache_service.py
+│   ├── http_client.py
+│   └── utils.py
+│
+├── templates/
+│
+├── static/
+│
+└── requirements.txt
+</code></pre>
+<hr/>
+<h1 id="3-core-django-apps">3. Core Django Apps<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-core-django-apps" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h3 id="users">users<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#users" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Handles:</p>
+<ul>
+<li>
+<p>login</p>
+</li>
+<li>
+<p>tracker OAuth</p>
+</li>
+<li>
+<p>user settings</p>
+</li>
+</ul>
+<p>Models:</p>
+<pre><code>User
+UserSettings
+</code></pre>
+<hr/>
+<h3 id="anime">anime<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#anime" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Handles:</p>
+<ul>
+<li>
+<p>anime metadata</p>
+</li>
+<li>
+<p>user progress</p>
+</li>
+</ul>
+<p>Models:</p>
+<pre><code>Anime
+UserAnime
+</code></pre>
+<hr/>
+<h3 id="tracker">tracker<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tracker" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Handles communication with trackers.</p>
+<p>Adapters:</p>
+<pre><code>base_adapter
+anilist_adapter
+mal_adapter (future)
+</code></pre>
+<p>Responsibilities:</p>
+<pre><code>fetch_user_list
+update_progress
+fetch_anime_metadata
+</code></pre>
+<hr/>
+<h3 id="streaming">streaming<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#streaming" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Handles:</p>
+<ul>
+<li>
+<p>streaming sources</p>
+</li>
+<li>
+<p>slug matching</p>
+</li>
+<li>
+<p>resume watching</p>
+</li>
+</ul>
+<p>Files:</p>
+<pre><code>router.py
+matcher.py
+sources/
+</code></pre>
+<p>Models:</p>
+<pre><code>StreamingSource
+AnimeStreamingMapping
+</code></pre>
+<hr/>
+<h3 id="productivity-1">productivity<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#productivity-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Handles:</p>
+<pre><code>completion rate
+watching limit
+episodes per week
+</code></pre>
+<hr/>
+<h3 id="recommendations-1">recommendations<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#recommendations-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Handles:</p>
+<pre><code>genre recommendations
+tracker recommendations
+</code></pre>
+<hr/>
+<h1 id="4-streaming-sources-plugin-system">4. Streaming Sources Plugin System<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4-streaming-sources-plugin-system" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>This makes adding new sites easy.</p>
+<pre><code>sources/
+    base_source.py
+    hianime.py
+    gogoanime.py
+</code></pre>
+<p>Example base interface:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="python" data-theme="github-light github-dark"><code data-language="python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">class</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> StreamingSource</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    def</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> search</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(self, title):</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">        pass</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    def</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> build_episode_url</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(self, slug, episode):</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">        pass</span></span></code></pre></figure>
+<p>Every site just implements this.</p>
+<p>So adding a new site later is literally:</p>
+<pre><code>create new file
+implement interface
+register source
+</code></pre>
+<hr/>
+<h1 id="5-match-engine-location">5. Match Engine Location<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5-match-engine-location" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<pre><code>apps/streaming/matcher.py
+</code></pre>
+<p>Responsibilities:</p>
+<pre><code>title fuzzy matching
+episode comparison
+year comparison
+score calculation
+</code></pre>
+<hr/>
+<h1 id="6-resume-watching-logic">6. Resume Watching Logic<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#6-resume-watching-logic" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Location:</p>
+<pre><code>apps/streaming/router.py
+</code></pre>
+<p>Flow:</p>
+<pre><code>get anime
+get watched episodes
+next_episode = watched + 1
+check slug mapping
+if missing → run matcher
+generate episode URL
+redirect user
+</code></pre>
+<hr/>
+<h1 id="7-service-pattern">7. Service Pattern<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#7-service-pattern" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Inside each app:</p>
+<pre><code>services.py
+</code></pre>
+<p>Example:</p>
+<pre><code>anime/services.py
+tracker/services.py
+productivity/services.py
+</code></pre>
+<p>Views should <strong>call services</strong>, not contain logic.</p>
+<hr/>
+<h1 id="8-database-models-core">8. Database Models (Core)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#8-database-models-core" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>You will implement these models first:</p>
+<pre><code>User
+UserSettings
+Anime
+UserAnime
+StreamingSource
+AnimeStreamingMapping
+</code></pre>
+<p>Everything else builds on top.</p>
+<hr/>
+<h1 id="9-development-phases">9. Development Phases<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#9-development-phases" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h3 id="phase-1">Phase 1<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#phase-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>AniList OAuth
+fetch user anime list
+store Anime + UserAnime
+</code></pre>
+<hr/>
+<h3 id="phase-2">Phase 2<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#phase-2" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>streaming sources
+match engine
+resume watching
+</code></pre>
+<hr/>
+<h3 id="phase-3">Phase 3<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#phase-3" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>productivity stats
+watch limit
+dashboard
+</code></pre>
+<hr/>
+<h3 id="phase-4">Phase 4<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#phase-4" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>recommendations
+weekly releases
+</code></pre>
+<hr/>
+<h3 id="phase-5">Phase 5<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#phase-5" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>MAL adapter
+multi-tracker support
+</code></pre>
+<hr/>
+<h1 id="1-custom-user-model">1. Custom User Model<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-custom-user-model" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>You should <strong>extend Django’s AbstractUser</strong> so you can add tracker fields.</p>
+<p><code>apps/users/models.py</code></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="python" data-theme="github-light github-dark"><code data-language="python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">from</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> django.contrib.auth.models </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">import</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> AbstractUser</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">from</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> django.db </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">import</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models</span></span>
+<span data-line> </span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">class</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> User</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">AbstractUser</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">):</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">    TRACKER_CHOICES</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> [</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        (</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;anilist&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;AniList&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">),</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        (</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;mal&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;MyAnimeList&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">),</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    ]</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    tracker_type </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.CharField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        max_length</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">20</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        choices</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">TRACKER_CHOICES</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        default</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;anilist&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    tracker_user_id </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.CharField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        max_length</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">100</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        blank</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        null</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    access_token </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.TextField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        blank</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        null</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    refresh_token </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.TextField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        blank</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        null</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    created_at </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.DateTimeField(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">auto_now_add</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    updated_at </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.DateTimeField(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">auto_now</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span></code></pre></figure>
+<p>Important setting:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="python" data-theme="github-light github-dark"><code data-language="python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">AUTH_USER_MODEL</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> =</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &quot;users.User&quot;</span></span></code></pre></figure>
+<hr/>
+<h1 id="2-usersettings-model">2. UserSettings Model<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-usersettings-model" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Stores personal configuration like <strong>watching limits</strong>.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="python" data-theme="github-light github-dark"><code data-language="python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">class</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> UserSettings</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">models</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Model</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">):</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    user </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.OneToOneField(</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;users.User&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        on_delete</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">models.</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">CASCADE</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        related_name</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;settings&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    max_watching_limit </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.PositiveIntegerField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        default</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">5</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    auto_update_tracker </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.BooleanField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        default</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    preferred_source </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.ForeignKey(</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;streaming.StreamingSource&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        on_delete</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">models.</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">SET_NULL</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        null</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        blank</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    created_at </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.DateTimeField(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">auto_now_add</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span></code></pre></figure>
+<p>Relationship:</p>
+<pre><code>User 1 ─── 1 UserSettings
+</code></pre>
+<hr/>
+<h1 id="3-anime-model">3. Anime Model<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-anime-model" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Stores cached metadata from <strong>AniList</strong>.</p>
+<p><code>apps/anime/models.py</code></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="python" data-theme="github-light github-dark"><code data-language="python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">class</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> Anime</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">models</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Model</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">):</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">    TRACKER_CHOICES</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> [</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        (</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;anilist&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;AniList&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">),</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        (</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;mal&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;MyAnimeList&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">),</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    ]</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    tracker_id </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.CharField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        max_length</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">100</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    tracker_type </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.CharField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        max_length</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">20</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        choices</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">TRACKER_CHOICES</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    title_english </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.CharField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        max_length</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">255</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        blank</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        null</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    title_romaji </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.CharField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        max_length</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">255</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    title_native </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.CharField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        max_length</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">255</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        blank</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        null</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    episode_count </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.PositiveIntegerField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        blank</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        null</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    release_year </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.PositiveIntegerField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        blank</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        null</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    season </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.CharField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        max_length</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">50</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        blank</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        null</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    studio </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.CharField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        max_length</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">255</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        blank</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        null</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    cover_image </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.URLField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        blank</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        null</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    created_at </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.DateTimeField(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">auto_now_add</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    updated_at </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.DateTimeField(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">auto_now</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span></code></pre></figure>
+<p>Important rule:</p>
+<pre><code>tracker_id + tracker_type must be unique
+</code></pre>
+<p>Add this:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="python" data-theme="github-light github-dark"><code data-language="python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">class</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> Meta</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    unique_together </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> (</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;tracker_id&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;tracker_type&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span></code></pre></figure>
+<hr/>
+<h1 id="4-useranime-model">4. UserAnime Model<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4-useranime-model" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Stores <strong>user progress</strong>.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="python" data-theme="github-light github-dark"><code data-language="python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">class</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> UserAnime</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">models</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Model</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">):</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">    STATUS_CHOICES</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> [</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        (</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;watching&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;Watching&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">),</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        (</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;completed&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;Completed&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">),</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        (</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;planned&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;Plan To Watch&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">),</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        (</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;dropped&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;Dropped&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">),</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        (</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;paused&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;Paused&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">),</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    ]</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    user </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.ForeignKey(</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;users.User&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        on_delete</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">models.</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">CASCADE</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        related_name</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;anime_list&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    anime </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.ForeignKey(</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;anime.Anime&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        on_delete</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">models.</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">CASCADE</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        related_name</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;user_entries&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    watched_episodes </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.PositiveIntegerField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        default</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">0</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    status </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.CharField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        max_length</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">20</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        choices</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">STATUS_CHOICES</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        default</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;planned&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    score </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.PositiveIntegerField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        blank</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        null</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    started_at </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.DateField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        blank</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        null</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    completed_at </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.DateField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        blank</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        null</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    updated_at </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.DateTimeField(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">auto_now</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span></code></pre></figure>
+<p>Relationship:</p>
+<pre><code>User ─── many UserAnime
+Anime ─── many UserAnime
+</code></pre>
+<hr/>
+<h1 id="5-streamingsource-model">5. StreamingSource Model<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5-streamingsource-model" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p><code>apps/streaming/models.py</code></p>
+<p>Stores streaming platforms.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="python" data-theme="github-light github-dark"><code data-language="python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">class</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> StreamingSource</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">models</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Model</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">):</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    name </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.CharField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        max_length</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">100</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        unique</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    base_url </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.URLField()</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    search_url </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.URLField()</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    episode_pattern </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.CharField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        max_length</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">255</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    priority </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.IntegerField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        default</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">1</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    is_active </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.BooleanField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        default</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    created_at </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.DateTimeField(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">auto_now_add</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span></code></pre></figure>
+<p>Example record:</p>
+<pre><code>name: hianime
+base_url: https://hianime.to
+search_url: https://hianime.to/search?q=
+episode_pattern: /watch/{slug}?ep={episode}
+</code></pre>
+<hr/>
+<h1 id="6-animestreamingmapping-model">6. AnimeStreamingMapping Model<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#6-animestreamingmapping-model" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Stores result of the <strong>match engine</strong>.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="python" data-theme="github-light github-dark"><code data-language="python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">class</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> AnimeStreamingMapping</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">models</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Model</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">):</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    anime </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.ForeignKey(</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;anime.Anime&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        on_delete</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">models.</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">CASCADE</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        related_name</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;streaming_mappings&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    source </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.ForeignKey(</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;streaming.StreamingSource&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        on_delete</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">models.</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">CASCADE</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        related_name</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;anime_mappings&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    slug </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.CharField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        max_length</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">255</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    confidence_score </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.FloatField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        default</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">0</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    verified </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.BooleanField(</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">        default</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">False</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    )</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    created_at </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.DateTimeField(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">auto_now_add</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    updated_at </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> models.DateTimeField(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">auto_now</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">True</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span></code></pre></figure>
+<p>Constraint:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="python" data-theme="github-light github-dark"><code data-language="python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">class</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> Meta</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    unique_together </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> (</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;anime&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;source&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span></code></pre></figure>
+<p>Meaning:</p>
+<pre><code>1 anime → 1 slug per streaming source
+</code></pre>
+<hr/>
+<h1 id="final-database-relationships">Final Database Relationships<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#final-database-relationships" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<pre><code>User
+ │
+ ├── UserSettings (1:1)
+ │
+ └── UserAnime (1:N)
+          │
+          ▼
+        Anime
+          │
+          └── AnimeStreamingMapping (1:N)
+                         │
+                         ▼
+                  StreamingSource
+</code></pre>
+<hr/>
+<h1 id="first-migration-plan">First Migration Plan<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#first-migration-plan" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Your <strong>first commit</strong> should include:</p>
+<pre><code>users app
+anime app
+streaming app
+</code></pre>
+<p>Then run:</p>
+<pre><code>python manage.py makemigrations
+python manage.py migrate
+</code></pre>
+<p>After that your <strong>database foundation is complete</strong>.</p>
+<hr/></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-59" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-0"><a href="#the-core-goal-of-the-app" data-for="the-core-goal-of-the-app">the core goal of the app</a></li><li class="depth-0"><a href="#core-architecture" data-for="core-architecture">core architecture</a></li><li class="depth-0"><a href="#tracker-abstraction-layer" data-for="tracker-abstraction-layer">Tracker abstraction layer</a></li><li class="depth-0"><a href="#database-design" data-for="database-design">Database Design</a></li><li class="depth-2"><a href="#user" data-for="user">User</a></li><li class="depth-2"><a href="#anime-cache" data-for="anime-cache">Anime cache</a></li><li class="depth-2"><a href="#useranime" data-for="useranime">UserAnime</a></li><li class="depth-2"><a href="#streaming-source" data-for="streaming-source">Streaming Source</a></li><li class="depth-2"><a href="#animestreamingmapping" data-for="animestreamingmapping">AnimeStreamingMapping</a></li><li class="depth-0"><a href="#resume-watching-system" data-for="resume-watching-system">Resume watching system</a></li><li class="depth-0"><a href="#streaming-router" data-for="streaming-router">streaming router</a></li><li class="depth-0"><a href="#the-anime-limit-system" data-for="the-anime-limit-system">the anime limit system</a></li><li class="depth-0"><a href="#productivity-engine" data-for="productivity-engine">productivity engine</a></li><li class="depth-0"><a href="#weekly-release-tracker" data-for="weekly-release-tracker">weekly release tracker</a></li><li class="depth-0"><a href="#recommendation-engine" data-for="recommendation-engine">recommendation engine</a></li><li class="depth-0"><a href="#login-system" data-for="login-system">login system</a></li><li class="depth-0"><a href="#frontend-pages" data-for="frontend-pages">frontend pages</a></li><li class="depth-2"><a href="#dashboard" data-for="dashboard">Dashboard</a></li><li class="depth-2"><a href="#watching-list" data-for="watching-list">Watching List</a></li><li class="depth-2"><a href="#plan-to-watch" data-for="plan-to-watch">Plan to Watch</a></li><li class="depth-2"><a href="#productivity" data-for="productivity">Productivity</a></li><li class="depth-2"><a href="#releases" data-for="releases">Releases</a></li><li class="depth-2"><a href="#recommendations" data-for="recommendations">Recommendations</a></li><li class="depth-0"><a href="#tech-stack" data-for="tech-stack">Tech Stack</a></li><li class="depth-0"><a href="#future-plans" data-for="future-plans">Future Plans</a></li><li class="depth-0"><a href="#mvp-scope-very-important" data-for="mvp-scope-very-important">MVP Scope (Very Important)</a></li><li class="depth-0"><a href="#1-goal-of-the-streaming-match-engine" data-for="1-goal-of-the-streaming-match-engine">1. Goal of the Streaming Match Engine</a></li><li class="depth-0"><a href="#2-module-structure" data-for="2-module-structure">2. Module Structure</a></li><li class="depth-0"><a href="#3-metadata-extraction-anilist" data-for="3-metadata-extraction-anilist">3. Metadata Extraction (AniList)</a></li><li class="depth-0"><a href="#4-streaming-site-search" data-for="4-streaming-site-search">4. Streaming Site Search</a></li><li class="depth-0"><a href="#5-matching-algorithm" data-for="5-matching-algorithm">5. Matching Algorithm</a></li><li class="depth-0"><a href="#6-title-similarity" data-for="6-title-similarity">6. Title Similarity</a></li><li class="depth-0"><a href="#7-episode-match" data-for="7-episode-match">7. Episode Match</a></li><li class="depth-0"><a href="#8-year-match" data-for="8-year-match">8. Year Match</a></li><li class="depth-0"><a href="#9-studio-match-optional" data-for="9-studio-match-optional">9. Studio Match (Optional)</a></li><li class="depth-0"><a href="#10-final-candidate-selection" data-for="10-final-candidate-selection">10. Final Candidate Selection</a></li><li class="depth-0"><a href="#11-mapping-storage" data-for="11-mapping-storage">11. Mapping Storage</a></li><li class="depth-0"><a href="#12-resume-watching-flow" data-for="12-resume-watching-flow">12. Resume Watching Flow</a></li><li class="depth-0"><a href="#13-url-generation" data-for="13-url-generation">13. URL Generation</a></li><li class="depth-0"><a href="#14-multi-source-support" data-for="14-multi-source-support">14. Multi-Source Support</a></li><li class="depth-0"><a href="#15-failure-handling" data-for="15-failure-handling">15. Failure Handling</a></li><li class="depth-0"><a href="#16-performance-strategy" data-for="16-performance-strategy">16. Performance Strategy</a></li><li class="depth-0"><a href="#17-future-improvements" data-for="17-future-improvements">17. Future Improvements</a></li><li class="depth-0"><a href="#18-implementation-order" data-for="18-implementation-order">18. Implementation Order</a></li><li class="depth-0"><a href="#1-system-overview" data-for="1-system-overview">1. System Overview</a></li><li class="depth-0"><a href="#2-database-schema-core" data-for="2-database-schema-core">2. Database Schema (Core)</a></li><li class="depth-0"><a href="#3-user-table" data-for="3-user-table">3. User Table</a></li><li class="depth-0"><a href="#4-anime-table-metadata-cache" data-for="4-anime-table-metadata-cache">4. Anime Table (Metadata Cache)</a></li><li class="depth-0"><a href="#5-useranime-table" data-for="5-useranime-table">5. UserAnime Table</a></li><li class="depth-0"><a href="#6-streamingsource-table" data-for="6-streamingsource-table">6. StreamingSource Table</a></li><li class="depth-0"><a href="#7-animestreamingmapping-table" data-for="7-animestreamingmapping-table">7. AnimeStreamingMapping Table</a></li><li class="depth-0"><a href="#8-usersettings-table" data-for="8-usersettings-table">8. UserSettings Table</a></li><li class="depth-0"><a href="#9-animestats-table-optional-cache" data-for="9-animestats-table-optional-cache">9. AnimeStats Table (Optional Cache)</a></li><li class="depth-0"><a href="#10-service-layer-critical-design" data-for="10-service-layer-critical-design">10. Service Layer (Critical Design)</a></li><li class="depth-0"><a href="#11-tracker-service" data-for="11-tracker-service">11. Tracker Service</a></li><li class="depth-0"><a href="#12-anime-service" data-for="12-anime-service">12. Anime Service</a></li><li class="depth-0"><a href="#13-match-service" data-for="13-match-service">13. Match Service</a></li><li class="depth-0"><a href="#14-streaming-service" data-for="14-streaming-service">14. Streaming Service</a></li><li class="depth-0"><a href="#15-productivity-service" data-for="15-productivity-service">15. Productivity Service</a></li><li class="depth-0"><a href="#16-recommendation-service" data-for="16-recommendation-service">16. Recommendation Service</a></li><li class="depth-0"><a href="#17-api-endpoints-backend" data-for="17-api-endpoints-backend">17. API Endpoints (Backend)</a></li><li class="depth-0"><a href="#18-resume-watching-full-flow" data-for="18-resume-watching-full-flow">18. Resume Watching Full Flow</a></li><li class="depth-0"><a href="#19-performance-strategy" data-for="19-performance-strategy">19. Performance Strategy</a></li><li class="depth-0"><a href="#20-mvp-implementation-order" data-for="20-mvp-implementation-order">20. MVP Implementation Order</a></li><li class="depth-0"><a href="#2-django-project-layout" data-for="2-django-project-layout">2. Django Project Layout</a></li><li class="depth-0"><a href="#3-core-django-apps" data-for="3-core-django-apps">3. Core Django Apps</a></li><li class="depth-2"><a href="#users" data-for="users">users</a></li><li class="depth-2"><a href="#anime" data-for="anime">anime</a></li><li class="depth-2"><a href="#tracker" data-for="tracker">tracker</a></li><li class="depth-2"><a href="#streaming" data-for="streaming">streaming</a></li><li class="depth-2"><a href="#productivity-1" data-for="productivity-1">productivity</a></li><li class="depth-2"><a href="#recommendations-1" data-for="recommendations-1">recommendations</a></li><li class="depth-0"><a href="#4-streaming-sources-plugin-system" data-for="4-streaming-sources-plugin-system">4. Streaming Sources Plugin System</a></li><li class="depth-0"><a href="#5-match-engine-location" data-for="5-match-engine-location">5. Match Engine Location</a></li><li class="depth-0"><a href="#6-resume-watching-logic" data-for="6-resume-watching-logic">6. Resume Watching Logic</a></li><li class="depth-0"><a href="#7-service-pattern" data-for="7-service-pattern">7. Service Pattern</a></li><li class="depth-0"><a href="#8-database-models-core" data-for="8-database-models-core">8. Database Models (Core)</a></li><li class="depth-0"><a href="#9-development-phases" data-for="9-development-phases">9. Development Phases</a></li><li class="depth-2"><a href="#phase-1" data-for="phase-1">Phase 1</a></li><li class="depth-2"><a href="#phase-2" data-for="phase-2">Phase 2</a></li><li class="depth-2"><a href="#phase-3" data-for="phase-3">Phase 3</a></li><li class="depth-2"><a href="#phase-4" data-for="phase-4">Phase 4</a></li><li class="depth-2"><a href="#phase-5" data-for="phase-5">Phase 5</a></li><li class="depth-0"><a href="#1-custom-user-model" data-for="1-custom-user-model">1. Custom User Model</a></li><li class="depth-0"><a href="#2-usersettings-model" data-for="2-usersettings-model">2. UserSettings Model</a></li><li class="depth-0"><a href="#3-anime-model" data-for="3-anime-model">3. Anime Model</a></li><li class="depth-0"><a href="#4-useranime-model" data-for="4-useranime-model">4. UserAnime Model</a></li><li class="depth-0"><a href="#5-streamingsource-model" data-for="5-streamingsource-model">5. StreamingSource Model</a></li><li class="depth-0"><a href="#6-animestreamingmapping-model" data-for="6-animestreamingmapping-model">6. AnimeStreamingMapping Model</a></li><li class="depth-0"><a href="#final-database-relationships" data-for="final-database-relationships">Final Database Relationships</a></li><li class="depth-0"><a href="#first-migration-plan" data-for="first-migration-plan">First Migration Plan</a></li><li class="overflow-end"></li></ul></div></div><footer class><ul><li><a href="https://github.com/J0na555">GitHub</a></li></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">
+        const socket = new WebSocket('ws://localhost:3001')
+        // reload(true) ensures resources like images and scripts are fetched again in firefox
+        socket.addEventListener('message', () => document.location.reload(true))
+      </script><script src="../postscript.js" type="module" data-persist="true"></script></html>
