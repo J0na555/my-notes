@@ -5,7 +5,7 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [Component.Row([Component.Darkmode(), Component.Search()])],
-  afterBody: [],
+  afterBody: [Component.GardenFX()],
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/J0na555",
@@ -32,72 +32,18 @@ export const defaultContentPageLayout: PageLayout = {
     Component.TagList(),
   ],
   left: [
-    // Component.PageTitle(),
-
-    // Component.Search(),
-    // Component.Darkmode(),
-
-    // Component.OnlyFor(
-    //   { titles: [homePageTitle, mapTitle] },
-    //   Component.DesktopOnly(Component.RecentNotes({ title: "Most recent", limit: 5 })),
-    // ),
-    Component.Graph(),
-    // Component.DesktopOnly(Component.QuartzTOC()),
-    // Component.DesktopOnly(Component.SidebarNav()),
+    // Left rail = navigation (mockup style). Single Explorer instance renders
+    // both the desktop tree and the mobile hamburger drawer.
+    Component.Explorer({
+      title: "Explore",
+      useSavedState: true,
+    }),
   ],
   right: [
-    // Component.DesktopOnly(Component.TableOfContents()),
+    // Right rail = graph over table-of-contents over backlinks (mockup style).
+    Component.Graph(),
+    Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
-    Component.DesktopOnly(
-      Component.Explorer({
-        // title: "Explore",
-        // useSavedState: true,
-        // sortFn: (a, b) => {
-        //   if ((!a.file && !b.file) || (a.file && b.file)) {
-        //     // sensitivity: "base": Only strings that differ in base letters compare as unequal. Examples: a ≠ b, a = á, a = A
-        //     // numeric: true: Whether numeric collation should be used, such that "1" < "2" < "10"
-        //     return a.displayName.localeCompare(b.displayName, undefined, {
-        //       numeric: true,
-        //       sensitivity: "base",
-        //     })
-        //   }
-        //   if (a.file && !b.file) {
-        //     return 1
-        //   } else {
-        //     return -1
-        //   }
-        // },
-      }),
-    ),
-
-    // Component.MobileOnly(
-    //   Component.RecentNotes({
-    //     title: "Most recent",
-    //     limit: 5,
-    //   }),
-    // ),
-    //
-    Component.MobileOnly(
-      Component.Explorer({
-        title: "Explore",
-        useSavedState: true,
-        // sortFn: (a, b) => {
-        //   if ((!a.file && !b.file) || (a.file && b.file)) {
-        //     // sensitivity: "base": Only strings that differ in base letters compare as unequal. Examples: a ≠ b, a = á, a = A
-        //     // numeric: true: Whether numeric collation should be used, such that "1" < "2" < "10"
-        //     return a.displayName.localeCompare(b.displayName, undefined, {
-        //       numeric: true,
-        //       sensitivity: "base",
-        //     })
-        //   }
-        //   if (a.file && !b.file) {
-        //     return 1
-        //   } else {
-        //     return -1
-        //   }
-        // },
-      }),
-    ),
   ],
 }
 
