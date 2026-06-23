@@ -1,9 +1,7 @@
 ---
-title:
-  "{ title }":
+title: "{{title}}"
+date: "{{date}}"
 tags: []
-date:
-  "{ date }":
 type: note
 status: draft
 source:
