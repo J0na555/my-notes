@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AI Trainer or Evaluator Study Notes.md",
+                "file": "Coding/ML/AI Trainer Study Notes.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "AI Trainer or Evaluator Study Notes"
+              "title": "AI Trainer Study Notes"
             }
           }
         ]
@@ -157,13 +157,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Coding/ML/AI Trainer or Evaluator Study Notes.md",
+                "file": "Coding/ML/AI Trainer Study Notes.md",
                 "followCursor": true,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of AI Trainer or Evaluator Study Notes"
+              "title": "Outline of AI Trainer Study Notes"
             }
           }
         ],
@@ -171,8 +171,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 394.5,
-    "collapsed": true
+    "width": 394.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -187,8 +186,8 @@
   },
   "active": "23f970498f228d0f",
   "lastOpenFiles": [
-    "Coding/ML/AI Trainer or Evaluator Study Notes.md",
-    "AI Trainer or Evaluator Study Notes.md",
+    "Coding/ML/AI Trainer Study Notes.md",
+    "Coding/ML/AI Trainer Study Notes.md",
     "Coding/backend/Web FrameWork.md",
     "Coding/backend/Let’s Build A Web Server 1.md",
     "Coding/backend/Let’s Build A Web Server 2.md",
