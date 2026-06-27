@@ -102,7 +102,7 @@ while IFS= read -r -d '' file; do
 
   if [[ -f "$out_path" ]]; then
     warn "Skipping (already exists): $out_name"
-    ((skipped++))
+    skipped=$((skipped + 1))
     continue
   fi
 
@@ -110,7 +110,7 @@ while IFS= read -r -d '' file; do
   strip_obsidian_fields "$file" > "$out_path"
 
   log "Published: $relpath → $out_name"
-  ((count++))
+  count=$((count + 1))
 done < <(find "$VAULT" -name '*.md' -print0)
 
 echo ""
