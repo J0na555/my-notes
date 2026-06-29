@@ -150,3 +150,12 @@ Wireless technology has integrated into nearly every sector of modern life:
 * **Agriculture**: Uses monitoring systems to increase work efficiency and total production quality.
 * **Industry/Military**: Simplifies business operations and ensures effective command and control in leadership.
 * **Core Systems**: The most popular systems currently in use include GSM (Global System for Mobile Communications) and ISDN (Integrated Services Digital Network).
+
+## Related
+
+- [[AI MOC]] — AI optimizes wireless networks and mobile experiences
+- [[Fundamentals and Applications of Mobile Computing]] — Mobile hardware, software, OS
+- [[Computer Graphics]] — Display technologies, rendering on mobile
+- [[Computer Graphics and Hardware Systems]] — Graphics hardware, adapters, VRAM
+- [[Django MOC]] — Backend APIs serve mobile applications
+- [[HTTP Request]] — HTTP/HTTPS over wireless networks

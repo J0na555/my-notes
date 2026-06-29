@@ -352,3 +352,13 @@ Adjacency Matrix Representation:
 |**Speed: Find All Neighbors**|**Fast ($O(Outdegree)$).** Crucial for expanding a node in A* or BFS. You just iterate the list.|**Slow ($O(V)$).** Must scan the entire row to find non-zero entries.|
 |**Speed: Check Specific Edge**|**Slow ($O(Outdegree)$).** Must search the list.|**Instant ($O(1)$).** `Matrix[u][v]` lookup.|
 |**AI Search Use Case**|**Pathfinding (A*, Dijkstra, BFS, DFS).** This is the **default choice** for almost all AI state-space search. The search algorithm _must_ expand children quickly.|**Local Search / CSP / Neural Nets.** When the graph is small but fully connected, or when you need to check adjacency between any two states instantly (e.g., checking if two queens attack in N-Queens).|
+
+## Related
+
+- [[DSA MOC]] — Full map of DSA topics
+- [[Binary Search]] — Search on sorted/monotonic spaces (used in graph algorithms)
+- [[Recursion]] — DFS is inherently recursive; call stack powers graph traversal
+- [[Sorting Basics]] — Sorting before search; topological sort on DAGs
+- [[Stacks, Queues and Monotonicity]] — BFS uses queues; monotonic stacks for next-element problems on graphs
+- [[Two Pointers]] — Traversal patterns on arrays mirror graph traversal logic
+- [[Fundamentals of Intelligent Agents Architecture, Environments, and Taxonomy|AI Agents]] — State-space search is fundamental to intelligent agents

@@ -134,9 +134,18 @@ Element is present at index 3
 
 ### Complexity Analysis
 
-- ****Time Complexity:****   
+- ****Time Complexity:****  
     -> Best Case: O(1)  
     -> Average Case: O(log N)  
     -> Worst Case: O(log N)
-- ****Auxiliary Space:**** O(1), If the recursive call stack is considered then the auxiliary space will be O(log N).
+- ****Auxiliary Space:**** O(1), If the recursive call stack is considered then the auxiliary space will be O(log N).
+
+## Related
+
+- [[DSA MOC]] — Full map of DSA topics
+- [[Graph Theory]] — Binary search on graphs; pathfinding uses search fundamentals
+- [[Recursion]] — Recursive binary search; recursion powers DFS on graphs
+- [[Two Pointers]] — Related array traversal pattern; both exploit sorted/ordering properties
+- [[Sorting Basics]] — Binary search requires sorted arrays; understanding sort complexity helps
+- [[14 LeetCode Patterns to Solve Any Question]] — Binary search is one of the 14 core patterns
 

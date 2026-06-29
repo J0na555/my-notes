@@ -1,4 +1,4 @@
-## Course: [[Computer Networks]]
+## Course: Computer Networks
 
 ## Subject: #Computer_network
 
@@ -10,7 +10,7 @@
 
 # Introduction
 
-- The **OSI** model has 7 layers, while he **[[TCP]]** model has 4 layers.
+- The **OSI** model has 7 layers, while the **TCP/IP** model has 4 layers.
 - The top three layers of the OSI model (Application, presentation, session) correspond to the **Application layer** in the **TCP/IP model**.
 [[Drawing 2025-06-11 08.45.46.excalidraw]]
 
@@ -254,3 +254,11 @@ Applications need different transport services based on:
 | Overhead          | Low (8-byte header)           | Higher (20-byte header + control) |
 | Speed             | Faster                        | Slower                            |
 | Use Cases         | DNS, SNMP, VoIP, multicasting | HTTP, FTP, email, file transfer   |
+
+## Related
+
+- [[DSA MOC]] — Algorithms power network protocols
+- [[Django MOC]] — HTTP request/response uses these layers
+- [[HTTP Request]] — HTTP operates at Application layer
+- [[Wireless Communication and Mobile Computing]] — Wireless networks use these protocols
+- [[Fundamentals and Applications of Mobile Computing]] — Mobile networking infrastructure

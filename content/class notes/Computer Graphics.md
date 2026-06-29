@@ -147,3 +147,10 @@ Computer graphics has transitioned from a specialized research tool to an essent
 
 - **Advantages:** Superior product quality, increased productivity, lower development costs over time, and a significantly enhanced ability to interpret complex data patterns.
 - **Disadvantages:** High hardware costs, technical complexities in defining motion, and issues with coupling displays to simulations.
+
+## Related
+
+- [[AI MOC]] — AI applications include computer vision and graphics
+- [[Computer Graphics and Hardware Systems]] — Hardware details: CRT, LCD, GPU architecture
+- [[Fundamentals and Applications of Mobile Computing]] — Mobile graphics and display technologies
+- [[Comprehensive Briefing Fundamentals and Applications of Artificial Intelligence]] — AI applications include vision systems

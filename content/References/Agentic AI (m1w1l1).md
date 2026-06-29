@@ -23,7 +23,7 @@ At its simplest, **Agentic AI is the autonomy engine for AI systems**. It’s th
 
 To make sense of this, it helps to think of Agentic AI as a **progression**:
 
-1. **[[LLM's|LLM]] Workflows**  
+1. **LLM Workflows**
     Here, the logic and flow are defined by us, the developers. The LLM is a component inside a predictable pipeline. Every step is laid out, and while the outputs may vary, the structure is fixed.
 
 2. **Single-Agent Systems**  

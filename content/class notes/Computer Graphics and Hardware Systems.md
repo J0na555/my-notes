@@ -128,3 +128,10 @@ OpenGL is the industry-standard software interface for graphics hardware, introd
 - **Functionality:** It renders multidimensional objects into a frame buffer and provides functions for texture mapping and special effects.
 - **Portability:** Designed for compatibility across various hardware and operating systems, allowing developers to port code easily between platforms.
 - **Impact:** It serves as a premier environment for interactive 2D and 3D applications, promoting innovation through a standardized API.
+
+## Related
+
+- [[AI MOC]] — AI applications include computer vision
+- [[Computer Graphics]] — Graphics fundamentals, classification, history
+- [[Fundamentals and Applications of Mobile Computing]] — Mobile devices, display technologies
+- [[Wireless Communication and Mobile Computing]] — Communication infrastructure for mobile graphics

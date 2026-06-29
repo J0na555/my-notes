@@ -111,6 +111,15 @@ These agents use a **utility function** to choose between multiple alternatives 
 Learning agents are capable of adapting and improving automatically through experience. They consist of four conceptual components:
 
 1. **Learning Element:** Responsible for making improvements by learning from the environment.
-2. **Critic:** Provides feedback to the learning element by evaluating how well the agent is performing relative to a fixed standard.
-3. **Performance Element:** Responsible for selecting external actions based on percepts.
-4. **Problem Generator:** Suggests new actions that lead to informative experiences and new learning opportunities.
+    2. **Critic:** Provides feedback to the learning element by evaluating how well the agent is performing relative to a fixed standard.
+    3. **Performance Element:** Responsible for selecting external actions based on percepts.
+    4. **Problem Generator:** Suggests new actions that lead to informative experiences and new learning opportunities.
+
+## Related
+
+- [[AI MOC]] — Full map of AI topics
+- [[Artificial Intelligence Searching and Planning for Problem-Solving Agents]] — How agents search for solutions
+- [[Artificial Intelligence Local Search, Adversarial Planning, and Knowledge Representation]] — Local search, adversarial games, knowledge representation
+- [[Comprehensive Briefing Fundamentals and Applications of Artificial Intelligence]] — Broader AI overview
+- [[Agentic AI (m1w1l1)]] — Modern agentic AI patterns: workflows, single agents, multi-agent systems
+- [[Graph Theory]] — State-space search uses graph algorithms (BFS, DFS, A*)

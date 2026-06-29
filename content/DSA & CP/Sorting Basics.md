@@ -174,3 +174,12 @@ def insertion_sort(arr):
 | Quick Sort         | O(n log n) | O(n log n)   | O(n²)      | O(log n) | No     |
 # Distribute Sorting
 ## Counting Sort
+
+## Related
+
+- [[DSA MOC]] — Full map of DSA topics
+- [[Binary Search]] — Binary search requires sorted arrays; know your sort complexity
+- [[Graph Theory]] — Topological sort on DAGs; sorting before graph algorithms
+- [[Recursion]] — Merge sort and quicksort are recursive; divide and conquer
+- [[Two Pointers]] — Merge technique in two pointers uses sorted array property
+- [[Stacks, Queues and Monotonicity]] — Monotonic stack problems often follow sorting

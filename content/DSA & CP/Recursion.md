@@ -77,4 +77,12 @@ for i in range(n):
 Fibonacci series of 5 numbers is: 0 1 1 2 3
 ```
 ![[Pasted image 20260417161941.png]]
- 
+
+## Related
+
+- [[DSA MOC]] — Full map of DSA topics
+- [[Graph Theory]] — DFS is inherently recursive; recursion is the backbone of graph traversal
+- [[Binary Search]] — Recursive binary search implementation
+- [[Stacks, Queues and Monotonicity]] — Call stack mechanics; stack-based DFS
+- [[Two Pointers]] — Recursive vs iterative approaches for array problems
+- [[trees]] — Tree traversals (inorder, preorder, postorder) are recursive

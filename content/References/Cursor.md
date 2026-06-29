@@ -2,7 +2,7 @@
 
 [[Cursor]] has **3 main ways to interact**:
 
-1. **Inline [[AI]] (edit code directly)**
+1. **Inline AI (edit code directly)**
 2. **Command Palette AI (do something specific)**
 3. **Chat with full file / selection context**
 

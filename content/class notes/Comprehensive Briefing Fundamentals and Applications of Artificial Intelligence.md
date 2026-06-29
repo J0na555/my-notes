@@ -95,3 +95,12 @@ The overarching goal of AI is to solve knowledge-intensive tasks and replicate n
     - **Handwriting Recognition:** Converting handwritten shapes into editable text.
 - **Intelligent Robotics:** Using sensors (detecting light, heat, movement, and pressure) and efficient processors to learn from mistakes and adapt to new environments.
 - **Autonomous Systems:** Self-driving cars, delivery robots, flying drones, and autonomous ships use computer vision and path planning to navigate complex environments.
+
+## Related
+
+- [[AI MOC]] — Full map of AI topics
+- [[Fundamentals of Intelligent Agents Architecture, Environments, and Taxonomy]] — Agent architecture, PEAS, rationality
+- [[Artificial Intelligence Searching and Planning for Problem-Solving Agents]] — Search strategies for problem-solving
+- [[Artificial Intelligence Local Search, Adversarial Planning, and Knowledge Representation]] — Local search, knowledge representation
+- [[Agentic AI (m1w1l1)]] — Modern agentic AI patterns and frameworks
+- [[Machine Learning]] — ML as a subfield of AI

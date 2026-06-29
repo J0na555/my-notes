@@ -135,3 +135,13 @@ In some problems, the path to the goal is irrelevant; only the final state matte
 ### Adversarial Search (Games)
 
 Adversarial search occurs in multi-agent environments where agents have conflicting goals. In these "games," an agent must plan not only its own moves but also account for the counter-moves of an opponent. These problems are modeled using search trees and heuristic evaluation functions to navigate the competitive state space.
+
+## Related
+
+- [[AI MOC]] — Full map of AI topics
+- [[Fundamentals of Intelligent Agents Architecture, Environments, and Taxonomy]] — Agent types and architecture
+- [[Artificial Intelligence Local Search, Adversarial Planning, and Knowledge Representation]] — Local search details, knowledge representation
+- [[Comprehensive Briefing Fundamentals and Applications of Artificial Intelligence]] — Broader AI overview
+- [[Graph Theory]] — BFS, DFS, A* are graph algorithms; state-space is a graph
+- [[Binary Search]] — Search fundamentals; informed search uses heuristics
+- [[DSA MOC]] — Data structures & algorithms powering search

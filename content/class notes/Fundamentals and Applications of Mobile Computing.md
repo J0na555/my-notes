@@ -126,3 +126,11 @@ Mobile computing has integrated into nearly all socio-economic and industrial do
 - **Banking (e-banking):** Encrypted, safe transactions allowing users to manage accounts and services online.
 - **Transportation (GIS and GPS):** Utilizing Geographic Information Systems and Global Positioning Systems for real-time vehicle tracking, fleet management, and logistics.
 - **Defense:** Providing soldiers with situational awareness through ultra-mobile devices that offer access to information anywhere.
+
+## Related
+
+- [[AI MOC]] — AI powers mobile applications (recommendations, vision, NLP)
+- [[Wireless Communication and Mobile Computing]] — Wireless protocols, cellular networks, Wi-Fi
+- [[Computer Graphics]] — Mobile graphics, display technologies
+- [[Django MOC]] — Backend APIs power mobile app data
+- [[React Js]] — React Native for mobile development

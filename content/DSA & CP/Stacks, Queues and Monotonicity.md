@@ -35,4 +35,14 @@ Stack data structure is a linear data structure that accompanies a principle kno
 - otherwise return the value of the top node of the linked list at the head
 
 ![[Pasted image 20260415145512.png]]
+
+## Related
+
+- [[DSA MOC]] — Full map of DSA topics
+- [[Recursion]] — Call stack is a stack; recursion uses LIFO implicitly
+- [[Graph Theory]] — BFS uses queues; DFS uses stacks; monotonic stacks for next-element problems
+- [[Binary Search]] — Binary search can use stack-based iteration
+- [[Two Pointers]] — Stack/queue alternatives for some two-pointer problems
+- [[trees]] — Stack for iterative tree traversal; queue for level-order traversal
+
 # Queue

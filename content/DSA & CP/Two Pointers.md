@@ -148,3 +148,12 @@ def countSmaller(list_1, list_2):
 return smaller_counts
 ```
 
+## Related
+
+- [[DSA MOC]] — Full map of DSA topics
+- [[Binary Search]] — Both exploit sorted arrays; two pointers can replace binary search in some cases
+- [[Sorting Basics]] — Two pointers on sorted arrays; merge sort uses pointer technique
+- [[Graph Theory]] — Pointer traversal patterns mirror graph traversal concepts
+- [[Recursion]] — Iterative two pointers vs recursive approaches
+- [[Stacks, Queues and Monotonicity]] — Stack-based alternatives for some two-pointer problems
+

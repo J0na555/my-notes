@@ -140,3 +140,12 @@ FOL is more expressive than PL and can represent any situation found in natural 
 - **Quantifiers:**
     - **Universal (****\forall****):** Statements about every object (e.g., "All cats are mammals"). Usually paired with the "implies" (\Rightarrow) connective.
     - **Existential (****\exists****):** Statements about some objects (e.g., "Someone is smart"). Usually paired with the "and" (\wedge) connective.
+
+## Related
+
+- [[AI MOC]] — Full map of AI topics
+- [[Fundamentals of Intelligent Agents Architecture, Environments, and Taxonomy]] — Agent types and architecture
+- [[Artificial Intelligence Searching and Planning for Problem-Solving Agents]] — Systematic search strategies (BFS, DFS, A*)
+- [[Comprehensive Briefing Fundamentals and Applications of Artificial Intelligence]] — Broader AI overview
+- [[Agentic AI (m1w1l1)]] — Modern agentic AI: how agents reason and use tools
+- [[Graph Theory]] — Search algorithms operate on graph structures

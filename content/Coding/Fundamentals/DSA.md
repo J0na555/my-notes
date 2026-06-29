@@ -1,4 +1,4 @@
-## Class: [[000 Links/DSA|DSA]]
+## Class: [[DSA MOC|DSA]]
 
 ## Topic: #dsa #algorithm #excalidraw
 
