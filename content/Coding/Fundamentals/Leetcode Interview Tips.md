@@ -11,7 +11,7 @@
 - edge cases
 - communications
 - testing
-- [[Time  and Space Complexity of an algorithm|time and space complexity]]
+- [[Time and Space Complexity of an Algorithm|time and space complexity]]
 
 `i am not that good at the coding artifacts so i need to leverage the non coding artifacts`
 
@@ -54,7 +54,7 @@ NB:
 ### code with the optimized solution
 
 - talk through your thought as much as possible
-- talk about the [[Time  and Space Complexity of an algorithm|time and space complexity]] of the optimized solution
+- talk about the [[Time and Space Complexity of an Algorithm|time and space complexity]] of the optimized solution
 
 ### testing and analysis
 

@@ -135,7 +135,7 @@ date: 2025-11-16
   - timesharing
   - real-time sharing
   - real time transactions
-  - eror cause ([[Concurrency control#Deadlock Handling|deadlock]], synchornization)
+  - eror cause ([[Concurrency Control#Deadlock Handling|deadlock]], synchornization)
 
 - memory management
   - processe isolation

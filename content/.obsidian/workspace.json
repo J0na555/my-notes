@@ -43,13 +43,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "class notes/Artificial Intelligence Searching and Planning for Problem-Solving Agents.md",
+                "file": "Dashboard.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Artificial Intelligence Searching and Planning for Problem-Solving Agents"
+              "title": "Dashboard"
             }
           }
         ],
@@ -107,10 +107,26 @@
             }
           }
         ]
+      },
+      {
+        "id": "d31143ae7262a900",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "34f9d09e2e5326b4",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 215.5
+    "width": 310.5
   },
   "right": {
     "id": "5e975ba4e83c3b2b",
@@ -215,8 +231,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "1e89cff278362742",
+  "active": "34f9d09e2e5326b4",
   "lastOpenFiles": [
+    "Dashboard.md",
+    "class notes/Artificial Intelligence Searching and Planning for Problem-Solving Agents.md",
     "Projects/Summer 2026 Build In Public Engineering Journey.md",
     "Coding/web/Django Concepts.md",
     "DSA & CP/DSA MOC.md",
@@ -246,8 +264,6 @@
     "Coding/ML/Machine Learning.md",
     "Projects/Machine learning course outline.md",
     "DSA & CP/Stacks, Queues and Monotonicity.md",
-    "DSA & CP/Recursion.md",
-    "DSA & CP/Binary Search.md",
     "static/Images/Pasted image 20260422190202.png",
     "static/Images/Pasted image 20260422190153.png",
     "static/Images/Pasted image 20260422190038.png",

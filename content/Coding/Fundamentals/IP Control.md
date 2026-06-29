@@ -7,7 +7,7 @@ date: 2025-11-06
 
 # Hardware Addressing
 
-- used to identify a host within a local network. Hardware addressing is the function of the **data-link layer** of the [[The OSI reference model|OSI model]] (layer 2)
+- used to identify a host within a local network. Hardware addressing is the function of the **data-link layer** of the [[The OSI Reference Model|OSI model]] (layer 2)
 - A MAC address is most often represented in hexadecimal, using one of two accepted formats:
  	- 00:43:AB:F2:32:13
  	- 0043.ABF2.3213
@@ -16,7 +16,7 @@ date: 2025-11-06
 
 # Logical addressing
 
-- Logical addressing is a function of the Network layer of the [[The OSI reference model|OSI Model]] (Layer-3), and provides a hierarchical structure to separate networks. Logical addresses are never hardcoded on physical network interfaces, and can be dynamically assigned and changed freely.
+- Logical addressing is a function of the Network layer of the [[The OSI Reference Model|OSI Model]] (Layer-3), and provides a hierarchical structure to separate networks. Logical addresses are never hardcoded on physical network interfaces, and can be dynamically assigned and changed freely.
 - A logical address contains two components:
  	- Network ID – identifies which network a host belongs to.
  	- Host ID – uniquely identifies the host on that network

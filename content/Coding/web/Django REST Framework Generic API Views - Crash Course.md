@@ -402,11 +402,11 @@ urlpatterns = [
 
 ## Related
 
-- [[DRF principles]]
+- [[DRF Principles]]
 - [[Django Concepts]]
 - [[Intro to Django]]
 - [[Django Channels]]
-- [[creating django project]]
+- [[Creating Django Project]]
 - [[Django Channels 1]]
-- [[Django channels 2]]
+- [[Django Channels 2]]
 - [[Session-Based Authentication]]

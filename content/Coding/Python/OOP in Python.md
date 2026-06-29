@@ -154,11 +154,11 @@ print(point3) # outputs :Point(4,6)
 
 ## Related
 
-- [[Concurrency and async,await]]
+- [[Concurrency and Async-Await]]
 - [[Pydantic]]
 - [[Django Concepts]]
 - [[Intro to Django]]
-- [[Python Types hints]]
-- [[creating django project]]
+- [[Python Type Hints]]
+- [[Creating Django Project]]
 - [[Python asyncio]]
 - [[Python Web Frameworks]]

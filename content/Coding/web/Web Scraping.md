@@ -1,4 +1,4 @@
-## Course: [[website basics|web]]
+## Course: [[Website Basics|web]]
 
 ## Subject: #web #webScraping #data
 
@@ -14,7 +14,7 @@
 
 Web scraping, also known as web harvesting or web data extraction, is the process of automatically collecting data from websites. It involves fetching web pages and extracting useful information from them, often to store or process it for further use.
 
-Instead of copying and pasting data manually, web scraping uses software (scripts, bots, or [[Web crawlers|libraries]]) to perform the task efficiently and at scale.
+Instead of copying and pasting data manually, web scraping uses software (scripts, bots, or [[Web Crawlers|libraries]]) to perform the task efficiently and at scale.
 
 ---
 

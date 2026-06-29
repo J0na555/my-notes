@@ -473,12 +473,12 @@ If you want a custom redirect after login (e.g. per-role), `LoginView` can be su
 ## Related
 
 - [[Views]]
-- [[Django channels 2]]
+- [[Django Channels 2]]
 - [[Django REST Framework Generic API Views - Crash Course]]
-- [[DRF principles]]
+- [[DRF Principles]]
 - [[Django Concepts]]
 - [[Intro to Django]]
 - [[Django Channels]]
-- [[creating django project]]
+- [[Creating Django Project]]
 - [[Django Channels 1]]
 - [[Django Authentication]]

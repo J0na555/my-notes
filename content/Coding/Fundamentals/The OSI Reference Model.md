@@ -113,7 +113,7 @@ Applications need different transport services based on:
 1. **DNS** (**domain name system**)
     - Translates domain names to IP addresses
     - Hierarchical structure (.com, .edu, .net domains)
-2. **[[website basics|HTTP/HTTPS]]**:(**hypertext transfer protocol**)(**hypertext transfer protocol secure**)
+2. **[[Website Basics|HTTP/HTTPS]]**:(**hypertext transfer protocol**)(**hypertext transfer protocol secure**)
     - Web page delivery protocol
     - Uses HTML for content markup
     - HTTPS adds security layer

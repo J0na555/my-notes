@@ -855,4 +855,4 @@ Explanation:
 ## Related
 
 - [[Transaction]]
-- [[Concurrency control]]
+- [[Concurrency Control]]

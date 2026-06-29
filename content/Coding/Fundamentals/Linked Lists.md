@@ -96,7 +96,7 @@ def insert_at_beginning(self, data):
     self.head = new_node
 ```
 
-**[[Time  and Space Complexity of an algorithm|Time Complexity]]:** `O(1)`  
+**[[Time and Space Complexity of an Algorithm|Time Complexity]]:** `O(1)`  
 This is one of the biggest advantages of linked lists.
 
 ---
@@ -123,7 +123,7 @@ def insert_at_end(self, data):
     current.next = new_node
 ```
 
-**[[Time  and Space Complexity of an algorithm|Time Complexity]]:** `O(n)`  
+**[[Time and Space Complexity of an Algorithm|Time Complexity]]:** `O(n)`  
 Because we must walk through the list.
 
 ---

@@ -9,7 +9,7 @@
 # <!--describe your approach on solving the problem -->
 
 
-# - [[Time  and Space Complexity of an algorithm|complexity]]
+# - [[Time and Space Complexity of an Algorithm|complexity]]
 # - time complexity :
 # <!-- add your time complexity -->
 

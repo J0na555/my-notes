@@ -34,7 +34,7 @@ React is a **JavaScript library** for building user interfaces (UIs), specifical
 Before diving into React, you **must** be comfortable with:
 
 * **HTML & CSS:** The building blocks of the web.
-* **[[JavaScript fundamentals|Core JavaScript]] (ES6+):** This is the most important one. Specifically:
+* **[[JavaScript Fundamentals|Core JavaScript]] (ES6+):** This is the most important one. Specifically:
   * `let` and `const`
   * Arrow functions (`() => {}`)
   * Array methods (`map`, `filter`, etc.)
@@ -206,6 +206,6 @@ Once you're comfortable creating a simple component, learn these concepts in ord
 
 ## Related
 
-- [[Object reference and copying]]
+- [[Object Reference and Copying]]
 - [[Python Web Frameworks]]
 - [[Objects in JS]]

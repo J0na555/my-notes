@@ -18,9 +18,9 @@ A map of all project notes and builds.
 
 ## Completed & Reference Projects
 
-- [[Sudoku puzzle engine]] — Puzzle generation and solving
-- [[anime tracker (launcher, companion)]] — Anime tracking application
-- [[Machine learning course outline]] — ML curriculum structure
+- [[Sudoku Puzzle Engine]] — Puzzle generation and solving
+- [[Anime Tracker (Launcher, Companion)]] — Anime tracking application
+- [[Machine Learning Course Outline]] — ML curriculum structure
 
 ## Build From Scratch Ideas (from Summer 2026 Plan)
 

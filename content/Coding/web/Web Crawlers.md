@@ -1,4 +1,4 @@
-## Class: [[website basics|web]]
+## Class: [[Website Basics|web]]
 
 ## Topic: #web #webcrawler #searchengines #python
 

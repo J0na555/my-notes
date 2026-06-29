@@ -91,5 +91,5 @@ Schedules refer to the sequences in which operations (like read and write) of mu
 
 ## Related
 
-- [[Concurrency control]]
-- [[Query processing]]
+- [[Concurrency Control]]
+- [[Query Processing]]

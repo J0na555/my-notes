@@ -12,14 +12,14 @@ Let's break down that `test_protected` view line by line, but with the **decisio
 
 **Step 2: "How does Django REST handle simple endpoints?"**
 
-- I remember `@api_view` decorator for function-based [[DRF principles|views]]
+- I remember `@api_view` decorator for function-based [[DRF Principles|views]]
 - Need to specify HTTP methods it accepts
 - This is just a GET request
 
 **Step 3: "Who can access this?"**
 
 - Only authenticated users
-- Django REST has `[[DRF principles|IsAuthenticated]]` permission class
+- Django REST has `[[DRF Principles|IsAuthenticated]]` permission class
 - Need `@permission_classes` decorator
 
 **Step 4: "What does success look like?"**

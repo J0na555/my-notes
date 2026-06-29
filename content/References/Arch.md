@@ -1,7 +1,7 @@
 ---
-title: 🐧 Arch Linux - Overview
+title: Arch Linux - Overview
 ---
-# 🐧 Arch Linux - Overview
+# Arch Linux - Overview
 
 Arch Linux is a lightweight, flexible, and rolling-release Linux distribution aimed at users who want full control over their system.
 

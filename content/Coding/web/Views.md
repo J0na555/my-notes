@@ -229,5 +229,5 @@ yourapp/
 
 ## Related
 
-- [[creating django project]]
+- [[Creating Django Project]]
 - [[Session-Based Authentication]]

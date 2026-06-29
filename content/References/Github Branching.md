@@ -53,7 +53,7 @@ git checkout -b feat/user-auth
 git add .
 
 # 5. Commit with a proper message
-git commit -m "feat(auth): add [[🔑 JWT Auth Setup (Django + React)|JWT authentication system]]"
+git commit -m "feat(auth): add [[JWT Auth Setup (Django + React)|JWT authentication system]]"
 
 # 6. Push your branch
 git push -u origin feat/user-auth
@@ -74,7 +74,7 @@ Optionally add a body and footer.
 **Example full message:**
 
 ```
-feat(auth): implement [[🔑 JWT Auth Setup (Django + React)|JWT authentication]]
+feat(auth): implement [[JWT Auth Setup (Django + React)|JWT authentication]]
 
 Added JWT-based login and registration with token refresh.
 This replaces the old session-based system.

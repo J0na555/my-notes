@@ -19,11 +19,11 @@ date: 2025-10-13
 1. Linear data structures (arrays, lists, strings)
 2. Must scan through a subarray or substring
 3. When the subarray must satisfy some condition (shortest/longest/min/max)
-4. Improve [[Time  and Space Complexity of an algorithm|time complexity]] from O(N^2) to O(N)
+4. Improve [[Time and Space Complexity of an Algorithm|time complexity]] from O(N^2) to O(N)
 
 ## Technique
 
-In the sliding window, you have **2 pointers, i and j**. Move j as far as you can until your condition is no longer valid, then move the i pointer closer to j until the condition is valid again to shrink the window. At every iteration, keep track of the min/max length of the subarray for the result. Without the sliding window technique, we would need to use a double for loop resulting in O(N^2) time. The sliding window is O(N) [[Time  and Space Complexity of an algorithm|time complexity]].
+In the sliding window, you have **2 pointers, i and j**. Move j as far as you can until your condition is no longer valid, then move the i pointer closer to j until the condition is valid again to shrink the window. At every iteration, keep track of the min/max length of the subarray for the result. Without the sliding window technique, we would need to use a double for loop resulting in O(N^2) time. The sliding window is O(N) [[Time and Space Complexity of an Algorithm|time complexity]].
 
 ## Dynamic Sliding Window
 
@@ -124,8 +124,8 @@ def window_fixed_size(nums, k):
 
 ---
 
-[[leetcode cheetsheet|Leetcode Cheatsheet]]
+[[Leetcode Cheatsheet|Leetcode Cheatsheet]]
 
 ## Related
 
-- [[stack]]
+- [[Stack]]

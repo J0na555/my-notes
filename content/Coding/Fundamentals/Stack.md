@@ -23,7 +23,7 @@ int isfull (stack *s);
 ```
 
 - Stack is a linear data structure that follows principle known as **LIFO** (last in first out or in other words first in last out(FILO)).
-- Array can be implemented by using [[Linked lists]], [[arrays]] and also [[pointers]]. Can be also **dynamic** or **fixed** size.
+- Array can be implemented by using [[Linked Lists]], [[arrays]] and also [[pointers]]. Can be also **dynamic** or **fixed** size.
 
 # methods on stack
 
@@ -59,4 +59,4 @@ int isfull (stack *s);
 ## Related
 
 - [[14 LeetCode Patterns to Solve Any Question]]
-- [[Time  and Space Complexity of an algorithm]]
+- [[Time and Space Complexity of an Algorithm]]

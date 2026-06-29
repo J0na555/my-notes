@@ -64,7 +64,7 @@ Most commonly used commands in Django:
 
 |Command|Description|
 |---|---|
-|`django-admin startproject <project-name>`|[[creating django project|Create a new Django project]]|
+|`django-admin startproject <project-name>`|[[Creating Django Project|Create a new Django project]]|
 |`python manage.py runserver`|Start the development server|
 |`python manage.py migrate`|Apply database migrations|
 |`python manage.py createsuperuser`|Create a new superuser for the admin panel|
@@ -502,14 +502,14 @@ This is just a small sample of the many websites that are built using Django.
 
 ## Related
 
-- [[Concurrency and async,await]]
+- [[Concurrency and Async-Await]]
 - [[Django REST Framework Generic API Views - Crash Course]]
 - [[Intro to Django]]
-- [[Python Types hints]]
+- [[Python Type Hints]]
 - [[OOP in Python]]
-- [[DRF principles]]
+- [[DRF Principles]]
 - [[Django Channels]]
 - [[Django Channels 1]]
-- [[Django channels 2]]
+- [[Django Channels 2]]
 - [[Python Web Frameworks]]
 - [[Session-Based Authentication]]

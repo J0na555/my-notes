@@ -47,5 +47,5 @@ date: 2025-11-22
 
 ## Related
 
-- [[stack]]
+- [[Stack]]
 - [[14 LeetCode Patterns to Solve Any Question]]

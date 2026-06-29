@@ -124,7 +124,7 @@ async def main():
 
 ## Related
 
-- [[Concurrency and async,await]]
+- [[Concurrency and Async-Await]]
 - [[Pydantic]]
 - [[OOP in Python]]
-- [[Python Types hints]]
+- [[Python Type Hints]]

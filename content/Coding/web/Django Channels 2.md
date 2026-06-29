@@ -156,7 +156,7 @@ def process_and_notify(data, user_id):
     )
 ```
 
-### 3. [[DRF principles|Django REST Framework (API Integration)]]
+### 3. [[DRF Principles|Django REST Framework (API Integration)]]
 
 **Combining REST APIs with WebSockets:**
 
@@ -258,7 +258,7 @@ class NotificationConsumer(AsyncWebsocketConsumer):
 
 | Command | Description |
 |---|---|
-| `django-admin startproject <project-name>` | [[creating django project|Create a new Django project]] |
+| `django-admin startproject <project-name>` | [[Creating Django Project|Create a new Django project]] |
 **Using Django Signals with Channels:**
 
 ```python

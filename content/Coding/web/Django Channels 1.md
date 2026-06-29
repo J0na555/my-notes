@@ -429,10 +429,10 @@ Django Channels significantly expands Django's capabilities, making it suitable 
 ## Related
 
 - [[Django REST Framework Generic API Views - Crash Course]]
-- [[DRF principles]]
+- [[DRF Principles]]
 - [[Django Concepts]]
 - [[Django Channels]]
-- [[creating django project]]
+- [[Creating Django Project]]
 - [[Django Authentication]]
-- [[Django channels 2]]
+- [[Django Channels 2]]
 - [[Session-Based Authentication]]

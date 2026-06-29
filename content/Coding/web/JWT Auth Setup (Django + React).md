@@ -16,7 +16,7 @@ date: 2025-08-18
 ### 2. **Update Django settings**
 
 - Add `rest_framework` to `INSTALLED_APPS`.
-- Configure [[DRF principles|DRF]] default auth classes to use JWT:
+- Configure [[DRF Principles|DRF]] default auth classes to use JWT:
   - `REST_FRAMEWORK['DEFAULT_AUTHENTICATION_CLASSES'] = ['rest_framework_simplejwt.authentication.JWTAuthentication']`
 
 ---

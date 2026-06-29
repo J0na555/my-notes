@@ -14,7 +14,7 @@ A map of all data structures, algorithms, and competitive programming notes.
 ## Fundamentals
 
 - [[DSA]] — Core concepts: data structures vs algorithms, ADTs, complexity analysis, asymptotic notation
-- [[Time  and Space Complexity of an algorithm]] — Big-O, Omega, Theta analysis
+- [[Time and Space Complexity of an Algorithm]] — Big-O, Omega, Theta analysis
 - [[Competitive Programmer's Handbook Chapter 1]] — CP foundations
 
 ## Data Structures
@@ -22,7 +22,7 @@ A map of all data structures, algorithms, and competitive programming notes.
 ### Linear
 
 - [[stacks, queues and monotonicity|Stacks, Queues & Monotonicity]] — LIFO/FIFO structures, monotonic stack patterns
-- [[Linked lists]] — Dynamic sequential access
+- [[Linked Lists]] — Dynamic sequential access
 
 ### Non-Linear
 
@@ -61,4 +61,4 @@ A map of all data structures, algorithms, and competitive programming notes.
 
 - [[Coding/Fundamentals/DSA|DSA Fundamentals (Class)]]
 - [[14 LeetCode Patterns to Solve Any Question]]
-- [[Competitive Programming Math Notes — Writing Guide]]
+- [[Competitive Programming Math Notes - Writing Guide]]

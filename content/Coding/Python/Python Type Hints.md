@@ -195,11 +195,11 @@ print(user.id)
 
 ## Related
 
-- [[Concurrency and async,await]]
+- [[Concurrency and Async-Await]]
 - [[Pydantic]]
 - [[Django Concepts]]
 - [[Intro to Django]]
-- [[creating django project]]
+- [[Creating Django Project]]
 - [[OOP in Python]]
 - [[Python asyncio]]
 - [[Python Web Frameworks]]

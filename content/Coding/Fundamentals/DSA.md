@@ -59,7 +59,7 @@
 The arrangement of the data in the sequential manner is known as linear DS.
 The data structure used for this purpose are
  - [[arrays]]
- - [[Linked lists]]
+ - [[Linked Lists]]
  - [[Stacks]] and
  - [[queues]]
 In this DS, one element is connected to only one another element in a linear form.

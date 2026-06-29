@@ -9,7 +9,7 @@ date: 2025-12-08
 
 ## Why use Pydantic?[¶](https://docs.pydantic.dev/latest/#why-use-pydantic)
 
-- **Powered by [[Python Types hints|type hints]]** — with [[Pydantic]], schema validation and serialization are controlled by type annotations; less to learn, less code to write, and integration with your IDE and static analysis tools. [Learn more…](https://docs.pydantic.dev/latest/why/#type-hints)
+- **Powered by [[Python Type Hints|type hints]]** — with [[Pydantic]], schema validation and serialization are controlled by type annotations; less to learn, less code to write, and integration with your IDE and static analysis tools. [Learn more…](https://docs.pydantic.dev/latest/why/#type-hints)
 - **Speed** — Pydantic's core validation logic is written in Rust. As a result, Pydantic is among the fastest data validation libraries for Python. [Learn more…](https://docs.pydantic.dev/latest/why/#performance)
 - **JSON Schema** — Pydantic models can emit JSON Schema, allowing for easy integration with other tools. [Learn more…](https://docs.pydantic.dev/latest/why/#json-schema)
 - **Strict** and **Lax** mode — Pydantic can run in either strict mode (where data is not converted) or lax mode where Pydantic tries to coerce data to the correct type where appropriate. [Learn more…](https://docs.pydantic.dev/latest/why/#strict-lax)
@@ -160,7 +160,7 @@ print(user_json_str)
 
 ## Related
 
-- [[Concurrency and async,await]]
+- [[Concurrency and Async-Await]]
 - [[OOP in Python]]
 - [[Python asyncio]]
 - [[FastAPI Auth]]

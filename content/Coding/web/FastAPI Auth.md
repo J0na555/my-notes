@@ -8,7 +8,7 @@ date: 2025-12-16
 
 # Big Picture (Before Code)
 
-What you’ve built is **stateless authentication** using [[🔑 JWT Auth Setup (Django + React)|JWT]].
+What you’ve built is **stateless authentication** using [[JWT Auth Setup (Django + React)|JWT]].
 
 That means:
 
@@ -458,6 +458,6 @@ No sessions. No memory. No magic.
 
 ## Related
 
-- [[Concurrency and async,await]]
+- [[Concurrency and Async-Await]]
 - [[Pydantic]]
 - [[Django Authentication]]

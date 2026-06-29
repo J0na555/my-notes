@@ -13,7 +13,7 @@ Django Channels is an extension to Django that allows you to handle protocols be
 
 Django itself is synchronous and HTTP-focused, but Channels introduces an ASGI (Asynchronous Server Gateway Interface) layer, which replaces WSGI for async capabilities. This means you can mix sync Django views with async WebSocket handlers (called "consumers"). Channels uses Redis (or other backends) as a channel layer for message passing between processes.
 
-Since you're using React on the frontend, I'll focus primarily on the backend setup for WebSockets, but I'll include notes on how to connect from React once you're ready. Assume you have a basic Django project set up (e.g., created with [[creating django project|`django-admin startproject myproject`]] and at least one app like `myapp`).
+Since you're using React on the frontend, I'll focus primarily on the backend setup for WebSockets, but I'll include notes on how to connect from React once you're ready. Assume you have a basic Django project set up (e.g., created with [[Creating Django Project|`django-admin startproject myproject`]] and at least one app like `myapp`).
 
 ### Step 1: Installation
 
@@ -238,7 +238,7 @@ Consumers are like views but for WebSockets. They handle connection, disconnecti
        ]
        ```
 
-     - For [[Django Authentication|token-based]] (common with React): Parse tokens in `connect` using `rest_framework` if you have [[DRF principles|DRF]].
+     - For [[Django Authentication|token-based]] (common with React): Parse tokens in `connect` using `rest_framework` if you have [[DRF Principles|DRF]].
 
 5. **Integration with Models and Views**:
    - Trigger WebSocket messages from Django views or signals. Example: In a view, after saving a model:
@@ -336,5 +336,5 @@ Since you're using React and haven't started yet, here's how to integrate once y
 - [[Django Concepts]]
 - [[Intro to Django]]
 - [[Django Channels 1]]
-- [[Django channels 2]]
+- [[Django Channels 2]]
 - [[Session-Based Authentication]]

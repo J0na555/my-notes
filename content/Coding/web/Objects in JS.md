@@ -500,5 +500,5 @@ Objects in JavaScript are very powerful. Here we’ve just scratched the surface
 
 ## Related
 
-- [[Object reference and copying]]
+- [[Object Reference and Copying]]
 - [[React Js]]

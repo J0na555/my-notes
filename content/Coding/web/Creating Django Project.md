@@ -339,14 +339,14 @@ That's a brief overview of how to create views that handle requests and generate
 
 ## Related
 
-- [[Concurrency and async,await]]
-- [[Django channels 2]]
+- [[Concurrency and Async-Await]]
+- [[Django Channels 2]]
 - [[Django REST Framework Generic API Views - Crash Course]]
 - [[Django Concepts]]
 - [[Intro to Django]]
-- [[Python Types hints]]
+- [[Python Type Hints]]
 - [[OOP in Python]]
-- [[DRF principles]]
+- [[DRF Principles]]
 - [[Django Channels]]
 - [[Django Channels 1]]
 - [[Session-Based Authentication]]

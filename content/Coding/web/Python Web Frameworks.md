@@ -95,9 +95,9 @@ Python web development can be used for a wide range of applications, including w
 
 ## Related
 
-- [[Concurrency and async,await]]
+- [[Concurrency and Async-Await]]
 - [[Django Concepts]]
 - [[React Js]]
-- [[Python Types hints]]
-- [[creating django project]]
+- [[Python Type Hints]]
+- [[Creating Django Project]]
 - [[OOP in Python]]

@@ -39,10 +39,10 @@ _(Django’s default way)_
 _(common for React/SPA/mobile apps)_
 
 - **How it works**
-  - React sends username + password → Django returns a **[[🔑 JWT Auth Setup (Django + React)|JWT]] token**.
+  - React sends username + password → Django returns a **[[JWT Auth Setup (Django + React)|JWT]] token**.
   - React stores the token (usually `localStorage` or `httpOnly cookie`).
   - On every request, React sends `Authorization: Bearer <token>` in headers.
-  - Django/[[DRF principles|DRF]] validates the token without DB lookup (JWT is self-contained).
+  - Django/[[DRF Principles|DRF]] validates the token without DB lookup (JWT is self-contained).
 - **Pros**
   - Frontend-agnostic → works with React, mobile apps, third-party clients.
   - Stateless (no DB lookup needed on every request → better for scaling).
@@ -86,8 +86,8 @@ AUTH OPTIONS
 - [[Django REST Framework Generic API Views - Crash Course]]
 - [[Django Concepts]]
 - [[Django Channels]]
-- [[creating django project]]
+- [[Creating Django Project]]
 - [[Django Channels 1]]
-- [[Django channels 2]]
+- [[Django Channels 2]]
 - [[Session-Based Authentication]]
 - [[FastAPI Auth]]

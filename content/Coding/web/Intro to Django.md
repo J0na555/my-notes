@@ -1,5 +1,5 @@
 ---
-"title:": " Django Beginner Notes (with Spring Boot References)"
+title: "Django Beginner Notes (with Spring Boot References)"
 tags:
   - django
   - python
@@ -23,7 +23,7 @@ date: 2025-07-16
 When you create a Django project:
 
 ```bash
-[[creating django project|django-admin startproject myproject]]
+[[Creating Django Project|django-admin startproject myproject]]
 cd myproject
 python manage.py startapp myapp
 ```
@@ -257,7 +257,7 @@ public class Product {
 
 ## 🌍 REST APIs in Django
 
-Use [[DRF principles|Django REST Framework (DRF)]] — like Spring Boot REST APIs.
+Use [[DRF Principles|Django REST Framework (DRF)]] — like Spring Boot REST APIs.
 
 Install:
 
@@ -336,14 +336,14 @@ urlpatterns = router.urls
 
 ## Related
 
-- [[Concurrency and async,await]]
+- [[Concurrency and Async-Await]]
 - [[Django REST Framework Generic API Views - Crash Course]]
 - [[Django Concepts]]
-- [[Python Types hints]]
+- [[Python Type Hints]]
 - [[OOP in Python]]
 - [[Django Channels]]
 - [[Django Channels 1]]
 - [[Django Authentication]]
-- [[Django channels 2]]
+- [[Django Channels 2]]
 - [[Python Web Frameworks]]
 - [[Session-Based Authentication]]
