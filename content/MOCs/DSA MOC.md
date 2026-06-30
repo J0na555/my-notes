@@ -21,7 +21,7 @@ A map of all data structures, algorithms, and competitive programming notes.
 
 ### Linear
 
-- [[stacks, queues and monotonicity|Stacks, Queues & Monotonicity]] — LIFO/FIFO structures, monotonic stack patterns
+- [[Stacks, Queues and Monotonicity|Stacks, Queues & Monotonicity]] — LIFO/FIFO structures, monotonic stack patterns
 - [[Linked Lists]] — Dynamic sequential access
 
 ### Non-Linear
@@ -59,6 +59,6 @@ A map of all data structures, algorithms, and competitive programming notes.
 
 ## Related
 
-- [[Coding/Fundamentals/DSA|DSA Fundamentals (Class)]]
+- [[Coding/Fundamentals/Algorithms/DSA|DSA Fundamentals (Class)]]
 - [[14 LeetCode Patterns to Solve Any Question]]
 - [[Competitive Programming Math Notes - Writing Guide]]

@@ -12,13 +12,13 @@ This is the starting point for navigating my notes.
 
 ## Maps of Content
 
-- [[AI MOC]] — Artificial intelligence, intelligent agents, search, machine learning, and agentic AI
-- [[DSA MOC]] — Data structures, algorithms, and competitive programming
-- [[Projects MOC]] — Active projects, build-from-scratch roadmaps, and reference implementations
-- [[Django MOC]] — Django, backend web development, APIs, and Python web ecosystem
+- [[MOCs/AI MOC|AI MOC]] — Artificial intelligence, intelligent agents, search, machine learning, and agentic AI
+- [[MOCs/DSA MOC|DSA MOC]] — Data structures, algorithms, and competitive programming
+- [[MOCs/Projects MOC|Projects MOC]] — Active projects, build-from-scratch roadmaps, and reference implementations
+- [[MOCs/Django MOC|Django MOC]] — Django, backend web development, APIs, and Python web ecosystem
 
 ## Quick Links
 
-- [[class notes/|Class Notes]] — University course notes
-- [[References/|References]] — Cheat sheets, tools, and reference material
-- [[Coding/|Coding]] — Programming fundamentals, languages, and frameworks
+- [[StudyNotes/StudyNotes|Study Notes]] — University course notes
+- [[Tools/Tools|Tools]] — Cheat sheets, tools, and reference material
+- [[Coding/Coding|Coding]] — Programming fundamentals, languages, and frameworks
