@@ -1,0 +1,7 @@
+{
+  "graph-background-image@@graph-bg-opacity": 1,
+  "graph-background-image@@graph-bg-brightness": 0.3,
+  "graph-background-image@@graph-bg-blur": 19,
+  "graph-background-image@@graph-bg-size": "cover",
+  "graph-background-image@@graph-bg-position": "center"
+}

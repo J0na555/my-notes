@@ -6,6 +6,7 @@ title: Dashboard
 publish: "true"
 ---
 
+
 Welcome to my digital garden.
 
 This is the starting point for navigating my notes.

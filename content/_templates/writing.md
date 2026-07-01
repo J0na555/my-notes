@@ -2,5 +2,5 @@
 title: "{{title}}"
 date: "{{date}}"
 meta:
-publish: "true"
+publish: "false"
 ---
