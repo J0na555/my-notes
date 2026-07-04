@@ -1,13 +1,14 @@
 ---
 title: Git Internals
 date: 2026-06-30
-meta: ai · Internals · CS50
+meta: Git · Internals · CS50
 publish: "false"
 source: https://youtu.be/lG90LZotrpo
 ---
 # Git Internals
 
-> [!quote] Core Idea Git is not just a version control tool — it is, at its core, a **content-addressable filesystem** with a version-control interface layered on top of it. — John Britton, CS50 Tech Talk
+> [!quote] Core Idea Git is not just a version control tool — it is, at its core, a **content-addressable filesystem** with a version-control interface layered on top of it. 
+>  John Britton, CS50 Tech Talk
 
 ## What is Git?
 Git is not just a version control system. That is true in surface level but it undersells what Git actually is internally.
@@ -410,4 +411,5 @@ git update-ref refs/heads/main $COMMIT
 |`git help gitrepository-layout`|Official manpage for `.git/` structure|
 |`git help gitcore-tutorial`|Plumbing commands walkthrough|
 
-_Note compiled from: CS50 Tech Talk — Git Internals by John Britton (GitHub), 2018._ _Source video: [https://youtu.be/lG90LZotrpo](https://youtu.be/lG90LZotrpo)_
+_Note compiled from: CS50 Tech Talk Git Internals by John Britton (GitHub), 2018._ 
+_Source video: [https://youtu.be/lG90LZotrpo](https://youtu.be/lG90LZotrpo)_
