@@ -1,6 +1,6 @@
 ---
 
-kanban-plugin: basic
+kanban-plugin: board
 
 ---
 
@@ -9,16 +9,21 @@ kanban-plugin: basic
 - [ ] Task 1
 - [ ] Task 2
 
+
 ## In Progress
 
 - [ ] Working on this
+
 
 ## Done
 
 - [x] Completed task
 
-{% kanban: %}
 
-%% kanban settings
-{"kanban-plugin":"basic"}
+
+
+%% kanban:settings
+```
+{"kanban-plugin":"board"}
+```
 %%

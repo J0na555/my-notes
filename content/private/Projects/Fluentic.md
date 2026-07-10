@@ -3,6 +3,7 @@ title: code base on boarder
 date: 2026-06-30
 tags:
   - project
+  - taskgen
 publish: "false"
 type: note
 status: draft
@@ -69,3 +70,22 @@ SpeakLoop, TalkBack, MockMic, InterviewTongue, SpeakBack, Fluentic, MouthPiece.
 ## Key Personal Lesson (carried over from the codebase-onboarder idea)
 
 Build things I'd actually use and pay for myself first. If I wouldn't use/pay for it, that's a signal, not a detail to brush past.
+
+---
+
+## Tasks
+
+- [ ] **fluentic** — try Discute first (Whisper + Groq + Kokoro) to validate the loop exists
+- [ ] **fluentic** — build one-screen MVP: mic button + mock interview scenario (not generic practice)
+- [ ] **fluentic** — make LLM act as interviewer + flag 1-2 phrasing fixes per turn + TTS voice reply
+- [ ] **fluentic** — deploy as shareable link (no accounts, no dashboard)
+- [ ] **fluentic** — send to friends in 2-3 days, ask specific questions (Q1-Q7)
+- [ ] **fluentic** — analyze feedback, weight actual behavior (Q1, Q7) over general enthusiasm
+
+
+
+------
+## features that i came up with
+
+- the ai just listens to your rant and then she will retell you how to say that and you will say it back and she will correct you again and you will try again and  the loops goes on
+- talk with tongue twisters somehow like she talks to you in a way that it involves tongue twisters or she asks you a question and the answer is on the screen then you have to read it as fast and normal as possible

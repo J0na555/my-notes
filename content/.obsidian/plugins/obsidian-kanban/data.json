@@ -1,0 +1,21 @@
+{
+  "lane-width": 400,
+  "full-list-lane-width": true,
+  "new-note-folder": "private/Project Tracker",
+  "move-tags": false,
+  "tag-sort": [
+    {
+      "tag": "#task"
+    },
+    {
+      "tag": "#kanban"
+    }
+  ],
+  "tag-colors": [
+    {
+      "tagKey": "#",
+      "color": "",
+      "backgroundColor": ""
+    }
+  ]
+}
