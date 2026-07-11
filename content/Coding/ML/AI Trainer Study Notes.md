@@ -63,6 +63,8 @@ Before trusting any AI output, ask yourself:
 - References that sound academic but feel "off"
 - Timelines that don't align with known history
 
+See [[Generation]] for strategies to control hallucinations in RAG systems using prompt construction and answerability checks.
+
 ---
 
 ## 2. Accuracy Evaluation (Factual Correctness)

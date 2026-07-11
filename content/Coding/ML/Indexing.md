@@ -1,15 +1,15 @@
 ---
 title: Indexing
 date: 2026-07-10
-meta: ai · RAG · vector
+tags: [ai, rag, ml, vector]
 publish: "false"
 ---
-Indexing in RAG is the process of turning your raw documents into searchable embeddings: you decide how to chunk text, attach metadata, store everything in a vector database, and build an ingestion pipeline that keeps the index up to date
+Indexing in RAG is the process of turning your raw documents into searchable [[Embeddings|embeddings]]: you decide how to chunk text, attach metadata, store everything in a vector database, and build an ingestion pipeline that keeps the index up to date
 
 ## Why indexing matters in RAG
 
 Good indexing determines:
-- **What** the retrieval step can find (quality and coverage).
+- **What** the [[Retrieval|retrieval step]] can find (quality and coverage).
 - **How fast** it can find it (latency and scalability).
 - **How well** it handles large, evolving document sets (updates, deletions, re‑indexing).
 
@@ -174,7 +174,7 @@ Key components:
 
 ## 4. Embedding generation
 
-- Use an embedding model (e.g., Sentence‑BERT, E5, etc.).
+- Use an [[Embeddings|embedding model]] (e.g., Sentence‑BERT, E5, etc.).
 - Ensure consistency: same model (or compatible) for indexing and querying.
 - Batch embeddings for efficiency.
 
@@ -221,4 +221,9 @@ Practical guidelines:
 - Choose a **vector DB** that matches your scale and operational constraints; don’t over-engineer early.
 - Build your **ingestion pipeline** as modular steps so you can swap chunking, preprocessing, or embedding models without rewriting everything.
 - Continuously **evaluate** retrieval quality with real queries and adjust chunk size, overlap, and metadata usage accordingly.
+
+## See also
+- [[Embeddings]] — vector representations and similarity metrics
+- [[Retrieval]] — BM25, dense search, hybrid search, and reranking
+- [[Generation]] — prompt construction, citations, and hallucination control
 

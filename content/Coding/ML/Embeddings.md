@@ -1,7 +1,7 @@
 ---
 title: Embeddings
 date: 2026-07-10
-meta: ai · RAG · vector
+tags: [ai, rag, ml, vector]
 publish: "false"
 ---
 Embeddings are numerical(vector) representations of text that capture semantic meaning and in RAG  they let you turn a query and all your documents into points in a high dimensional vector space so you can find "similar" content using similarity measures like cosine similarity.
@@ -15,9 +15,9 @@ In RAG, an embedding is typical a dense vector (eg. 768 or 1024 numbers)   produ
     
 In a RAG pipeline
 
-1. You chunk your documents and compute an embedding for each chunk, storing them in a vector database.
+1. You [[Indexing|chunk your documents]] and compute an embedding for each chunk, storing them in a [[Indexing|vector database]].
 2. When a user asks a question, you compute an embedding for the query using the same (or compatible) embedding model
-3. You then search the vector database for chunks whose embeddings are most similar to the query embedding
+3. You then [[Retrieval|search the vector database]] for chunks whose embeddings are most similar to the query embedding
 
 ## Vector spaces and representation
 
@@ -92,14 +92,14 @@ Example:
 
 Typical RAG flow with embeddings:
 
-1. **Indexing**:
+1. **[[Indexing]]**:
     - Chunk documents (e.g., by paragraph or fixed token size).
     - Compute embedding for each chunk.
     - Store `(chunk_text, embedding)` in a vector DB (FAISS, Pinecone, Chroma, Weaviate, etc.).
-2. **Querying**:
+2. **[[Retrieval|Querying]]**:
     - Turn user query into an embedding using the same model.
     - Use a similarity search (often cosine similarity) to find top‑k nearest chunks.
-3. **Generation**:
+3. **[[Generation]]**:
     - Pass query + retrieved chunks to an LLM.
     - LLM generates an answer grounded in the retrieved context.
 
@@ -108,3 +108,8 @@ Key points to remember:
 - Using the _same_ (or compatible) embedding model for queries and documents is crucial; otherwise, the vector spaces don’t align and similarity is meaningless.learn.
 - Embedding quality (model choice, domain adaptation) directly affects retrieval quality and thus RAG performance.learn.
 - Cosine similarity is the standard similarity metric in most RAG systems because it robustly captures semantic closeness in high-dimensional spaces.
+
+## See also
+- [[Indexing]] — chunking strategies, metadata, and vector databases
+- [[Retrieval]] — BM25, dense search, hybrid search, and reranking
+- [[Generation]] — prompt construction, citations, and hallucination control

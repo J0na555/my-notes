@@ -59,6 +59,6 @@ kanban-plugin: board
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false,true],"show-checkboxes":false,"new-card-insertion-method":"append","hide-card-count":true,"lane-width":300}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false],"show-checkboxes":false,"new-card-insertion-method":"append","hide-card-count":true,"lane-width":300}
 ```
 %%

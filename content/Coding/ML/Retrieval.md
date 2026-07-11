@@ -1,10 +1,10 @@
 ---
 title: Retrieval
 date: 2026-07-11
-meta: ai · RAG · vector
+tags: [ai, rag, ml, vector]
 publish: "false"
 ---
-Retrieval in RAG is the process of finding the most relevant document chunks for a query using techniques like BM25 (lexical), dense retrieval (embedding-based), and hybrid search (combining both), often followed by reranking and accelerated with approximate nearest neighbor (ANN) search methods such as HNSW and FAISS.
+Retrieval in RAG is the process of finding the most relevant document chunks for a query using techniques like BM25 (lexical), dense retrieval ([[Embeddings|embedding-based]]), and hybrid search (combining both), often followed by reranking and accelerated with approximate nearest neighbor (ANN) search methods such as HNSW and FAISS.
 
 ## BM25: lexical (sparse) retrieval
 
@@ -46,7 +46,7 @@ Use BM25 when:
 
 ## Dense retrieval: embedding-based search
 
-Dense retrieval uses **neural embeddings** to represent queries and documents as vectors and finds similar vectors in a high-dimensional space.
+Dense retrieval uses **neural [[Embeddings|embeddings]]** to represent queries and documents as vectors and finds similar vectors in a high-dimensional space.
 ## How dense retrieval works
 
 1. Encode query qqq into embedding q using a model (e.g., Sentence‑BERT, E5).
@@ -203,10 +203,15 @@ A robust retrieval pipeline often looks like:
 5. **Reranking**:
     - Rerank top N (e.g., 50) with a cross-encoder or learned model.
 6. **Final selection**:
-    - Take top‑k (e.g., 5–10) as context for LLM generation.
+    - Take top‑k (e.g., 5–10) as context for [[Generation|LLM generation]].
 
 This design gives you:
 - **Precision** from BM25 (exact matches, codes).
 - **Recall** from dense retrieval (semantic matches).
 - **Accuracy** from reranking.
 - **Speed** from ANN (HNSW/IVF) in the vector index.
+
+## See also
+- [[Embeddings]] — vector representations and similarity metrics
+- [[Indexing]] — chunking strategies, metadata, and vector databases
+- [[Generation]] — prompt construction, citations, and hallucination control
