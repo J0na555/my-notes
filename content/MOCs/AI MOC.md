@@ -51,9 +51,12 @@ A map of AI concepts, intelligent agents, and machine learning notes.
 - **Search & Planning** — [[Graph Theory]] (BFS, DFS, A*), state-space exploration
 - **Knowledge Representation** — Logic, ontologies, semantic networks
 - **Machine Learning** — [[Machine Learning]], supervised/unsupervised/reinforcement
+- **AI Evaluation** — [[AI Trainer Study Notes]] — hallucinations, accuracy, completeness, safety
 - **Agentic AI** — [[Agentic AI (m1w1l1)]] — Workflows → single agents → multi-agent systems
+- **RAG Pipeline** — [[Embeddings]] → [[Indexing]] → [[Retrieval]] → [[Generation]] — retrieval-augmented generation from vector representations to grounded output
 
 ## Related
 
+- [[Coding/ML/ML|ML]] — Full map of ML, AI, and RAG notes
 - [[DSA MOC]] — Graph algorithms power AI search
 - [[Projects MOC]] — AI project implementations

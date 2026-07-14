@@ -186,3 +186,12 @@ The v2 plan includes UI mode (terminal dashboard or TUI), dynamic stage injectio
 ---
 
 Aizen is open source. The code, documentation, and all 77 passing tests are at [github.com/J0na555/aizen](https://github.com/J0na555/aizen).
+
+
+### additional features for aizen
+- what if we pivot to code reviewer or not pivot but add feature that reviews code for each push or pr 
+	- those projects can be flagged in some way 
+	- the review can go like this one model writes and another reviews before merge and if its not that high it will hand it back to the coder and the coder will take the review  (loop lol)
+
+- i dont like that much that its yaml type format so might about that as well, its not becoming intuitive foe me 
+- also the usage is not clear enough i think cause when  try to use this workflow in a project the model is telling me not to use this workflow for some reason

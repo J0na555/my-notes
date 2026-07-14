@@ -3,3 +3,29 @@ tags: [ideas, private, taskgen]
 date: 2026-06-30
 ---
 # Project Ideas
+
+
+### quartz app
+- app for any quartz based sites 
+	- just connect the github and give access to that repo and the app just syncs the notes to the app
+
+### app that syncs the screenshots from your phone to your pc
+
+
+### Ai job applier
+- use the forked version which is [ai job search](https://github.com/J0na555/ai-job-search)
+	- make it so that i scans job postings
+	- have access to all my experience
+	- tailor a cv for each one and apply
+	- have a specific folder in the obsidian vault and track everything
+	which might look like this
+	
+	![[Pasted image 20260713103732.png]]
+
+
+
+
+### App idea generator
+- ideas that makes money not just slop ideas that chat comes up with but researched app ideas
+	- based on comments that people comment on sites (reddit,....)
+	- 

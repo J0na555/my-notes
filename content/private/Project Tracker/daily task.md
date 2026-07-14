@@ -6,8 +6,6 @@ kanban-plugin: board
 
 ## BackLog
 
-- [ ] **git from scratch** — status feature
-- [ ] **git from scratch** — log command
 - [ ] **project defense** — AniFlow: tracker abstraction + AniList adapter sync
 - [ ] **project defense** — AniFlow: streaming source models, matchers, router, per-site adapters
 - [ ] **project defense** — AniFlow: anime app (dual HTML/JSON surface, auth, CORS)
@@ -28,37 +26,48 @@ kanban-plugin: board
 
 ## This week
 
-- [ ] **project defense** — AniFlow: custom user model + AniList OAuth flow
-- [ ] **tree namer app** — make MVP plan
+- [ ] **git from scratch** — status feature
+- [ ] **git from scratch** — log command
 - [ ] **redis clone** — implement TCP server (socket, command loop)
 - [ ] **redis clone** — implement core data structures — SET/GET, DEL, EXPIRE
 - [ ] **redis clone** — implement persistence (RDB/AOF)
 - [ ] **redis clone** — config + CLI client
 - [ ] **redis clone** — documentation + architecture diagram
 - [ ] **redis clone** — YouTube video, reel/carousel, X thread
-- [ ] **fluentic** — make a build plan
 - [ ] **sensei** — system design / architecture plan
-- [ ] improve client radar
+- [ ] **tree namer app** — make MVP plan
 
 
 ## Today
 
-- [ ] **redis clone** — research: protocol, data structures, persistence
 - [ ] **redis clone** — system design architecture diagram
-- [ ] improve ai assistant template
-- [ ] finish the rag tutorial
+- [ ] **fluentic** — make a build plan
+- [ ] **project defense** — AniFlow: custom user model + AniList OAuth flow
+
+
+## at the moment
+
 
 
 ## Complete
 
 **Complete**
+- [x] **redis clone** — research: protocol, data structures, persistence
 - [x] **git from scratch** — commit feature
+- [x] finish the rag tutorial
+
+
+## halt
+
+- [ ] V2 plan for Aizen
+- [ ] improve ai assistant template
+- [ ] improve client radar
 
 
 
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false,false],"show-checkboxes":false,"new-card-insertion-method":"append","hide-card-count":true,"lane-width":300}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,false],"show-checkboxes":false,"new-card-insertion-method":"append","hide-card-count":true,"lane-width":300}
 ```
 %%

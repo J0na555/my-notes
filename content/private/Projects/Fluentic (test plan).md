@@ -4,6 +4,7 @@ date: 2026-06-30
 tags:
   - project
   - taskgen
+  - fluentic
 publish: "false"
 type: note
 status: draft
