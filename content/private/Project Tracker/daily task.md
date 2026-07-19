@@ -26,9 +26,8 @@ kanban-plugin: board
 
 ## This week
 
+- [ ] **project defense** — AniFlow: custom user model + AniList OAuth flow
 - [ ] **git from scratch** — status feature
-- [ ] **git from scratch** — log command
-- [ ] **redis clone** — implement TCP server (socket, command loop)
 - [ ] **redis clone** — implement core data structures — SET/GET, DEL, EXPIRE
 - [ ] **redis clone** — implement persistence (RDB/AOF)
 - [ ] **redis clone** — config + CLI client
@@ -40,9 +39,7 @@ kanban-plugin: board
 
 ## Today
 
-- [ ] **redis clone** — system design architecture diagram
 - [ ] **fluentic** — make a build plan
-- [ ] **project defense** — AniFlow: custom user model + AniList OAuth flow
 
 
 ## at the moment
@@ -52,9 +49,11 @@ kanban-plugin: board
 ## Complete
 
 **Complete**
+- [x] **redis clone** — system design architecture diagram
 - [x] **redis clone** — research: protocol, data structures, persistence
 - [x] **git from scratch** — commit feature
 - [x] finish the rag tutorial
+- [x] **redis clone** — implement TCP server (socket, command loop)
 
 
 ## halt

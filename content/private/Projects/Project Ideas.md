@@ -28,4 +28,8 @@ date: 2026-06-30
 ### App idea generator
 - ideas that makes money not just slop ideas that chat comes up with but researched app ideas
 	- based on comments that people comment on sites (reddit,....)
-	- 
+
+### product idea generator
+- YC startup level product idea generator not for local market but for international 
+### product idea generator
+- looks at what other countries implement which is doable in ethiopia 

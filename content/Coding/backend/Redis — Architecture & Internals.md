@@ -312,12 +312,12 @@ Uneven load across keys — one item suddenly goes viral and its traffic alone m
 
 ## Build-Your-Own-Redis Checklist (mapping theory → your project)
 
-- [ ]  TCP server + event loop (single-threaded dispatch, matching Redis's real model)
-- [ ]  RESP parser (simple strings, errors, integers, bulk strings, arrays)
-- [ ]  RESP serializer
-- [ ]  In-memory key-value store (start with a plain dict — you can later simulate incremental rehashing for fun)
-- [ ]  Core commands: `PING`, `ECHO`, `SET`/`GET`, `DEL`, `EXISTS`, `EXPIRE`/`TTL`
-- [ ]  Passive + active expiry sweep
+- [x]  TCP server + event loop (single-threaded dispatch, matching Redis's real model)
+- [x]  RESP parser (simple strings, errors, integers, bulk strings, arrays)
+- [x]  RESP serializer
+- [x]  In-memory key-value store (start with a plain dict — you can later simulate incremental rehashing for fun)
+- [x]  Core commands: `PING`, `ECHO`, `SET`/`GET`, `DEL`, `EXISTS`, `EXPIRE`/`TTL`
+- [x]  Passive + active expiry sweep
 - [ ]  List commands (`RPUSH`/`LPUSH`/`LPOP`/`BLPOP` — blocking commands are a good exercise in your event loop design)
 - [ ]  Hash commands (`HSET`/`HGET`/`HGETALL`)
 - [ ]  Sorted Set — implement a skiplist yourself; this is the single best internals exercise in the whole project
