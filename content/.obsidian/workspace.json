@@ -123,7 +123,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "file:ai",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -148,8 +148,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 204.5,
-    "collapsed": true
+    "width": 204.5
   },
   "right": {
     "id": "5e975ba4e83c3b2b",
@@ -286,14 +285,16 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "3a12dcbde57d5b59",
+  "active": "1313e9b1499f93c5",
   "lastOpenFiles": [
     "private/Project Tracker/daily task.md",
+    "Coding/backend/Redis — Architecture & Internals.md",
+    "Projects/Build Your Own X.md",
+    "Projects/Summer 2026 Build In Public Engineering Journey.md",
     "private/Projects/fluentic app ui design requirements.md",
     "private/Projects/Fluentic - PRD.md",
     "private/Projects/Project Ideas.md",
     "private/Excalidraw/Drawing 2026-07-14 14.33.25.excalidraw.md",
-    "Coding/backend/Redis — Architecture & Internals.md",
     "private/Excalidraw",
     "Coding/Coding.md",
     "Projects/Aizen.md",
@@ -301,7 +302,6 @@
     "private/Projects/system design teacher.md",
     "private/Projects/Project Defense.md",
     "private/Projects/Fluentic (test plan).md",
-    "Projects/Build Your Own X.md",
     "Projects/Git-From-Scratch.md",
     "MOCs/AI MOC.md",
     "StudyNotes/MobileComputing/Wireless Communication and Mobile Computing.md",
@@ -320,7 +320,6 @@
     "Coding/ML/Fundamentals of Intelligent Agents Architecture, Environments, and Taxonomy.md",
     "Coding/ML/Comprehensive Briefing Fundamentals and Applications of Artificial Intelligence.md",
     "Coding/ML/Artificial Intelligence Searching and Planning for Problem-Solving Agents.md",
-    "Coding/ML/Artificial Intelligence Local Search, Adversarial Planning, and Knowledge Representation.md",
     "study/Git",
     "study",
     "static/Images/Screenshot from 2026-07-01 03-50-17.png",
