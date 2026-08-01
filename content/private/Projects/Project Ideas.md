@@ -32,4 +32,7 @@ date: 2026-06-30
 ### product idea generator
 - YC startup level product idea generator not for local market but for international 
 ### product idea generator
-- looks at what other countries implement which is doable in ethiopia 
+- looks at what other countries implement which is doable in Ethiopia 
+### what is the current market in Ethiopia
+- tells you the price of the price of commodities locally
+- has inflation graph type thing or the same kind
