@@ -36,3 +36,7 @@ date: 2026-06-30
 ### what is the current market in Ethiopia
 - tells you the price of the price of commodities locally
 - has inflation graph type thing or the same kind
+### programming language teacher in OP
+- it teaches by making you do a list of projects in that language and they are persistent(the projects are constant)
+- the project structure is like backend dojo instead of problems there is gonna be languages 
+- i will think abt adding frameworks to it but its not needed i think
