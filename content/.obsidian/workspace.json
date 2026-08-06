@@ -67,7 +67,7 @@
               "type": "markdown",
               "state": {
                 "file": "private/Projects/Fluentic - PRD.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false,
                 "backlinks": false
               },
@@ -165,8 +165,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 204.5,
-    "collapsed": true
+    "width": 204.5
   },
   "right": {
     "id": "5e975ba4e83c3b2b",
@@ -305,11 +304,11 @@
   },
   "active": "fccb22c4507874da",
   "lastOpenFiles": [
-    "private/YouTube/Video Ideas.md",
     "private/Projects/Project Ideas.md",
+    "private/Projects/Fluentic - PRD.md",
+    "private/YouTube/Video Ideas.md",
     "Projects/Things to build, bucket list type shit.md",
     "Coding/backend/Simple API Rate Limiter.md",
-    "private/Projects/Fluentic - PRD.md",
     "private/Projects/fluentic app ui design requirements.md",
     "Coding/Coding.md",
     "private/YouTube",

@@ -40,3 +40,6 @@ date: 2026-06-30
 - it teaches by making you do a list of projects in that language and they are persistent(the projects are constant)
 - the project structure is like backend dojo instead of problems there is gonna be languages 
 - i will think abt adding frameworks to it but its not needed i think
+
+### watch later playlist in telegram bot
+- a bot that keeps the list of your watch later vids and then that you can see them in telegram and watch the once you want (not to spend time searching for vids)
