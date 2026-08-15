@@ -28,10 +28,9 @@ kanban-plugin: board
 
 - [ ] **project defense** — AniFlow: custom user model + AniList OAuth flow
 - [ ] **git from scratch** — status feature
-- [ ] **redis clone** — implement core data structures — SET/GET, DEL, EXPIRE
-- [ ] **redis clone** — implement persistence (RDB/AOF)
 - [ ] **redis clone** — config + CLI client
 - [ ] **redis clone** — documentation + architecture diagram
+- [ ] improve ai assistant template
 - [ ] **redis clone** — YouTube video, reel/carousel, X thread
 - [ ] **sensei** — system design / architecture plan
 - [ ] **tree namer app** — make MVP plan
@@ -39,11 +38,12 @@ kanban-plugin: board
 
 ## Today
 
-- [ ] **fluentic** — make a build plan
 
 
 ## at the moment
 
+- [ ] job search niche project idea
+- [ ] screenshot bot
 
 
 ## Complete
@@ -51,15 +51,17 @@ kanban-plugin: board
 **Complete**
 - [x] **redis clone** — system design architecture diagram
 - [x] **redis clone** — research: protocol, data structures, persistence
+- [x] **redis clone** — implement persistence (RDB/AOF)
+- [x] **redis clone** — implement core data structures — SET/GET, DEL, EXPIRE
 - [x] **git from scratch** — commit feature
 - [x] finish the rag tutorial
+- [x] **fluentic** — make a build plan
 - [x] **redis clone** — implement TCP server (socket, command loop)
 
 
 ## halt
 
 - [ ] V2 plan for Aizen
-- [ ] improve ai assistant template
 - [ ] improve client radar
 
 
@@ -67,6 +69,6 @@ kanban-plugin: board
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,false],"show-checkboxes":false,"new-card-insertion-method":"append","hide-card-count":true,"lane-width":300}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false,true,false],"show-checkboxes":false,"new-card-insertion-method":"append","hide-card-count":true,"lane-width":300}
 ```
 %%

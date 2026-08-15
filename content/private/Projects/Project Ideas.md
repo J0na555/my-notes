@@ -43,3 +43,7 @@ date: 2026-06-30
 
 ### watch later playlist in telegram bot
 - a bot that keeps the list of your watch later vids and then that you can see them in telegram and watch the once you want (not to spend time searching for vids)
+
+### coding books reading 
+
+### reverse engineering tool for learning
