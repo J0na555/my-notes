@@ -61,6 +61,21 @@
             }
           },
           {
+            "id": "0c9f3f1a1c511f4c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Coding/backend/DB from scratch.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "DB from scratch"
+            }
+          },
+          {
             "id": "ba908cffab1473a2",
             "type": "leaf",
             "state": {
@@ -136,7 +151,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -148,6 +163,7 @@
       {
         "id": "1c676da3487236e4",
         "type": "tabs",
+        "dimension": 62.72123893805309,
         "children": [
           {
             "id": "1313e9b1499f93c5",
@@ -192,10 +208,27 @@
             }
           }
         ]
+      },
+      {
+        "id": "0c0e21e82e9280c6",
+        "type": "tabs",
+        "dimension": 37.2787610619469,
+        "children": [
+          {
+            "id": "88a846b66968685b",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 204.5
+    "width": 226.5131721496582
   },
   "right": {
     "id": "5e975ba4e83c3b2b",
@@ -204,7 +237,6 @@
       {
         "id": "9b74c93082162759",
         "type": "tabs",
-        "dimension": 64.89795918367346,
         "children": [
           {
             "id": "9ff1d99ea0316231",
@@ -212,7 +244,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Coding/backend/Redis — Architecture & Internals.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -222,7 +253,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Redis — Architecture & Internals"
+              "title": "Backlinks"
             }
           },
           {
@@ -231,12 +262,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Projects/Machine learning course outline.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Machine learning course outline"
+              "title": "Outgoing links"
             }
           },
           {
@@ -274,13 +304,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Coding/backend/Redis — Architecture & Internals.md",
                 "followCursor": true,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Redis — Architecture & Internals"
+              "title": "Outline"
             }
           },
           {
@@ -294,29 +323,11 @@
             }
           }
         ],
-        "currentTab": 5
-      },
-      {
-        "id": "3e62eafd83ee5c5d",
-        "type": "tabs",
-        "dimension": 35.10204081632653,
-        "children": [
-          {
-            "id": "88a846b66968685b",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
-            }
-          }
-        ]
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 270.5,
-    "collapsed": true
+    "width": 316.628662109375
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -332,10 +343,11 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "5a17c11c5ca652bd",
+  "active": "88a846b66968685b",
   "lastOpenFiles": [
-    "cpp-projects.md",
+    "Coding/backend/DB from scratch.md",
     "Coding/backend/Building a Database from Scratch (C++).md",
+    "cpp-projects.md",
     "Coding/C++/C++ Crash Course.md",
     "private/Projects/Project Ideas.md",
     "private/Project Tracker/daily task.md",
@@ -363,7 +375,6 @@
     "StudyNotes/MobileComputing/Fundamentals and Applications of Mobile Computing.md",
     "StudyNotes/Git/Git Workflow Guide - Overriding Remote History.md",
     "StudyNotes/Git/Git Internals.md",
-    "StudyNotes/ComputerGraphics/Computer Graphics.md",
     "StudyNotes/MobileComputing",
     "StudyNotes/Git",
     "StudyNotes/ComputerGraphics",
