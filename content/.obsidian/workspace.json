@@ -66,13 +66,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Coding/backend/DB from scratch.md",
+                "file": "Coding/C++/pointer cpp.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "DB from scratch"
+              "title": "pointer cpp"
             }
           },
           {
@@ -163,7 +163,6 @@
       {
         "id": "1c676da3487236e4",
         "type": "tabs",
-        "dimension": 62.72123893805309,
         "children": [
           {
             "id": "1313e9b1499f93c5",
@@ -208,27 +207,11 @@
             }
           }
         ]
-      },
-      {
-        "id": "0c0e21e82e9280c6",
-        "type": "tabs",
-        "dimension": 37.2787610619469,
-        "children": [
-          {
-            "id": "88a846b66968685b",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
-            }
-          }
-        ]
       }
     ],
     "direction": "horizontal",
-    "width": 226.5131721496582
+    "width": 226.5131721496582,
+    "collapsed": true
   },
   "right": {
     "id": "5e975ba4e83c3b2b",
@@ -304,6 +287,7 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "Coding/C++/pointer cpp.md",
                 "followCursor": true,
                 "showSearch": true,
                 "searchQuery": ""
@@ -327,7 +311,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 316.628662109375
+    "width": 316.628662109375,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -343,15 +328,20 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "88a846b66968685b",
+  "active": "0c9f3f1a1c511f4c",
   "lastOpenFiles": [
     "Coding/backend/DB from scratch.md",
+    "Coding/C++/pointer cpp.md",
     "Coding/backend/Building a Database from Scratch (C++).md",
+    "private/Journal/Sun, Aug 16.md",
+    "private/Projects/system design teacher.md",
+    "private/Project Tracker/daily task.md",
+    "private/Projects/Project Defense.md",
+    "private/Projects/Fluentic - PRD.md",
+    "private/Journal/2026-06-30.md",
     "cpp-projects.md",
     "Coding/C++/C++ Crash Course.md",
     "private/Projects/Project Ideas.md",
-    "private/Project Tracker/daily task.md",
-    "private/Projects/Fluentic - PRD.md",
     "Coding/C++",
     "private/YouTube/Video Ideas.md",
     "Projects/Things to build, bucket list type shit.md",
@@ -366,15 +356,10 @@
     "private/Excalidraw",
     "Projects/Aizen.md",
     "static/Images/Pasted image 20260713103732.png",
-    "private/Projects/system design teacher.md",
-    "private/Projects/Project Defense.md",
     "private/Projects/Fluentic (test plan).md",
     "Projects/Git-From-Scratch.md",
     "MOCs/AI MOC.md",
     "StudyNotes/MobileComputing/Wireless Communication and Mobile Computing.md",
-    "StudyNotes/MobileComputing/Fundamentals and Applications of Mobile Computing.md",
-    "StudyNotes/Git/Git Workflow Guide - Overriding Remote History.md",
-    "StudyNotes/Git/Git Internals.md",
     "StudyNotes/MobileComputing",
     "StudyNotes/Git",
     "StudyNotes/ComputerGraphics",
