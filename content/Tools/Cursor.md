@@ -1,4 +1,4 @@
-# 🧠 First: Mental Model (IMPORTANT)
+#  First: Mental Model (IMPORTANT)
 
 [[Cursor]] has **3 main ways to interact**:
 
@@ -12,7 +12,7 @@ If you only use chat → you’re using 30% of Cursor.
 
 # ⌨️ Core Cursor Commands (You MUST know these)
 
-## 1️⃣ `Cmd + K` / `Ctrl + K` → Inline Edit (MOST IMPORTANT)
+##  `Cmd + K` / `Ctrl + K` → Inline Edit (MOST IMPORTANT)
 
 This is the **killer feature**.
 
@@ -39,7 +39,7 @@ Always select **the smallest relevant code** before `Ctrl + K`.
 
 ---
 
-## 2️⃣ `Cmd + Shift + K` / `Ctrl + Shift + K` → Generate Code
+##  `Cmd + Shift + K` / `Ctrl + Shift + K` → Generate Code
 
 This one is for **new code**, not editing.
 
@@ -55,11 +55,11 @@ This one is for **new code**, not editing.
 * “Generate a simple JWT middleware”
 * “Create CRUD routes for this schema”
 
-⚠️ Don’t use this for fixing bugs — it’ll overwrite logic.
+ Don’t use this for fixing bugs — it’ll overwrite logic.
 
 ---
 
-## 3️⃣ `/` Commands in Chat (Hidden Power)
+##  `/` Commands in Chat (Hidden Power)
 
 Inside Cursor chat, typing `/` gives special context commands.
 
@@ -85,7 +85,7 @@ Cursor uses **exact selection** — no guessing.
 
 ---
 
-## 4️⃣ “Ask Cursor about this file”
+##  “Ask Cursor about this file”
 
 When chat is open and a file is active, Cursor **automatically includes it**.
 
@@ -99,7 +99,7 @@ Great for sanity checks before pushing.
 
 ---
 
-# 🧪 Debugging Commands (SAVES HOURS)
+# Debugging Commands (SAVES HOURS)
 
 ## Best debugging pattern
 
@@ -120,7 +120,7 @@ This prevents Cursor from hallucinating fixes.
 
 ---
 
-# 🗂️ Multi-file Awareness (Use Carefully)
+#  Multi-file Awareness (Use Carefully)
 
 Cursor can reason across files **if you tell it to**.
 
@@ -129,12 +129,12 @@ Say:
 * “Based on this model and controller…”
 * “Update this service to match the API contract”
 
-⚠️ Hackathon rule:
+ Hackathon rule:
 Don’t let Cursor refactor multiple files unless you’re confident.
 
 ---
 
-# ⚡ Cursor for SPEED (Real Use Cases)
+#  Cursor for SPEED (Real Use Cases)
 
 ### 1. API scaffolding
 
@@ -164,7 +164,7 @@ Don’t ask it to be smart. Ask it to be fast.
 
 ---
 
-# 🚫 Cursor Anti-Patterns (Avoid These)
+#  Cursor Anti-Patterns (Avoid These)
 
 * “Build my whole backend”
 * Letting it rewrite entire files repeatedly
@@ -175,7 +175,7 @@ That’s how people lose time.
 
 ---
 
-# 🧠 Pro Prompt Patterns (STEAL THESE)
+#  Pro Prompt Patterns (STEAL THESE)
 
 ### Minimal change
 
@@ -197,7 +197,7 @@ Cursor **responds to constraints** extremely well.
 
 ---
 
-# 🧩 My personal Cursor workflow (what I’d do in your place)
+#  My personal Cursor workflow (what I’d do in your place)
 
 1. Scaffold backend with Cursor
 2. Freeze API contract

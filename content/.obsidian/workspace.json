@@ -66,13 +66,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Coding/C++/pointer cpp.md",
+                "file": "Dashboard.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "pointer cpp"
+              "title": "Dashboard"
             }
           },
           {
@@ -210,8 +210,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 226.5131721496582,
-    "collapsed": true
+    "width": 226.5131721496582
   },
   "right": {
     "id": "5e975ba4e83c3b2b",
@@ -330,8 +329,17 @@
   },
   "active": "0c9f3f1a1c511f4c",
   "lastOpenFiles": [
-    "Coding/backend/DB from scratch.md",
+    "Tools/Tools.md",
+    "Tools/Monolithic Project Structures.md",
+    "Tools/Jupyter Notebook.md",
+    "Tools/Github Branching.md",
+    "Tools/Git Branching.md",
+    "Tools/Cursor.md",
+    "Tools/CICD Explained.md",
+    "Tools/Arch.md",
+    "Coding/C++/cpp-projects.md",
     "Coding/C++/pointer cpp.md",
+    "Coding/backend/DB from scratch.md",
     "Coding/backend/Building a Database from Scratch (C++).md",
     "private/Journal/Sun, Aug 16.md",
     "private/Projects/system design teacher.md",
@@ -339,7 +347,6 @@
     "private/Projects/Project Defense.md",
     "private/Projects/Fluentic - PRD.md",
     "private/Journal/2026-06-30.md",
-    "cpp-projects.md",
     "Coding/C++/C++ Crash Course.md",
     "private/Projects/Project Ideas.md",
     "Coding/C++",
@@ -350,16 +357,8 @@
     "Coding/Coding.md",
     "private/YouTube",
     "Coding/backend/Redis — Architecture & Internals.md",
-    "Projects/Build Your Own X.md",
-    "Projects/Summer 2026 Build In Public Engineering Journey.md",
-    "private/Excalidraw/Drawing 2026-07-14 14.33.25.excalidraw.md",
     "private/Excalidraw",
-    "Projects/Aizen.md",
     "static/Images/Pasted image 20260713103732.png",
-    "private/Projects/Fluentic (test plan).md",
-    "Projects/Git-From-Scratch.md",
-    "MOCs/AI MOC.md",
-    "StudyNotes/MobileComputing/Wireless Communication and Mobile Computing.md",
     "StudyNotes/MobileComputing",
     "StudyNotes/Git",
     "StudyNotes/ComputerGraphics",

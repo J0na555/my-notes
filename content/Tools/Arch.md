@@ -7,7 +7,7 @@ Arch Linux is a lightweight, flexible, and rolling-release Linux distribution ai
 
 ---
 
-## 🔑 Key Features
+## Key Features
 
 - **Rolling Release**: Always up-to-date with the latest software and kernel.
 - **Pacman Package Manager**: Simple and powerful tool to install, update, and manage packages.
@@ -18,7 +18,7 @@ Arch Linux is a lightweight, flexible, and rolling-release Linux distribution ai
 
 ---
 
-## 🛠️ Ideal For
+##  Ideal For
 
 - Users who want to learn Linux in depth
 - Customization and minimalism lovers
@@ -27,7 +27,7 @@ Arch Linux is a lightweight, flexible, and rolling-release Linux distribution ai
 
 ---
 
-## ⚠️ Things to Know
+##  Things to Know
 
 - **Manual Installation**: Requires setting up partitions, bootloader, networking, etc.
 - **Update Caution**: System updates are frequent; care is needed to avoid breaking things.
@@ -35,7 +35,7 @@ Arch Linux is a lightweight, flexible, and rolling-release Linux distribution ai
 
 ---
 
-## 🧠 Learning Resources
+##  Learning Resources
 
 - 📘 [Arch Wiki](https://wiki.archlinux.org/)
 - 🧑‍💻 r/archlinux on Reddit
@@ -43,7 +43,7 @@ Arch Linux is a lightweight, flexible, and rolling-release Linux distribution ai
 
 ---
 
-## 💬 Famous Arch Meme
+##  Famous Arch Meme
 
 > "I use Arch, btw." — said proudly by many Arch users 😎
 

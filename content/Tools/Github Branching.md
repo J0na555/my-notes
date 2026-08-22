@@ -1,4 +1,4 @@
-## 🧭 1. Branch Naming Convention
+##  1. Branch Naming Convention
 
 Use **descriptive, consistent, and lowercase-with-dashes** names.
 
@@ -33,7 +33,7 @@ chore/deploy-script
 
 ---
 
-## ⚙️ 2. Branch Workflow
+##  2. Branch Workflow
 
 **Basic professional flow:**
 
@@ -61,7 +61,7 @@ git push -u origin feat/user-auth
 
 ---
 
-## 🧱 3. Commit Message Structure
+##  3. Commit Message Structure
 
 Follow the **Conventional Commit format**:
 
@@ -84,7 +84,7 @@ BREAKING CHANGE: Old session middleware removed.
 
 ---
 
-### 💡 Common commit types
+###  Common commit types
 
 |Type|Description|Example|
 |---|---|---|
@@ -98,7 +98,7 @@ BREAKING CHANGE: Old session middleware removed.
 
 ---
 
-## 🧩 4. Commit Body Rules
+##  4. Commit Body Rules
 
 ✅ Keep subject line under **72 characters**  
 ✅ Use **imperative mood** (“add feature” not “added feature”)  
@@ -116,7 +116,7 @@ This now returns a proper 404 with a descriptive message.
 
 ---
 
-## 🔀 5. Merging Branches Like a Pro
+##  5. Merging Branches Like a Pro
 
 Once your feature is ready and reviewed (or you’re working solo):
 
@@ -134,7 +134,7 @@ git merge --no-ff feat/user-auth -m "merge: add user authentication feature"
 git push origin main
 ```
 
-### ✨ Merge Commit Message Format
+###  Merge Commit Message Format
 
 ```
 merge: <summary of what you merged>
@@ -153,7 +153,7 @@ Closes #12.
 
 ---
 
-## 🧹 6. After Merging
+##  6. After Merging
 
 Once merged successfully:
 
@@ -164,7 +164,7 @@ git push origin --delete feat/user-auth  # delete remote branch
 
 ---
 
-## 📘 7. Bonus: Tagging Versions (for releases)
+##  7. Bonus: Tagging Versions (for releases)
 
 Use semantic versioning (`MAJOR.MINOR.PATCH`):
 
@@ -175,7 +175,7 @@ git push origin v1.0.0
 
 ---
 
-## 🧠 8. Pro Tips
+##  8. Pro Tips
 
 - Use **draft PRs** for unfinished work.
 
@@ -190,7 +190,7 @@ git push origin v1.0.0
 
 ---
 
-## 📋 Example Professional Commit History
+##  Example Professional Commit History
 
 ```
 feat(api): add job filtering by salary range
