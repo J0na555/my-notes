@@ -21,9 +21,9 @@ Read/skim these before writing code. Don't over-invest here — enough to steal 
 
 Build this first — it's your test harness for everything after it.
 
-- [ ] Build a command-line REPL: read a line, dispatch it, print result or error
-- [ ] Distinguish **meta-commands** (`.exit`, `.help`, etc.) from actual statements
-- [ ] Basic input buffer handling (db_tutorial covers this early — `InputBuffer` / `Table` structs)
+- [x] Build a command-line REPL: read a line, dispatch it, print result or error
+- [x] Distinguish **meta-commands** (`.exit`, `.help`, etc.) from actual statements
+- [x] Basic input buffer handling (db_tutorial covers this early — `InputBuffer` / `Table` structs)
 
 ---
 
@@ -31,9 +31,9 @@ Build this first — it's your test harness for everything after it.
 
 Get data onto disk before you get clever about indexing it.
 
-- [ ] Design a fixed-size page format (row layout, page header)
-- [ ] Implement raw read/write to a data file using `std::fstream` or `mmap`
-- [ ] Simple append-only insert + full-scan read to prove the format works end-to-end
+- [x] Design a fixed-size page format (row layout, page header)
+- [x] Implement raw read/write to a data file using `std::fstream` or `mmap`
+- [x] Simple append-only insert + full-scan read to prove the format works end-to-end
 
 ---
 
