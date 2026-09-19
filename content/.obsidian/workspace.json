@@ -58,13 +58,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Coding/backend/Client Backend Template — What to Reuse.md",
-                "mode": "preview",
+                "file": "raylib-cpp-setup.md",
+                "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Client Backend Template — What to Reuse"
+              "title": "raylib-cpp-setup"
             }
           },
           {
@@ -278,8 +278,8 @@
   },
   "active": "25df9a78d50ec40c",
   "lastOpenFiles": [
-    "Coding/backend/Building a Database from Scratch (C++).md",
     "Coding/backend/Client Backend Template — What to Reuse.md",
+    "Coding/backend/Building a Database from Scratch (C++).md",
     "Coding/backend/DB from scratch.md",
     "private/Projects/2 week drill.md",
     "Coding/backend/DB from scratch teach backs.md",
