@@ -47,3 +47,7 @@ date: 2026-06-30
 ### coding books reading 
 
 ### reverse engineering tool for learning
+
+### workout app 
+where anime mommy mowns in to your ear while working out
+
