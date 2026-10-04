@@ -1,0 +1,8 @@
+{
+  "scanRoot": "/home/jonas/Documents/projects",
+  "notesFolder": "private/Project Tracker/projects",
+  "showDormant": false,
+  "provider": "opencode",
+  "commitCount": 20,
+  "timeoutSeconds": 120
+}

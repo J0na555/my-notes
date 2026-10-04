@@ -1,0 +1,10 @@
+{
+  "id": "comments-with-notification",
+  "name": "Comments with Notification",
+  "version": "1.1.0",
+  "minAppVersion": "0.13.0",
+  "description": "Comment and notification system for shared vaults.",
+  "author": "mkali",
+  "authorUrl": "https://github.com/mkali-personal",
+  "isDesktopOnly": true
+}
