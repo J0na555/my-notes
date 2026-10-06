@@ -11,7 +11,7 @@ score: 0
 status: dormant
 remote_raw: git@github.com:J0na555/aniflow_web.git
 web: https://github.com/J0na555/aniflow_web
-last_commit_rel: 4mo ago
+last_commit_rel: 5mo ago
 ---
 
 # aniflow_web

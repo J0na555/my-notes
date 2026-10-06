@@ -8,10 +8,10 @@ last_commit: 2026-09-02
 dirty: 0
 branch: main
 score: 0
-status: active
+status: dormant
 remote_raw: git@github.com:J0na555/loadbalancer-lab.git
 web: https://github.com/J0na555/loadbalancer-lab
-last_commit_rel: 29d ago
+last_commit_rel: 32d ago
 ---
 
 # load-balancer-lab

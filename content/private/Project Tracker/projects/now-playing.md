@@ -7,11 +7,11 @@ pinned: 0
 last_commit: 2026-09-11
 dirty: 0
 branch: main
-score: 6
+score: 4
 status: active
 remote_raw: git@github.com:J0na555/Now-Playing-Bot.git
 web: https://github.com/J0na555/Now-Playing-Bot
-last_commit_rel: 21d ago
+last_commit_rel: 23d ago
 ---
 
 # now-playing

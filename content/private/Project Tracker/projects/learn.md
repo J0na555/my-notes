@@ -7,11 +7,11 @@ pinned: 0
 last_commit: 2026-09-17
 dirty: 0
 branch: main
-score: 10
+score: 8
 status: active
 remote_raw: git@github.com:J0na555/learn.git
 web: https://github.com/J0na555/learn
-last_commit_rel: 14d ago
+last_commit_rel: 17d ago
 ---
 
 # learn

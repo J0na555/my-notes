@@ -8,10 +8,10 @@ last_commit: 2026-09-03
 dirty: 0
 branch: main
 score: 0
-status: active
+status: dormant
 remote_raw: git@github.com:0xmiki/minds-cli.git
 web: https://github.com/0xmiki/minds-cli
-last_commit_rel: 29d ago
+last_commit_rel: 31d ago
 ---
 
 # minds-cli

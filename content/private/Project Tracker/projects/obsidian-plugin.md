@@ -4,12 +4,12 @@ repo_path: /home/jonas/Documents/projects/obsidian-plugin
 remote: https://github.com/J0na555/Radar
 github: J0na555/Radar
 pinned: 0
-last_commit: 2026-10-02
+last_commit: 2026-10-03
 dirty: 0
 branch: master
-score: 40
+score: 36
 status: active
-remote_raw: https://github.com/J0na555/Radar.git
+remote_raw: git@github.com:J0na555/Radar.git
 web: https://github.com/J0na555/Radar
 last_commit_rel: today
 ---

@@ -11,7 +11,7 @@ score: 65
 status: active
 remote_raw: git@github.com:J0na555/ClientRadar.git
 web: https://github.com/J0na555/ClientRadar
-last_commit_rel: 2mo ago
+last_commit_rel: 3mo ago
 ---
 
 # ClientRadar

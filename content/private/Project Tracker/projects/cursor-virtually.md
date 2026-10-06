@@ -11,7 +11,7 @@ score: 25
 status: active
 remote_raw: git@github.com:Ethiopian-Cursor-Community/cursor-virtually.git
 web: https://github.com/Ethiopian-Cursor-Community/cursor-virtually
-last_commit_rel: 3mo ago
+last_commit_rel: 4mo ago
 ---
 
 # cursor-virtually

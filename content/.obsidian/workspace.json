@@ -75,27 +75,18 @@
         "type": "tabs",
         "children": [
           {
-            "id": "64160da6a3a7bc14",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Excalidraw/Drawing 2026-10-03 21.21.42.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "Drawing 2026-10-03 21.21.42.excalidraw"
-            }
-          },
-          {
             "id": "e4173b8b91a7d226",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Excalidraw/Drawing 2026-09-20 14.39.01.excalidraw.md"
+                "file": "private/Project Tracker/projects/ClientRadar-ai.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
               },
-              "icon": "excalidraw-icon",
-              "title": "Drawing 2026-09-20 14.39.01.excalidraw"
+              "icon": "lucide-file",
+              "title": "ClientRadar-ai"
             }
           }
         ]
@@ -160,7 +151,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
+    "width": 272.8318672180176,
     "collapsed": true
   },
   "right": {
@@ -301,12 +292,15 @@
       "comments-with-notification:Comments with Notification": false
     }
   },
-  "active": "64160da6a3a7bc14",
+  "active": "e4173b8b91a7d226",
   "lastOpenFiles": [
-    "private/Projects/Ani vault.md",
-    "Excalidraw/Drawing 2026-10-03 21.21.42.excalidraw.md",
-    "Coding/C++/raylib-cpp-setup.md",
     "private/Project Tracker/projects/ClientRadar.md",
+    "private/Project Tracker/projects/ClientRadar-ai.md",
+    "Excalidraw/Drawing 2026-09-20 14.39.01.excalidraw.md",
+    "Excalidraw/Drawing 2026-10-03 21.21.42.excalidraw.md",
+    "private/Project Tracker/projects/rei.md",
+    "private/Projects/Ani vault.md",
+    "Coding/C++/raylib-cpp-setup.md",
     "private/Project Tracker/projects/waifu-chatbot.md",
     "private/Project Tracker/projects/obsidian-plugin.md",
     "private/Project Tracker/projects/v3.md",
@@ -326,9 +320,6 @@
     "private/Project Tracker/projects/stress-map.md",
     "private/Project Tracker/projects/skit.md",
     "private/Project Tracker/projects/search_algorithms_study.md",
-    "private/Project Tracker/projects/screenshot-bot.md",
-    "private/Project Tracker/projects/OtakuParadise.md",
-    "private/Project Tracker/projects/now-playing.md",
     "private/Project Tracker/projects",
     "Coding/Java script",
     "Excalidraw",

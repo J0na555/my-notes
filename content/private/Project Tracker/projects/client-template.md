@@ -7,11 +7,11 @@ pinned: 0
 last_commit: 2026-09-12
 dirty: 0
 branch: main
-score: 7
+score: 5
 status: active
 remote_raw: git@github.com:J0na555/client-template.git
 web: https://github.com/J0na555/client-template
-last_commit_rel: 19d ago
+last_commit_rel: 22d ago
 ---
 
 # client-template
