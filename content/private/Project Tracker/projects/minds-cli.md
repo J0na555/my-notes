@@ -11,7 +11,7 @@ score: 0
 status: dormant
 remote_raw: git@github.com:0xmiki/minds-cli.git
 web: https://github.com/0xmiki/minds-cli
-last_commit_rel: 31d ago
+last_commit_rel: 34d ago
 ---
 
 # minds-cli

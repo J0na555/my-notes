@@ -11,7 +11,7 @@ score: 0
 status: dormant
 remote_raw: git@github.com:J0na555/screenshot-bot.git
 web: https://github.com/J0na555/screenshot-bot
-last_commit_rel: 52d ago
+last_commit_rel: 54d ago
 ---
 
 # screenshot-bot

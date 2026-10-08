@@ -7,11 +7,11 @@ pinned: 0
 last_commit: 2026-10-03
 dirty: 0
 branch: master
-score: 36
+score: 15
 status: active
 remote_raw: git@github.com:J0na555/Radar.git
 web: https://github.com/J0na555/Radar
-last_commit_rel: today
+last_commit_rel: 3d ago
 ---
 
 # obsidian-plugin

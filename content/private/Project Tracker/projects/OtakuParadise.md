@@ -11,7 +11,7 @@ score: 0
 status: dormant
 remote_raw: git@github.com:J0na555/OtakuParadise.git
 web: https://github.com/J0na555/OtakuParadise
-last_commit_rel: 4mo ago
+last_commit_rel: 5mo ago
 ---
 
 # OtakuParadise

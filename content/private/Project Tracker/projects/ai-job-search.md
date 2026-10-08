@@ -11,7 +11,7 @@ score: 25
 status: active
 remote_raw: git@github.com:J0na555/ai-job-searcher.git
 web: https://github.com/J0na555/ai-job-searcher
-last_commit_rel: 53d ago
+last_commit_rel: 55d ago
 ---
 
 # ai-job-search

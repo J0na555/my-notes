@@ -11,7 +11,7 @@ score: 0
 status: dormant
 remote_raw: git@github.com:RobiMez/Better_anime_list.git
 web: https://github.com/RobiMez/Better_anime_list
-last_commit_rel: 59mo ago
+last_commit_rel: 60mo ago
 ---
 
 # Better_anime_list

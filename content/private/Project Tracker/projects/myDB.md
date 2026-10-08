@@ -7,11 +7,11 @@ pinned: 0
 last_commit: 2026-09-09
 dirty: 7
 branch: main
-score: 27
+score: 25
 status: active
 remote_raw: git@github.com:J0na555/my-DB.git
 web: https://github.com/J0na555/my-DB
-last_commit_rel: 25d ago
+last_commit_rel: 28d ago
 ---
 
 # myDB

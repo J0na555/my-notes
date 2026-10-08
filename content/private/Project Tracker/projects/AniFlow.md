@@ -11,7 +11,7 @@ score: 25
 status: active
 remote_raw: git@github.com:J0na555/AniFlow.git
 web: https://github.com/J0na555/AniFlow
-last_commit_rel: 3mo ago
+last_commit_rel: 4mo ago
 ---
 
 # AniFlow

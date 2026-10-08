@@ -11,7 +11,7 @@ score: 40
 status: active
 remote_raw: git@github.com:J0na555/commit-crystal-ball.git
 web: https://github.com/J0na555/commit-crystal-ball
-last_commit_rel: 2mo ago
+last_commit_rel: 3mo ago
 ---
 
 # commit-crystal-ball

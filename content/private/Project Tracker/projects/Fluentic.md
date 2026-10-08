@@ -11,7 +11,7 @@ score: 0
 status: dormant
 remote_raw: git@github.com:J0na555/Fluentic.git
 web: https://github.com/J0na555/Fluentic
-last_commit_rel: 58d ago
+last_commit_rel: 2mo ago
 ---
 
 # Fluentic

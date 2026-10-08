@@ -2,7 +2,92 @@
   "scanRoot": "/home/jonas/Documents/projects",
   "notesFolder": "private/Project Tracker/projects",
   "showDormant": false,
+  "explainScores": false,
+  "weights": {
+    "dirty": 40,
+    "dirtySaturation": 32,
+    "nonDefaultBranch": 25,
+    "recentCommit": 30,
+    "recentCommitWindowDays": 7,
+    "staleCommit": 15,
+    "staleCommitWindowDays": 30,
+    "freshDir": 10,
+    "freshDirWindowDays": 2
+  },
   "provider": "opencode",
   "commitCount": 20,
-  "timeoutSeconds": 120
+  "timeoutSeconds": 120,
+  "editorCommand": "",
+  "detection": {
+    "checkedAt": 0,
+    "probes": [],
+    "selected": null
+  },
+  "state": {
+    "version": 1,
+    "pins": {
+      "v3": 1
+    },
+    "previousDirty": {
+      "AniFlow": 0,
+      "Better_anime_list": 0,
+      "CP-Lockin": 0,
+      "ClientRadar": 79,
+      "Discute": 0,
+      "Fluentic": 0,
+      "OtakuParadise": 0,
+      "a2sv-practice": 1,
+      "ai-job-search": 8,
+      "aizen": 0,
+      "aniflow_web": 0,
+      "arifpay": 0,
+      "assistant-core": 0,
+      "awesome-ai-apps": 0,
+      "backend-dojo": 0,
+      "client-template": 0,
+      "commit-crystal-ball": 34,
+      "cue": 0,
+      "cursor-virtually": 0,
+      "cursor": 1,
+      "deep-tutor": 2,
+      "eritib-challenge": 13,
+      "group-20": 0,
+      "learn": 0,
+      "load-balancer-lab": 0,
+      "minds-cli": 0,
+      "monk-mode": 144,
+      "my-notes": 23,
+      "myDB": 7,
+      "mygit": 0,
+      "myredis": 0,
+      "now-playing": 0,
+      "obsidian-plugin": 0,
+      "rei": 2,
+      "screenshot-bot": 0,
+      "search_algorithms_study": 0,
+      "speakloop": 0,
+      "skit": 0,
+      "stress-map": 2,
+      "summer-challenge": 0,
+      "typestorm": 3,
+      "universe": 0,
+      "v3": 0,
+      "waifu-chatbot": 0,
+      "wallpaper": 1,
+      "web-server": 0
+    },
+    "summaries": {
+      "ClientRadar": {
+        "generatedAt": "2026-10-04T19:27:27.797Z",
+        "commit": "3355b10",
+        "dirtyCount": 79
+      },
+      "typestorm": {
+        "generatedAt": "2026-10-07T18:22:40.282Z",
+        "commit": "8e79293",
+        "dirtyCount": 3
+      }
+    },
+    "legacySummariesImported": true
+  }
 }
