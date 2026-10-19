@@ -3,6 +3,7 @@
   "notesFolder": "private/Project Tracker/projects",
   "showDormant": false,
   "explainScores": false,
+  "weeklyNotes": false,
   "weights": {
     "dirty": 40,
     "dirtySaturation": 32,
@@ -56,7 +57,7 @@
       "load-balancer-lab": 0,
       "minds-cli": 0,
       "monk-mode": 144,
-      "my-notes": 23,
+      "my-notes": 4,
       "myDB": 7,
       "mygit": 0,
       "myredis": 0,
@@ -74,7 +75,8 @@
       "v3": 0,
       "waifu-chatbot": 0,
       "wallpaper": 1,
-      "web-server": 0
+      "web-server": 0,
+      "api": 6
     },
     "summaries": {
       "ClientRadar": {

@@ -242,16 +242,6 @@
             }
           },
           {
-            "id": "4fbe342203f3a286",
-            "type": "leaf",
-            "state": {
-              "type": "project-tracker-view",
-              "state": {},
-              "icon": "git-branch",
-              "title": "Project Tracker"
-            }
-          },
-          {
             "id": "3199433ab93e5489",
             "type": "leaf",
             "state": {
@@ -260,16 +250,27 @@
               "icon": "bell",
               "title": "Comments with Notification"
             }
+          },
+          {
+            "id": "01925cc1efc393c6",
+            "type": "leaf",
+            "state": {
+              "type": "gitdeck-view",
+              "state": {},
+              "icon": "git-branch",
+              "title": "Gitdeck"
+            }
           }
         ],
-        "currentTab": 6
+        "currentTab": 7
       }
     ],
     "direction": "horizontal",
-    "width": 443.2039794921875
+    "width": 380.320556640625
   },
   "left-ribbon": {
     "hiddenItems": {
+      "project-tracker:Open Gitdeck": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -281,12 +282,12 @@
       "obsidian-excalidraw-plugin:New drawing": false,
       "mermaid-tools:Open Mermaid Toolbar": false,
       "terminal:Open terminal": false,
-      "project-tracker:Open Project Tracker": false,
       "comments-with-notification:Comments with Notification": false
     }
   },
   "active": "f3ea4127df1bdf1c",
   "lastOpenFiles": [
+    "private/Projects/Rei.md",
     "private/Project Tracker/projects/v3.md",
     "private/Project Tracker/projects/Dashboard.md",
     "private/Project Tracker/projects/my-notes.md",
@@ -304,7 +305,6 @@
     "private/Project Tracker/projects/aizen.md",
     "private/Project Tracker/projects/arifpay.md",
     "private/Project Tracker/projects/myDB.md",
-    "private/Projects/Rei.md",
     "private/Project Tracker/projects/ClientRadar-ai.md",
     "private/Project Tracker/projects/ClientRadar.md",
     "Excalidraw/Drawing 2026-09-20 14.39.01.excalidraw.md",
