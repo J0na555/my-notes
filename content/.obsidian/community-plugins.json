@@ -6,7 +6,6 @@
   "better-vim",
   "obsidian-excalidraw-plugin",
   "mermaid-tools",
-  "terminal",
-  "project-tracker",
-  "comments-with-notification"
+  "gitdeck",
+  "excalidraw-extras"
 ]
