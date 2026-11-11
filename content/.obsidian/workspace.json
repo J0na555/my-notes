@@ -4,41 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "8073bf1ea495a95c",
+        "id": "6cb6403bd88d9ae4",
         "type": "tabs",
         "children": [
           {
-            "id": "69fcdeaa78a8fa4f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Coding/C++/raylib-cpp-setup.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "raylib-cpp-setup"
-            }
-          },
-          {
-            "id": "f3ea4127df1bdf1c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "private/Project Tracker/projects/Weekly/2026-W43.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "2026-W43"
-            }
-          },
-          {
-            "id": "71d2b5cb31ca5f4d",
+            "id": "768e978be33e3589",
             "type": "leaf",
             "state": {
               "type": "excalidraw",
@@ -50,67 +20,19 @@
             }
           },
           {
-            "id": "94cf73f541385682",
+            "id": "a23beb88f9c1b868",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "excalidraw",
               "state": {
-                "file": "private/Projects/marketing strat for melba.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
+                "file": "Excalidraw/Drawing 2026-11-10 15.09.17.excalidraw.md"
               },
-              "icon": "lucide-file",
-              "title": "marketing strat for melba"
-            }
-          },
-          {
-            "id": "c71bbb8d5d2d540c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Coding/backend/Building a Database from Scratch (C++).md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "Building a Database from Scratch (C++)"
-            }
-          },
-          {
-            "id": "e4173b8b91a7d226",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "private/Project Tracker/projects/v3.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "v3"
-            }
-          },
-          {
-            "id": "77b06f860ece0589",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Dashboard.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "Dashboard"
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2026-11-10 15.09.17.excalidraw"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -283,7 +205,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 380.320556640625,
+    "width": 402.562255859375,
     "collapsed": true
   },
   "left-ribbon": {
@@ -301,37 +223,37 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "71d2b5cb31ca5f4d",
+  "active": "a23beb88f9c1b868",
   "lastOpenFiles": [
+    "Pasted Image 20261110155428_022.png",
+    "Excalidraw/Drawing 2026-10-21 09.44.43.excalidraw.md",
+    "Excalidraw/Drawing 2026-11-10 15.09.17.excalidraw.md",
+    "private/Excalidraw/Drawing 2026-07-14 14.33.25.excalidraw.md",
+    "private/Project Tracker/projects/stress-map.md",
+    "private/Project Tracker/projects/Weekly/2026-W43.md",
+    "private/Project Tracker/projects/ClientRadar-ai.md",
+    "private/Project Tracker/projects/ClientRadar.md",
+    "private/Project Tracker/projects/Weekly/2026-W45.md",
+    "Excalidraw/Drawing 2026-09-20 14.39.01.excalidraw.md",
+    "Excalidraw/Drawing 2026-10-03 21.21.42.excalidraw.md",
+    "private/Project Tracker/projects/Dashboard.md",
+    "Coding/C++/raylib-cpp-setup.md",
+    "private/Project Tracker/projects/v3.md",
     "private/Projects/marketing strat for melba.md",
     "Coding/backend/Building a Database from Scratch (C++).md",
     "Dashboard.md",
-    "private/Project Tracker/projects/v3.md",
-    "Excalidraw/Drawing 2026-10-21 09.44.43.excalidraw.md",
     "Pasted Image 20261021102155_880.png",
     "mermaid-diagram.png",
-    "private/Project Tracker/projects/Weekly/2026-W43.md",
     "private/Project Tracker/Tracker.md",
     "private/Project Tracker/projects/Weekly",
     "private/Project Tracker/projects/rei.md",
-    "private/Project Tracker/projects/stress-map.md",
     "private/Project Tracker/Example Project.md",
     "private/Projects/Project Ideas.md",
     "private/Project Tracker/daily task.md",
     "private/Projects/Rei.md",
-    "private/Project Tracker/projects/Dashboard.md",
     "private/Project Tracker/projects/my-notes.md",
     "Coding/Coding.md",
     "Tools/Tools.md",
-    "StudyNotes/StudyNotes.md",
-    "index.md",
-    "Coding/DSA/Recursion.md",
-    "trees.md",
-    "private/Project Tracker/projects/eritib-challenge.md",
-    "private/Project Tracker/projects/mygit.md",
-    "private/Project Tracker/projects/a2sv-practice.md",
-    "private/Project Tracker/projects/aizen.md",
-    "private/Project Tracker/projects/arifpay.md",
     "private/Project Tracker/projects",
     "Coding/Java script",
     "Excalidraw",
