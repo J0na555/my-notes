@@ -1,5 +1,6 @@
 {
   "cssTheme": "Shiba Inu",
   "theme": "obsidian",
-  "enabledCssSnippets": []
+  "enabledCssSnippets": [],
+  "showRibbon": true
 }

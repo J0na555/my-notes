@@ -11,12 +11,15 @@
             "id": "768e978be33e3589",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Excalidraw/Drawing 2026-10-21 09.44.43.excalidraw.md"
+                "file": "private/Projects/idea.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
               },
-              "icon": "excalidraw-icon",
-              "title": "Drawing 2026-10-21 09.44.43.excalidraw"
+              "icon": "lucide-file",
+              "title": "idea"
             }
           },
           {
@@ -31,8 +34,7 @@
               "title": "Drawing 2026-11-10 15.09.17.excalidraw"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -94,8 +96,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 227.65425491333008,
-    "collapsed": true
+    "width": 227.65425491333008
   },
   "right": {
     "id": "5e975ba4e83c3b2b",
@@ -205,8 +206,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 402.562255859375,
-    "collapsed": true
+    "width": 402.562255859375
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -223,11 +223,15 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "a23beb88f9c1b868",
+  "active": "768e978be33e3589",
   "lastOpenFiles": [
-    "Pasted Image 20261110155428_022.png",
+    "static/Images/mermaid-diagram.png",
+    "private/Projects/idea.md",
+    "Entrepreneurship.md",
     "Excalidraw/Drawing 2026-10-21 09.44.43.excalidraw.md",
+    "private/Project Tracker/projects/Weekly/2026-W47.md",
     "Excalidraw/Drawing 2026-11-10 15.09.17.excalidraw.md",
+    "static/Images/Pasted Image 20261110155428_022.png",
     "private/Excalidraw/Drawing 2026-07-14 14.33.25.excalidraw.md",
     "private/Project Tracker/projects/stress-map.md",
     "private/Project Tracker/projects/Weekly/2026-W43.md",
@@ -242,8 +246,7 @@
     "private/Projects/marketing strat for melba.md",
     "Coding/backend/Building a Database from Scratch (C++).md",
     "Dashboard.md",
-    "Pasted Image 20261021102155_880.png",
-    "mermaid-diagram.png",
+    "static/Images/Pasted Image 20261021102155_880.png",
     "private/Project Tracker/Tracker.md",
     "private/Project Tracker/projects/Weekly",
     "private/Project Tracker/projects/rei.md",
@@ -251,9 +254,6 @@
     "private/Projects/Project Ideas.md",
     "private/Project Tracker/daily task.md",
     "private/Projects/Rei.md",
-    "private/Project Tracker/projects/my-notes.md",
-    "Coding/Coding.md",
-    "Tools/Tools.md",
     "private/Project Tracker/projects",
     "Coding/Java script",
     "Excalidraw",
@@ -269,7 +269,6 @@
     "static/Images/Screenshot from 2026-07-01 03-40-26.png",
     "static/Images/Pasted image 20260529214712.png",
     "static/Images/Pasted image 20260529212837.png",
-    "static/Images/Pasted image 20260529212812.png",
-    "static/Images/Pasted image 20260529210138.png"
+    "static/Images/Pasted image 20260529212812.png"
   ]
 }
